@@ -40,22 +40,36 @@ def wb(request,country="all",indicator="GDPG"):
     # WORLD BANK DATA
 
     GDPG = "NY.GDP.MKTP.KD.ZG" # GDP growth (annual %)
+    GDPC = "NY.GDP.PCAP.CD" # GDP Per Capita (annual %)
+    GDPCG = "NY.GDP.PCAP.KD.ZG" # GDP Per Capita Growth Rate (annual %)
+    PP = "SP.POP.TOTL" # Population
     PG = "SP.POP.GROW" # Population growth (annual %)
     UNER = "SL.UEM.TOTL.ZS" # Unemployment Rate (annual %)
-    ISRP = "FP.CPI.TOTL.ZG" # 
+    ISRP = "FP.CPI.TOTL.ZG" # Inflation Rate Consumer Prices
+    TR = "FI.RES.TOTL.CD" # Total Reserves
+    CAB = "BN.CAB.XOKA.CD" # Current Account Balance
+    EXP = "GC.XPN.TOTL.GD.ZS" # Expense
 
     if(indicator=="GDPG"):
         indicator=GDPG
+    elif(indicator=="GDPC"):
+        indicator=GDPC
+    elif(indicator=="GDPCG"):
+        indicator=GDPCG        
     elif(indicator=="PG"):
         indicator=PG
+    elif(indicator=="PP"):
+        indicator=PP    
     elif(indicator=="UNER"):
         indicator=UNER
-    elif(indicator=="UNER"):
-        indicator=UNER 
-    elif(indicator=="UNER"):
-        indicator=UNER 
-    elif(indicator=="UNER"):
-        indicator=UNER                 
+    elif(indicator=="ISRP"):
+        indicator=ISRP
+    elif(indicator=="TR"):
+        indicator=TR 
+    elif(indicator=="CAB"):
+        indicator=CAB
+    elif(indicator=="EXP"):
+        indicator=EXP                       
     else:
         return HttpResponse("404, Page not found !!!")       
 
