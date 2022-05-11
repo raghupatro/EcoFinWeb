@@ -49,7 +49,13 @@ def wb(request,country="all",indicator="GDPG"):
     elif(indicator=="PG"):
         indicator=PG
     elif(indicator=="UNER"):
-        indicator=UNER    
+        indicator=UNER
+    elif(indicator=="UNER"):
+        indicator=UNER 
+    elif(indicator=="UNER"):
+        indicator=UNER 
+    elif(indicator=="UNER"):
+        indicator=UNER                 
     else:
         return HttpResponse("404, Page not found !!!")       
 
