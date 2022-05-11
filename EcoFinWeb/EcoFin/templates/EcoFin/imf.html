@@ -1,0 +1,45 @@
+{% extends 'EcoFin/header.html' %} {% load static %} {% block content %}
+<h1 class="text-center p-3">EcoFinWebsite ( IMF Data )</h1>
+<div id="myPlot" style="width:100%;"></div>
+{% comment %} {% for i in extDataObj %} {{i.time}} {{i.obsValue}}
+<br />
+{% endfor %} {% endcomment %}
+<script>
+  var data = "{{extDataJson|escapejs}}";
+
+  data = JSON.parse(data);
+  //console.log(data);
+
+  var xValues = [];
+  var yValues = [];
+
+  data.forEach(genratedData);
+
+  function genratedData(item, index) {
+    let date = new Date(item.time);
+    xValues.push(date);
+    yValues.push(parseInt(item.obsValue));
+  }
+
+  //console.log(xValues);
+  //console.log(yValues);
+
+  //console.log(Math.max(...yValues));
+  //console.log(xValues[xValues.length-1])
+
+  var dataPlot = [{
+    x: xValues,
+    y: yValues,
+    type: "line"
+  }];
+
+  var layout = {
+    xaxis: {title: "Years"},
+    yaxis: {title: "Obs values"},  
+    title: "Time vs Obs value"
+  };
+
+  Plotly.newPlot("myPlot", dataPlot, layout);
+
+</script>
+{% endblock content %}

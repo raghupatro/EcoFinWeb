@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    {% comment %} <meta name="viewport" content="width=device-width, initial-scale=1.0" /> {% endcomment %}
+    <link rel="stylesheet" href="{% static 'EcoFin/css/bootstrap.css' %}" />
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <style>
+      body {
+        overflow-y: scroll; /* Add the ability to scroll */
+      }
+
+      /* Hide scrollbar for Chrome, Safari and Opera */
+      body::-webkit-scrollbar {
+        display: none;
+      }
+
+      /* Hide scrollbar for IE, Edge and Firefox */
+      body {
+        -ms-overflow-style: none; /* IE and Edge */
+        scrollbar-width: none; /* Firefox */
+      }
+      
+    </style>
+    <title>EcoFinWeb</title>
+  </head>
+  <body>
+    {% block content %}{% endblock content %}
+    <script src="{% static 'EcoFin/js/bootstrap.js' %}"></script>
+  </body>
+</html>

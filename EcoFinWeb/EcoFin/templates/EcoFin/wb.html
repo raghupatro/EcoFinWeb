@@ -1,0 +1,98 @@
+{% extends 'EcoFin/header.html' %} {% load static %} {% block content %}
+
+<h1 class="text-center p-3 text-info">
+  World Bank Data - {{responseObj.1.0.indicator.value}}
+</h1>
+
+<hr />
+
+<div class="bg-info py-4">
+  <div class="row w-50 mx-auto">
+    <div class="col text-start">
+      <p class="fw-bolder">CountryID : {{responseObj.1.0.country.id}}<br /></p>
+      <p class="fw-bolder">
+        CountryName : {{responseObj.1.0.country.value}}<br />
+      </p>
+      <p class="fw-bolder">
+        CountryIsoCode : {{responseObj.1.0.countryiso3code}}<br />
+      </p>
+    </div>
+    <div class="col text-end">
+      <p class="fw-bolder">
+        IndicatorID : {{responseObj.1.0.indicator.id}}<br />
+      </p>
+      <p class="fw-bolder">
+        IndicatorName : {{responseObj.1.0.indicator.value}}<br />
+      </p>
+    </div>
+  </div>
+</div>
+
+<br />
+
+<table class="table table-bordered border-primary w-50 mx-auto">
+  <tr>
+    <th>Date</th>
+    <th>Value</th>
+  </tr>
+  {% for i in responseObj.1 %}
+  {% if forloop.counter < 10 %}
+  <tr>
+    <td>{{i.date}}</td>
+    <td>{{i.value}}</td>
+  </tr>
+  {% endif %}
+  {% endfor %}
+</table>
+
+<div id="myPlot" style="width: 100%"></div>
+
+<script>
+  data = JSON.parse("{{response|escapejs}}");
+
+  var xValues = [];
+  var yValues = [];
+
+  console.log(data);
+
+  data = data[1];
+
+  data.forEach(genratedData);
+
+  function genratedData(item, index) {
+    let date = new Date(item.date);
+    if(item.value!=null){
+      xValues.push(date);
+      yValues.push(item.value);
+    }
+  }
+
+  //console.log(xValues);
+  //console.log(yValues);
+
+  var dataPlot = [
+    {
+      x: xValues,
+      y: yValues,
+      type: "line",
+    },
+  ];
+
+  var layout = {
+    xaxis: {
+      type: "date",
+      title: "Years",
+      ticks: "outside",
+      tick0: 0,
+      dtick: "M60",
+    },
+    yaxis: {
+      title: "Values",
+    },
+    title: "Time vs Value",
+  };
+
+  Plotly.newPlot("myPlot", dataPlot, layout);
+</script>
+
+{% endblock content %}
