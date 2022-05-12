@@ -7,8 +7,8 @@
 <hr />
 
 <div class="bg-info py-4">
-  <div class="row w-50 mx-auto">
-    <div class="col text-start">
+  <div class="row w-75 mx-auto">
+    <div class="col text-center">
       <p class="fw-bolder">CountryID : {{responseObj.1.0.country.id}}<br /></p>
       <p class="fw-bolder">
         CountryName : {{responseObj.1.0.country.value}}<br />
@@ -17,12 +17,15 @@
         CountryIsoCode : {{responseObj.1.0.countryiso3code}}<br />
       </p>
     </div>
-    <div class="col text-end">
+    <div class="col text-center">
       <p class="fw-bolder">
         IndicatorID : {{responseObj.1.0.indicator.id}}<br />
       </p>
       <p class="fw-bolder">
         IndicatorName : {{responseObj.1.0.indicator.value}}<br />
+      </p>
+      <p class="fw-bolder">
+        LastUpdated : {{responseObj.0.lastupdated}}<br />
       </p>
     </div>
   </div>
@@ -30,22 +33,35 @@
 
 <br />
 
-<table class="table table-bordered border-primary w-50 mx-auto">
+{% comment %} <table class="table table-bordered border-primary w-50 mx-auto">
   <tr>
     <th>Date</th>
     <th>Value</th>
   </tr>
-  {% for i in responseObj.1 %}
-  {% if forloop.counter < 15 and i.value != None %}
+  {% for i in responseObj.1 %} {% if forloop.counter < 5 and i.value != None %}
   <tr>
     <td>{{i.date}}</td>
     <td>{{i.value}}</td>
   </tr>
-  {% endif %}
-  {% endfor %}
-</table>
+  {% endif %} {% endfor %}
+</table> {% endcomment %}
 
-<div id="myPlot" style="width: 100%"></div>
+<div class="row container mx-auto d-flex justify-content-around">
+  <div class="col-12 col-md-5 col-lg-5 mx-1 my-2 p-2 bg-info rounded-3">
+    <div id="myPlot1" style="width: 100%"></div>
+  </div>
+  <div class="col-12 col-md-5 col-lg-5 mx-1 my-2 p-2 bg-info rounded-3">
+    <div id="myPlot2" style="width: 100%"></div>
+  </div>
+</div>
+<div class="row container mx-auto my-2 d-flex justify-content-around ">
+  <div class="col-12 col-md-5 col-lg-5 mx-1 my-2 p-2 bg-info rounded-3">
+    <div id="myPlot3" style="width: 100%"></div>
+  </div>
+  <div class="col-12 col-md-5 col-lg-5 mx-1 my-2 p-2 bg-info rounded-3">
+    <div id="myPlot4" style="width: 100%"></div>
+  </div>
+</div>
 
 <script>
   data = JSON.parse("{{response|escapejs}}");
@@ -61,7 +77,7 @@
 
   function genratedData(item, index) {
     let date = new Date(item.date);
-    if(item.value!=null){
+    if (item.value != null) {
       xValues.push(date);
       yValues.push(item.value);
     }
@@ -74,7 +90,7 @@
     {
       x: xValues,
       y: yValues,
-      type: "line",
+      type: "scatter",
     },
   ];
 
@@ -84,7 +100,7 @@
       title: "Years",
       ticks: "outside",
       tick0: 0,
-      dtick: "M60",
+      dtick: "M12",
     },
     yaxis: {
       title: "Values",
@@ -92,7 +108,14 @@
     title: "Time vs Value",
   };
 
-  Plotly.newPlot("myPlot", dataPlot, layout);
+  Plotly.newPlot("myPlot1", dataPlot, layout);
+
+  Plotly.newPlot("myPlot2", dataPlot, layout);
+
+  Plotly.newPlot("myPlot3", dataPlot, layout);
+
+  Plotly.newPlot("myPlot4", dataPlot, layout);
+
 </script>
 
 {% endblock content %}

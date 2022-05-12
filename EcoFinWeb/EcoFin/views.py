@@ -5,9 +5,7 @@ import requests,json
 
 # Creating views here.
 def home(request): 
-
     # IMF DATA
-
     # url = 'http://dataservices.imf.org/REST/SDMX_JSON.svc/'
     # key = 'CompactData/IFS/M.GB.PMP_IX' # adjust codes here 
     # response = (requests.get(f'{url}{key}').json()) # Navigate to series in API-returned JSON data
@@ -49,6 +47,7 @@ def wb(request,country="all",indicator="GDPG"):
     TR = "FI.RES.TOTL.CD" # Total Reserves
     CAB = "BN.CAB.XOKA.CD" # Current Account Balance
     EXP = "GC.XPN.TOTL.GD.ZS" # Expense
+    CPI = "FP.CPI.TOTL" # Consumer Price Index 
 
     if(indicator=="GDPG"):
         indicator=GDPG
@@ -69,11 +68,13 @@ def wb(request,country="all",indicator="GDPG"):
     elif(indicator=="CAB"):
         indicator=CAB
     elif(indicator=="EXP"):
-        indicator=EXP                       
+        indicator=EXP     
+    elif(indicator=="CPI"):
+        indicator=CPI                        
     else:
         return HttpResponse("404, Page not found !!!")       
 
-    url = "http://api.worldbank.org/v2/country/"+country+"/indicator/"+indicator+"?format=json&per_page=200"
+    url = "http://api.worldbank.org/v2/country/"+country+"/indicator/"+indicator+"?format=json&per_page=200&mrv=5&frequency=Y"
     response = requests.get(url).json()
     response = json.dumps(response)
     responseObj = json.loads(response)
