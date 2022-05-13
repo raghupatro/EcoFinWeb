@@ -6,117 +6,74 @@
 
 <hr />
 
-{% comment %}
-<div class="bg-info py-4">
-  <div class="row w-75 mx-auto">
-    <div class="col text-center">
-      <p class="fw-bolder">CountryID : {{responseObj.1.0.country.id}}<br /></p>
-      <p class="fw-bolder">
-        CountryName : {{responseObj.1.0.country.value}}<br />
-      </p>
-      <p class="fw-bolder">
-        CountryIsoCode : {{responseObj.1.0.countryiso3code}}<br />
-      </p>
-    </div>
-    <div class="col text-center">
-      <p class="fw-bolder">
-        IndicatorID : {{responseObj.1.0.indicator.id}}<br />
-      </p>
-      <p class="fw-bolder">
-        IndicatorName : {{responseObj.1.0.indicator.value}}<br />
-      </p>
-      <p class="fw-bolder">LastUpdated : {{responseObj.0.lastupdated}}<br /></p>
-    </div>
-  </div>
-</div>
-{% endcomment %}
-
 <br />
-
-{% comment %}
-<table class="table table-bordered border-primary w-50 mx-auto">
-  <tr>
-    <th>Date</th>
-    <th>Value</th>
-  </tr>
-  {% for i in responseObj.1 %} {% if forloop.counter < 5 and i.value != None %}
-  <tr>
-    <td>{{i.date}}</td>
-    <td>{{i.value}}</td>
-  </tr>
-  {% endif %} {% endfor %}
-</table>
-{% endcomment %}
 
 <div class="row container mx-auto d-flex justify-content-around">
   <div class="col-12 col-md-5 col-lg-5 mx-1 my-2 p-2 bg-info rounded-3">
-    <div id="myPlot1" style="width: 100%"></div>
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">{{responseObj1.1.0.indicator.value}}</h5>
+        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+        <p class="card-text"><small class="text-muted">Last updated on {{responseObj1.0.lastupdated}}</small></p>
+      </div>
+      <div id="myPlot1" class="card-img-bottom" style="width: 100%"></div>
+    </div>
   </div>
   <div class="col-12 col-md-5 col-lg-5 mx-1 my-2 p-2 bg-info rounded-3">
-    <div id="myPlot2" style="width: 100%"></div>
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">{{responseObj2.1.0.indicator.value}}</h5>
+        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+        <p class="card-text"><small class="text-muted">Last updated on {{responseObj2.0.lastupdated}}</small></p>
+      </div>
+      <div id="myPlot2" class="card-img-bottom" style="width: 100%"></div>
+    </div>
   </div>
 </div>
 <div class="row container mx-auto my-2 d-flex justify-content-around">
   <div class="col-12 col-md-5 col-lg-5 mx-1 my-2 p-2 bg-info rounded-3">
-    <div id="myPlot3" style="width: 100%"></div>
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">{{responseObj3.1.0.indicator.value}}</h5>
+        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+        <p class="card-text"><small class="text-muted">Last updated on {{responseObj3.0.lastupdated}}</small></p>
+      </div>
+      <div id="myPlot3" class="card-img-bottom" style="width: 100%"></div>
+    </div>
   </div>
   <div class="col-12 col-md-5 col-lg-5 mx-1 my-2 p-2 bg-info rounded-3">
-    <div id="myPlot4" style="width: 100%"></div>
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">{{responseObj4.1.0.indicator.value}}</h5>
+        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+        <p class="card-text"><small class="text-muted">Last updated on {{responseObj4.0.lastupdated}}</small></p>
+      </div>
+      <div id="myPlot4" class="card-img-bottom" style="width: 100%"></div>
+    </div>
   </div>
 </div>
 <div class="row container mx-auto my-2 d-flex justify-content-around">
   <div class="col-12 col-md-5 col-lg-5 mx-1 my-2 p-2 bg-info rounded-3">
-    <div id="myPlot5" style="width: 100%"></div>
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">{{responseObj5.1.0.indicator.value}}</h5>
+        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+        <p class="card-text"><small class="text-muted">Last updated on {{responseObj5.0.lastupdated}}</small></p>
+      </div>
+      <div id="myPlot5" class="card-img-bottom" style="width: 100%"></div>
+    </div>
   </div>
 </div>
 
+<script src="{% static 'EcoFin/js/plotly.js' %}"></script>
+
 <script>
+
   data1 = JSON.parse("{{response1|escapejs}}");
   data2 = JSON.parse("{{response2|escapejs}}");
   data3 = JSON.parse("{{response3|escapejs}}");
   data4 = JSON.parse("{{response4|escapejs}}");
   data5 = JSON.parse("{{response5|escapejs}}");
-
-  function genrateGraph(data,plotId,typeOfGraph,orientationType) {
-
-    var xValues = [];
-    var yValues = [];
-    data = data[1];
-    data.forEach(genratedData);
-
-    function genratedData(item, index) {
-      let date = new Date(item.date);
-      if (item.value != null) {
-        xValues.push(date);
-        yValues.push(item.value);
-      }
-    }
-
-    var dataPlot = [
-      {
-        x: xValues,
-        y: yValues,
-        type: typeOfGraph,
-        orientation: orientationType
-      },
-    ];
-
-    var layout = {
-      xaxis: {
-        type: "date",
-        title: "Years",
-        ticks: "outside",
-        tick0: 0,
-        dtick: "M12",
-      },
-      yaxis: {
-        title: "Values",
-      },
-      title: "Time vs Value",
-    };
-
-    Plotly.newPlot(plotId, dataPlot, layout);
-  }
 
   genrateGraph(data1,"myPlot1","bar","v");
   genrateGraph(data2,"myPlot2","line","v");
