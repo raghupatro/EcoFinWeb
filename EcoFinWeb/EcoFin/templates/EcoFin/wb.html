@@ -2,14 +2,13 @@
 
 <h1 class="text-center p-3 text-info">
   World Bank Data
-</h1>
-
+</h1> 
 <hr />
 
 <br />
 
-<div class="row container mx-auto d-flex justify-content-around">
-  <div class="col-12 col-md-5 col-lg-5 mx-1 my-2 p-2 bg-info rounded-3">
+<div class="row container-fluid mx-auto d-flex justify-content-around">
+  <div class="col-12 col-md-4 col-lg-4 p-2 bg-info rounded-3">
     <div class="card">
       <div class="card-body">
         <h5 class="card-title">{{responseObj1.1.0.indicator.value}}</h5>
@@ -19,7 +18,7 @@
       <div id="myPlot1" class="card-img-bottom" style="width: 100%"></div>
     </div>
   </div>
-  <div class="col-12 col-md-5 col-lg-5 mx-1 my-2 p-2 bg-info rounded-3">
+  <div class="col-12 col-md-4 col-lg-4 p-2 bg-info rounded-3">
     <div class="card">
       <div class="card-body">
         <h5 class="card-title">{{responseObj2.1.0.indicator.value}}</h5>
@@ -29,9 +28,7 @@
       <div id="myPlot2" class="card-img-bottom" style="width: 100%"></div>
     </div>
   </div>
-</div>
-<div class="row container mx-auto my-2 d-flex justify-content-around">
-  <div class="col-12 col-md-5 col-lg-5 mx-1 my-2 p-2 bg-info rounded-3">
+  <div class="col-12 col-md-4 col-lg-4 p-2 bg-info rounded-3">
     <div class="card">
       <div class="card-body">
         <h5 class="card-title">{{responseObj3.1.0.indicator.value}}</h5>
@@ -41,7 +38,9 @@
       <div id="myPlot3" class="card-img-bottom" style="width: 100%"></div>
     </div>
   </div>
-  <div class="col-12 col-md-5 col-lg-5 mx-1 my-2 p-2 bg-info rounded-3">
+</div>
+<div class="row container-fluid mx-auto d-flex justify-content-around">
+  <div class="col-12 col-md-4 col-lg-4 p-2 bg-info rounded-3">
     <div class="card">
       <div class="card-body">
         <h5 class="card-title">{{responseObj4.1.0.indicator.value}}</h5>
@@ -51,9 +50,7 @@
       <div id="myPlot4" class="card-img-bottom" style="width: 100%"></div>
     </div>
   </div>
-</div>
-<div class="row container mx-auto my-2 d-flex justify-content-around">
-  <div class="col-12 col-md-5 col-lg-5 mx-1 my-2 p-2 bg-info rounded-3">
+  <div class="col-12 col-md-4 col-lg-4 p-2 bg-info rounded-3">
     <div class="card">
       <div class="card-body">
         <h5 class="card-title">{{responseObj5.1.0.indicator.value}}</h5>
@@ -61,6 +58,16 @@
         <p class="card-text"><small class="text-muted">Last updated on {{responseObj5.0.lastupdated}}</small></p>
       </div>
       <div id="myPlot5" class="card-img-bottom" style="width: 100%"></div>
+    </div>
+  </div>
+  <div class="col-12 col-md-4 col-lg-4 p-2 bg-info rounded-3">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">{{responseObj6.1.0.indicator.value}}</h5>
+        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+        <p class="card-text"><small class="text-muted">Last updated on {{responseObj6.0.lastupdated}}</small></p>
+      </div>
+      <div id="myPlot6" class="card-img-bottom" style="width: 100%"></div>
     </div>
   </div>
 </div>
@@ -74,12 +81,14 @@
   data3 = JSON.parse("{{response3|escapejs}}");
   data4 = JSON.parse("{{response4|escapejs}}");
   data5 = JSON.parse("{{response5|escapejs}}");
+  data6 = JSON.parse("{{response6|escapejs}}");
 
-  genrateGraph(data1,"myPlot1","bar","v");
-  genrateGraph(data2,"myPlot2","line","v");
-  genrateGraph(data3,"myPlot3","sactter","v");
+  genrateGraph(data1,"myPlot1","line","v");
+  genrateGraph(data2,"myPlot2","bar","v");
+  genrateGraph(data3,"myPlot3","line","v");
   genrateGraph(data4,"myPlot4","bar","h");
-  genrateGraph(data5,"myPlot5","histogram","h");
+  genrateGraph(data5,"myPlot5","line","v");
+  genrateGraph(data6,"myPlot6","bar","v");
 
 </script>
 

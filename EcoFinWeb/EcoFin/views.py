@@ -36,7 +36,7 @@ def home(request):
     # Passing extDataJson and extDataObj datas to (home.html) template.
     return render(request, 'EcoFin/imf.html', {'extDataJson': extDataJson, 'extDataObj': extDataObj})
 
-def wb(request, country1="all",country2="all",country3="all",country4="all",country5="all", indicator1="GDPG",indicator2="GDPG",indicator3="GDPG",indicator4="GDPG",indicator5="GDPG"):
+def wb(request, country1="ind",country2="ind",country3="ind",country4="ind",country5="ind",country6="ind", indicator1="GDPG",indicator2="GDPC",indicator3="GDPCG",indicator4="TR",indicator5="CAB",indicator6="CPI"):
 
     # WORLD BANK DATA
 
@@ -94,6 +94,7 @@ def wb(request, country1="all",country2="all",country3="all",country4="all",coun
     indicator3=indicatorFind(indicator3)
     indicator4=indicatorFind(indicator4)
     indicator5=indicatorFind(indicator5)
+    indicator6=indicatorFind(indicator6)
 
     url1 = "http://api.worldbank.org/v2/country/"+country1+"/indicator/" + \
         indicator1+"?format=json&per_page=200&mrv=5&frequency=Y"
@@ -125,18 +126,26 @@ def wb(request, country1="all",country2="all",country3="all",country4="all",coun
     response5 = json.dumps(response5)
     responseObj5 = json.loads(response5)
 
+    url6 = "http://api.worldbank.org/v2/country/"+country6+"/indicator/" + \
+        indicator6+"?format=json&per_page=200&mrv=5&frequency=Y"
+    response6 = requests.get(url6).json()
+    response6 = json.dumps(response6)
+    responseObj6 = json.loads(response6)
+
     # print(response1)
     # print(response2)
     # print(response3)
     # print(response4)
     # print(response5)
+    # print(response6)
 
     # print(indicator1)
     # print(indicator2)
     # print(indicator3)
     # print(indicator4)
     # print(indicator5)
+    # print(indicator6)
 
-    # print(country1+" "+country2+" "+country3+" "+country4+" "+country5)
+    # print(country1+" "+country2+" "+country3+" "+country4+" "+country5+" "+country6)
 
-    return render(request, 'EcoFin/wb.html', {"response1": response1, "responseObj1": responseObj1, "response2": response2, "responseObj2": responseObj2, "response3": response3, "responseObj3": responseObj3, "response4": response4, "responseObj4": responseObj4, "response5": response5, "responseObj5": responseObj5})
+    return render(request, 'EcoFin/wb.html', {"response1": response1, "responseObj1": responseObj1, "response2": response2, "responseObj2": responseObj2, "response3": response3, "responseObj3": responseObj3, "response4": response4, "responseObj4": responseObj4, "response5": response5, "responseObj5": responseObj5, "response6": response6, "responseObj6": responseObj6})
