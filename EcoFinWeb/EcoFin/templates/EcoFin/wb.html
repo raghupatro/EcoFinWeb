@@ -1,11 +1,12 @@
 {% extends 'EcoFin/header.html' %} {% load static %} {% block content %}
 
 <h1 class="text-center p-3 text-info">
-  World Bank Data - {{responseObj.1.0.indicator.value}}
+  World Bank Data
 </h1>
 
 <hr />
 
+{% comment %}
 <div class="bg-info py-4">
   <div class="row w-75 mx-auto">
     <div class="col text-center">
@@ -24,16 +25,16 @@
       <p class="fw-bolder">
         IndicatorName : {{responseObj.1.0.indicator.value}}<br />
       </p>
-      <p class="fw-bolder">
-        LastUpdated : {{responseObj.0.lastupdated}}<br />
-      </p>
+      <p class="fw-bolder">LastUpdated : {{responseObj.0.lastupdated}}<br /></p>
     </div>
   </div>
 </div>
+{% endcomment %}
 
 <br />
 
-{% comment %} <table class="table table-bordered border-primary w-50 mx-auto">
+{% comment %}
+<table class="table table-bordered border-primary w-50 mx-auto">
   <tr>
     <th>Date</th>
     <th>Value</th>
@@ -44,7 +45,8 @@
     <td>{{i.value}}</td>
   </tr>
   {% endif %} {% endfor %}
-</table> {% endcomment %}
+</table>
+{% endcomment %}
 
 <div class="row container mx-auto d-flex justify-content-around">
   <div class="col-12 col-md-5 col-lg-5 mx-1 my-2 p-2 bg-info rounded-3">
@@ -54,7 +56,7 @@
     <div id="myPlot2" style="width: 100%"></div>
   </div>
 </div>
-<div class="row container mx-auto my-2 d-flex justify-content-around ">
+<div class="row container mx-auto my-2 d-flex justify-content-around">
   <div class="col-12 col-md-5 col-lg-5 mx-1 my-2 p-2 bg-info rounded-3">
     <div id="myPlot3" style="width: 100%"></div>
   </div>
@@ -62,59 +64,65 @@
     <div id="myPlot4" style="width: 100%"></div>
   </div>
 </div>
+<div class="row container mx-auto my-2 d-flex justify-content-around">
+  <div class="col-12 col-md-5 col-lg-5 mx-1 my-2 p-2 bg-info rounded-3">
+    <div id="myPlot5" style="width: 100%"></div>
+  </div>
+</div>
 
 <script>
-  data = JSON.parse("{{response|escapejs}}");
+  data1 = JSON.parse("{{response1|escapejs}}");
+  data2 = JSON.parse("{{response2|escapejs}}");
+  data3 = JSON.parse("{{response3|escapejs}}");
+  data4 = JSON.parse("{{response4|escapejs}}");
+  data5 = JSON.parse("{{response5|escapejs}}");
 
-  var xValues = [];
-  var yValues = [];
+  function genrateGraph(data,plotId,typeOfGraph,orientationType) {
 
-  console.log(data);
+    var xValues = [];
+    var yValues = [];
+    data = data[1];
+    data.forEach(genratedData);
 
-  data = data[1];
-
-  data.forEach(genratedData);
-
-  function genratedData(item, index) {
-    let date = new Date(item.date);
-    if (item.value != null) {
-      xValues.push(date);
-      yValues.push(item.value);
+    function genratedData(item, index) {
+      let date = new Date(item.date);
+      if (item.value != null) {
+        xValues.push(date);
+        yValues.push(item.value);
+      }
     }
+
+    var dataPlot = [
+      {
+        x: xValues,
+        y: yValues,
+        type: typeOfGraph,
+        orientation: orientationType
+      },
+    ];
+
+    var layout = {
+      xaxis: {
+        type: "date",
+        title: "Years",
+        ticks: "outside",
+        tick0: 0,
+        dtick: "M12",
+      },
+      yaxis: {
+        title: "Values",
+      },
+      title: "Time vs Value",
+    };
+
+    Plotly.newPlot(plotId, dataPlot, layout);
   }
 
-  //console.log(xValues);
-  //console.log(yValues);
-
-  var dataPlot = [
-    {
-      x: xValues,
-      y: yValues,
-      type: "scatter",
-    },
-  ];
-
-  var layout = {
-    xaxis: {
-      type: "date",
-      title: "Years",
-      ticks: "outside",
-      tick0: 0,
-      dtick: "M12",
-    },
-    yaxis: {
-      title: "Values",
-    },
-    title: "Time vs Value",
-  };
-
-  Plotly.newPlot("myPlot1", dataPlot, layout);
-
-  Plotly.newPlot("myPlot2", dataPlot, layout);
-
-  Plotly.newPlot("myPlot3", dataPlot, layout);
-
-  Plotly.newPlot("myPlot4", dataPlot, layout);
+  genrateGraph(data1,"myPlot1","bar","v");
+  genrateGraph(data2,"myPlot2","line","v");
+  genrateGraph(data3,"myPlot3","sactter","v");
+  genrateGraph(data4,"myPlot4","bar","h");
+  genrateGraph(data5,"myPlot5","histogram","h");
 
 </script>
 

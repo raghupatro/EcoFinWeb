@@ -117,4 +117,4 @@ def wb(request, country1="all",country2="all",country3="all",country4="all",coun
 
     print(country1+" "+country2+" "+country3+" "+country4+" "+country5)
 
-    return render(request, 'EcoFin/wb.html', {"response1": response1, "responseObj1": responseObj1, "response2": response2, "responseObj2": responseObj2, "response3": response3, "responseObj3": responseObj3})
+    return render(request, 'EcoFin/wb.html', {"response1": response1, "responseObj1": responseObj1, "response2": response2, "responseObj2": responseObj2, "response3": response3, "responseObj3": responseObj3, "response4": response4, "responseObj4": responseObj4, "response5": response5, "responseObj5": responseObj5})
