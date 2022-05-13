@@ -22,12 +22,21 @@ body {
   -webkit-box-orient: vertical;
 }
 
+.nav-gutter {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1; /* number of lines to show */
+  line-clamp: 1;
+  -webkit-box-orient: vertical;
+}
+
 .bg-info {
   background-color: #2a2a72;
   background-image: linear-gradient(315deg, #2a2a72 0%, #009ffd 74%);
 }
 
-.bg-cust {
+.bg-grad {
   background-color: #2a2a72;
   background-image: linear-gradient(45deg, #2a2a72 0%, #009ffd 74%);
 }
