@@ -29,9 +29,11 @@ function genrateGraph(data,plotId,typeOfGraph,orientationType) {
         ticks: "outside",
         tick0: 0,
         dtick: "M12",
+        fixedrange: true
       },
       yaxis: {
         title: "Values",
+        fixedrange: true
       },
       title: "Time vs Value",
     };
