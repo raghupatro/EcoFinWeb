@@ -4,8 +4,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    {% comment %} <meta name="viewport" content="width=device-width, initial-scale=1.0" /> {% endcomment %}
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    {% comment %}
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    {% endcomment %}
     <link rel="stylesheet" href="{% static 'EcoFin/css/bootstrap.css' %}" />
     <link rel="stylesheet" href="{% static 'EcoFin/css/style.css' %}" />
     <script src="{% static 'EcoFin/js/plotly.min.js' %}"></script>
@@ -13,6 +15,7 @@
   </head>
   <body>
     {% block content %}{% endblock content %}
+    <script src="{% static 'EcoFin/js/font-awesome.js' %}"></script>
     <script src="{% static 'EcoFin/js/bootstrap.js' %}"></script>
   </body>
 </html>
