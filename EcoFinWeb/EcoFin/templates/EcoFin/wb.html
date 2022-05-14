@@ -1,255 +1,381 @@
 {% extends 'EcoFin/header.html' %} {% load static %} {% block content %}
 
-<h1 class="text-center p-3 display-4 text-light bg-info">
-  Misra Centre Dashboard 
-</h1> 
+<div class="bg-grad">
 
-<hr class="bg-grad p-1">
+  <h1 class="text-center py-5 display-4 text-light m-0" style="background-color: rgba(0, 0, 0, 0.4)">
+    Misra Centre Dashboard 
+  </h1> 
+  
+  <div class="dropdown d-md-block d-block d-lg-none " style="background-color: rgba(0, 0, 0, 0.4)">
+    <button class="btn btn-light dropdown-toggle w-100 p-3 fs-2 " type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+      On This Page
+    </button>
+    <ul class="dropdown-menu w-100 text-center" aria-labelledby="dropdownMenuButton1">
+  
+        <a href="#graph0" class="p-3 fs-2 border bg-light nav-gutter dropdown-item">Gross Domestic Product (GDP)</a>
+    
+        <a href="#graph1" class="p-3 fs-2 border bg-light nav-gutter dropdown-item">Inflation</a>
+      
+        <a href="#graph2" class="p-3 fs-2 border bg-light nav-gutter dropdown-item">Business Performance</a>
+    
+        <a href="#graph3" class="p-3 fs-2 border bg-light nav-gutter dropdown-item">Trade & Forex</a>
+    
+        <a href="#graph4" class="p-3 fs-2 border bg-light nav-gutter dropdown-item">Unemployment</a>
+    
+        <a href="#graph5" class="p-3 fs-2 border bg-light nav-gutter dropdown-item">Fiscal Situation</a>
 
-<div class="bg-grad d-flex justify-content-around">
-
-  <div class="col-12 col-md-12 col-lg-2 mx-auto pt-4 pb-4 sticky-top h-100 d-md-none d-lg-block d-none">
-
-    <div class="col-12 col-md-12 col-lg-12 py-2 d-flex justify-content-around">
-      <div class="card">
-        <h5 class="text-light fw-normal bg-info p-3 m-0">On This Page</h5>
-        <div class="card-body">
-          <div class="row">
-            <div class="row">
-              <div class="p-3 border bg-light nav-gutter">National Accounts</div>
-            </div>
-            <div class="row">
-              <div class="p-3 border bg-light nav-gutter">Inflation & Price Indices</div>
-            </div>
-            <div class="row">
-              <div class="p-3 border bg-light nav-gutter">Internation Trade</div>
-            </div>
-            <div class="row">
-              <div class="p-3 border bg-light nav-gutter">Business Indicators</div>
-            </div>
-            <div class="row">
-              <div class="p-3 border bg-light nav-gutter">Goverment</div>
-            </div>
-            <div class="row">
-              <div class="p-3 border bg-light nav-gutter">Labour</div>
-            </div>
-            <div class="row">
-              <div class="p-3 border bg-light nav-gutter">High-Frequency Indicators</div>
-            </div>
-            <div class="row">
-              <div class="p-3 border bg-light nav-gutter">Financial Indices</div>
-            </div>
-            <div class="row">
-              <div class="p-3 border bg-light nav-gutter">Money & Banking</div>
-            </div>
-            <div class="row">
-              <div class="p-3 border bg-light nav-gutter">Markets</div>
+        <a href="#graph6" class="p-3 fs-2 border bg-light nav-gutter dropdown-item">Interest rates & bond</a>
+  
+        <a href="#graph7" class="p-3 fs-2 border bg-light nav-gutter dropdown-item">Equity Markets</a>
+    
+        <a href="#graph8" class="p-3 fs-2 border bg-light nav-gutter dropdown-item">Commodity Markets</a>
+    
+        <a href="#graph9" class="p-3 fs-2 border bg-light nav-gutter dropdown-item">Foreign Investment</a>
+  
+        <a href="#graph10" class="p-3 fs-2 border bg-light nav-gutter dropdown-item">Money & Credit</a>
+    
+        <a href="#graph11" class="p-3 fs-2 border bg-light nav-gutter dropdown-item">Real Estate</a>
+    
+        <a href="#graph12" class="p-3 fs-2 border bg-light nav-gutter dropdown-item">Venture Capital & IPOs</a>
+     
+    </ul>
+  </div>
+  
+  <div class="d-flex justify-content-around">
+  
+    <div class="col-12 col-md-12 col-lg-2 mx-auto pt-4 pb-4 sticky-top h-100 d-md-none d-none d-lg-block">
+      <div class="py-2">
+        <div class="card">
+          <h5 class="text-light fw-normal bg-info p-3 m-0">On This Page</h5>
+          <div class="card-body">
+            <div id="top-menu">
+              <div class="row">
+                <a href="#graph0" class="p-2 border bg-light nav-gutter">Gross Domestic Product (GDP)</a>
+              </div>
+              <div class="row">
+                <a href="#graph1" class="p-2 border bg-light nav-gutter">Inflation</a>
+              </div>
+              <div class="row">
+                <a href="#graph2" class="p-2 border bg-light nav-gutter">Business Performance</a>
+              </div>
+              <div class="row">
+                <a href="#graph3" class="p-2 border bg-light nav-gutter">Trade & Forex</a>
+              </div>
+              <div class="row">
+                <a href="#graph4" class="p-2 border bg-light nav-gutter">Unemployment</a>
+              </div>
+              <div class="row">
+                <a href="#graph5" class="p-2 border bg-light nav-gutter">Fiscal Situation</a>
+              </div>
+              <div class="row">
+                <a href="#graph6" class="p-2 border bg-light nav-gutter">Interest rates & bond</a>
+              </div>
+              <div class="row">
+                <a href="#graph7" class="p-2 border bg-light nav-gutter">Equity Markets</a>
+              </div>
+              <div class="row">
+                <a href="#graph8" class="p-2 border bg-light nav-gutter">Commodity Markets</a>
+              </div>
+              <div class="row">
+                <a href="#graph9" class="p-2 border bg-light nav-gutter">Foreign Investment</a>
+              </div>
+              <div class="row">
+                <a href="#graph10" class="p-2 border bg-light nav-gutter">Money & Credit</a>
+              </div>
+              <div class="row">
+                <a href="#graph11" class="p-2 border bg-light nav-gutter">Real Estate</a>
+              </div>
+              <div class="row">
+                <a href="#graph12" class="p-2 border bg-light nav-gutter">Venture Capital & IPOs</a>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-
-    
-  </div>   
-
-  <div class="row col-12 col-md-12 col-lg-10 mx-auto pt-4 pb-4 d-flex justify-content-around"> 
-
-    <div class="col-12 col-md-6 col-lg-6 p-2">
-      <div class="card">
-        <h5 class="text-light fw-normal bg-info p-3 m-0">National Accounts</h5>
-        <div class="card-body">
-          <h5 class="card-title text-center">{{responseObj1.1.0.indicator.value}}</h5>
-          <p class="card-text information">The GDP growth rate measures how fast the economy is growing. It does this by comparing the country's gross domestic product in one quarter with that in the previous one, and with the same quarter of the previous year. The GDP growth rate is driven by GDP's four components.</p>
-          <p class="card-text text-end"><small class="text-muted">Last updated on {{responseObj1.0.lastupdated}}</small></p>
+  
+      
+    </div>   
+  
+    <div class="col-12 col-md-12 col-lg-10 mx-auto pt-4 pb-4 d-flex justify-content-around"> 
+  
+      <div class="row container-fluid">
+        <div class="col-12 col-md-6 col-lg-6 p-2 page-section" id="graph0">
+          <div class="card">
+            <h5 class="text-light fw-normal bg-info p-3 m-0">Gross Domestic Product (GDP)</h5>
+            <div class="card-body">
+              <h5 class="card-title text-center">{{responseObj1.1.0.indicator.value}}</h5>
+              <p class="card-text information">The GDP growth rate measures how fast the economy is growing. It does this by comparing the country's gross domestic product in one quarter with that in the previous one, and with the same quarter of the previous year. The GDP growth rate is driven by GDP's four components.</p>
+              <p class="card-text text-end"><small class="text-muted">Last updated on {{responseObj1.0.lastupdated}}</small></p>
+            </div>
+            <div id="myPlot1" class="card-img-bottom" style="width: 100%"></div>
+          </div>
         </div>
-        <div id="myPlot1" class="card-img-bottom" style="width: 100%"></div>
-      </div>
-    </div>
-    <div class="col-12 col-md-6 col-lg-6 p-2">
-      <div class="card">
-        <h5 class="text-light fw-normal bg-info p-3 m-0">Inflation & Price Indices</h5>
-        <div class="card-body">
-          <h5 class="card-title text-center">{{responseObj2.1.0.indicator.value}}</h5>
-          <p class="card-text information">GDP per capita measures the economic output of a nation per person. It seeks to determine the prosperity of a nation by economic growth per person in that nation. Per capita income measures the amount of money earned per person in a nation.</p>
-          <p class="card-text text-end"><small class="text-muted">Last updated on {{responseObj2.0.lastupdated}}</small></p>
+        <div class="col-12 col-md-6 col-lg-6 p-2 page-section" id="graph1">
+          <div class="card">
+            <h5 class="text-light fw-normal bg-info p-3 m-0">Inflation</h5>
+            <div class="card-body">
+              <h5 class="card-title text-center">{{responseObj2.1.0.indicator.value}}</h5>
+              <p class="card-text information">GDP per capita measures the economic output of a nation per person. It seeks to determine the prosperity of a nation by economic growth per person in that nation. Per capita income measures the amount of money earned per person in a nation.</p>
+              <p class="card-text text-end"><small class="text-muted">Last updated on {{responseObj2.0.lastupdated}}</small></p>
+            </div>
+            <div id="myPlot2" class="card-img-bottom" style="width: 100%"></div>
+          </div>
         </div>
-        <div id="myPlot2" class="card-img-bottom" style="width: 100%"></div>
-      </div>
-    </div>
-    <div class="col-12 col-md-6 col-lg-6 p-2">
-      <div class="card">
-        <h5 class="text-light fw-normal bg-info p-3 m-0">Internation Trade</h5>
-        <div class="card-body">
-          <h5 class="card-title text-center">{{responseObj3.1.0.indicator.value}}</h5>
-          <p class="card-text information">How is the population in a country or given area calculated? The population of a given area is defined as the number of people usually living in that area, measured on 1 January in a given year. The source can be the most recent population census (a census is when the population is counted).</p>
-          <p class="card-text text-end"><small class="text-muted">Last updated on {{responseObj3.0.lastupdated}}</small></p>
+        <div class="col-12 col-md-6 col-lg-6 p-2 page-section" id="graph2">
+          <div class="card">
+            <h5 class="text-light fw-normal bg-info p-3 m-0">Business Performance</h5>
+            <div class="card-body">
+              <h5 class="card-title text-center">{{responseObj3.1.0.indicator.value}}</h5>
+              <p class="card-text information">How is the population in a country or given area calculated? The population of a given area is defined as the number of people usually living in that area, measured on 1 January in a given year. The source can be the most recent population census (a census is when the population is counted).</p>
+              <p class="card-text text-end"><small class="text-muted">Last updated on {{responseObj3.0.lastupdated}}</small></p>
+            </div>
+            <div id="myPlot3" class="card-img-bottom" style="width: 100%"></div>
+          </div>
         </div>
-        <div id="myPlot3" class="card-img-bottom" style="width: 100%"></div>
-      </div>
-    </div>
-    <div class="col-12 col-md-6 col-lg-6 p-2">
-      <div class="card">
-        <h5 class="text-light fw-normal bg-info p-3 m-0">Business Indicators</h5>
-        <div class="card-body">
-          <h5 class="card-title text-center">{{responseObj4.1.0.indicator.value}}</h5>
-          <p class="card-text information">This rapid growth increase was mainly caused by a decreasing death rate (more rapidly than birth rate), and particularly an increase in average human age. By 2000 the population counted 6 billion heads, however, population growth (doubling time) started to decline after 1965 because of decreasing birth rates.</p>
-          <p class="card-text text-end"><small class="text-muted">Last updated on {{responseObj4.0.lastupdated}}</small></p>
+        <div class="col-12 col-md-6 col-lg-6 p-2 page-section" id="graph3">
+          <div class="card">
+            <h5 class="text-light fw-normal bg-info p-3 m-0">Trade & Forex</h5>
+            <div class="card-body">
+              <h5 class="card-title text-center">{{responseObj4.1.0.indicator.value}}</h5>
+              <p class="card-text information">This rapid growth increase was mainly caused by a decreasing death rate (more rapidly than birth rate), and particularly an increase in average human age. By 2000 the population counted 6 billion heads, however, population growth (doubling time) started to decline after 1965 because of decreasing birth rates.</p>
+              <p class="card-text text-end"><small class="text-muted">Last updated on {{responseObj4.0.lastupdated}}</small></p>
+            </div>
+            <div id="myPlot4" class="card-img-bottom" style="width: 100%"></div>
+          </div>
         </div>
-        <div id="myPlot4" class="card-img-bottom" style="width: 100%"></div>
-      </div>
-    </div>
-    <div class="col-12 col-md-6 col-lg-6 p-2">
-      <div class="card">
-        <h5 class="text-light fw-normal bg-info p-3 m-0">Goverment</h5>
-        <div class="card-body">
-          <h5 class="card-title text-center">{{responseObj5.1.0.indicator.value}}</h5>
-          <p class="card-text information">The current account is an important indicator of an economy's health. It is defined as the sum of the balance of trade (goods and services exports minus imports), net income from abroad, and net current transfers.</p>
-          <p class="card-text text-end"><small class="text-muted">Last updated on {{responseObj5.0.lastupdated}}</small></p>
+        <div class="col-12 col-md-6 col-lg-6 p-2 page-section" id="graph4">
+          <div class="card">
+            <h5 class="text-light fw-normal bg-info p-3 m-0">Unemployment</h5>
+            <div class="card-body">
+              <h5 class="card-title text-center">{{responseObj5.1.0.indicator.value}}</h5>
+              <p class="card-text information">The current account is an important indicator of an economy's health. It is defined as the sum of the balance of trade (goods and services exports minus imports), net income from abroad, and net current transfers.</p>
+              <p class="card-text text-end"><small class="text-muted">Last updated on {{responseObj5.0.lastupdated}}</small></p>
+            </div>
+            <div id="myPlot5" class="card-img-bottom" style="width: 100%"></div>
+          </div>
         </div>
-        <div id="myPlot5" class="card-img-bottom" style="width: 100%"></div>
-      </div>
-    </div>
-    <div class="col-12 col-md-6 col-lg-6 p-2">
-      <div class="card">
-        <h5 class="text-light fw-normal bg-info p-3 m-0">Labour</h5>
-        <div class="card-body">
-          <h5 class="card-title text-center">{{responseObj6.1.0.indicator.value}}</h5>
-          <p class="card-text information">Total reserves comprise holdings of monetary gold, special drawing rights, reserves of IMF members held by the IMF, and holdings of foreign exchange under the control of monetary authorities.</p>
-          <p class="card-text text-end"><small class="text-muted">Last updated on {{responseObj6.0.lastupdated}}</small></p>
+        <div class="col-12 col-md-6 col-lg-6 p-2 page-section" id="graph5">
+          <div class="card">
+            <h5 class="text-light fw-normal bg-info p-3 m-0">Fiscal Situation</h5>
+            <div class="card-body">
+              <h5 class="card-title text-center">{{responseObj6.1.0.indicator.value}}</h5>
+              <p class="card-text information">Total reserves comprise holdings of monetary gold, special drawing rights, reserves of IMF members held by the IMF, and holdings of foreign exchange under the control of monetary authorities.</p>
+              <p class="card-text text-end"><small class="text-muted">Last updated on {{responseObj6.0.lastupdated}}</small></p>
+            </div>
+            <div id="myPlot6" class="card-img-bottom" style="width: 100%"></div>
+          </div>
         </div>
-        <div id="myPlot6" class="card-img-bottom" style="width: 100%"></div>
+        <div class="col-12 col-md-6 col-lg-6 p-2 page-section" id="graph6">
+          <div class="card">
+            <h5 class="text-light fw-normal bg-info p-3 m-0">Interest rates & bond</h5>
+            <div class="card-body">
+              <h5 class="card-title text-center">{{responseObj1.1.0.indicator.value}}</h5>
+              <p class="card-text information">The GDP growth rate measures how fast the economy is growing. It does this by comparing the country's gross domestic product in one quarter with that in the previous one, and with the same quarter of the previous year. The GDP growth rate is driven by GDP's four components.</p>
+              <p class="card-text text-end"><small class="text-muted">Last updated on {{responseObj1.0.lastupdated}}</small></p>
+            </div>
+            <div id="myPlot7" class="card-img-bottom" style="width: 100%"></div>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-6 p-2 page-section" id="graph7">
+          <div class="card">
+            <h5 class="text-light fw-normal bg-info p-3 m-0">Equity Markets</h5>
+            <div class="card-body">
+              <h5 class="card-title text-center">{{responseObj2.1.0.indicator.value}}</h5>
+              <p class="card-text information">GDP per capita measures the economic output of a nation per person. It seeks to determine the prosperity of a nation by economic growth per person in that nation. Per capita income measures the amount of money earned per person in a nation.</p>
+              <p class="card-text text-end"><small class="text-muted">Last updated on {{responseObj2.0.lastupdated}}</small></p>
+            </div>
+            <div id="myPlot8" class="card-img-bottom" style="width: 100%"></div>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-6 p-2 page-section" id="graph8">
+          <div class="card">
+            <h5 class="text-light fw-normal bg-info p-3 m-0">Commodity Markets</h5>
+            <div class="card-body">
+              <h5 class="card-title text-center">{{responseObj3.1.0.indicator.value}}</h5>
+              <p class="card-text information">How is the population in a country or given area calculated? The population of a given area is defined as the number of people usually living in that area, measured on 1 January in a given year. The source can be the most recent population census (a census is when the population is counted).</p>
+              <p class="card-text text-end"><small class="text-muted">Last updated on {{responseObj3.0.lastupdated}}</small></p>
+            </div>
+            <div id="myPlot9" class="card-img-bottom" style="width: 100%"></div>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-6 p-2 page-section" id="graph9">
+          <div class="card">
+            <h5 class="text-light fw-normal bg-info p-3 m-0">Foreign Investment</h5>
+            <div class="card-body">
+              <h5 class="card-title text-center">{{responseObj4.1.0.indicator.value}}</h5>
+              <p class="card-text information">This rapid growth increase was mainly caused by a decreasing death rate (more rapidly than birth rate), and particularly an increase in average human age. By 2000 the population counted 6 billion heads, however, population growth (doubling time) started to decline after 1965 because of decreasing birth rates.</p>
+              <p class="card-text text-end"><small class="text-muted">Last updated on {{responseObj4.0.lastupdated}}</small></p>
+            </div>
+            <div id="myPlot10" class="card-img-bottom" style="width: 100%"></div>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-6 p-2 page-section" id="graph10">
+          <div class="card">
+            <h5 class="text-light fw-normal bg-info p-3 m-0">Money & Credit</h5>
+            <div class="card-body">
+              <h5 class="card-title text-center">{{responseObj5.1.0.indicator.value}}</h5>
+              <p class="card-text information">The current account is an important indicator of an economy's health. It is defined as the sum of the balance of trade (goods and services exports minus imports), net income from abroad, and net current transfers.</p>
+              <p class="card-text text-end"><small class="text-muted">Last updated on {{responseObj5.0.lastupdated}}</small></p>
+            </div>
+            <div id="myPlot11" class="card-img-bottom" style="width: 100%"></div>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-6 p-2 page-section" id="graph11">
+          <div class="card">
+            <h5 class="text-light fw-normal bg-info p-3 m-0">Real Estate</h5>
+            <div class="card-body">
+              <h5 class="card-title text-center">{{responseObj6.1.0.indicator.value}}</h5>
+              <p class="card-text information">Total reserves comprise holdings of monetary gold, special drawing rights, reserves of IMF members held by the IMF, and holdings of foreign exchange under the control of monetary authorities.</p>
+              <p class="card-text text-end"><small class="text-muted">Last updated on {{responseObj6.0.lastupdated}}</small></p>
+            </div>
+            <div id="myPlot12" class="card-img-bottom" style="width: 100%"></div>
+          </div>
+        </div>
+        <div class="col-12 col-md-12 col-lg-12 p-2 page-section" id="graph12">
+          <div class="card">
+            <h5 class="text-light fw-normal bg-info p-3 m-0">Venture Capital & IPOs</h5>
+            <div class="card-body">
+              <h5 class="card-title text-center">{{responseObj6.1.0.indicator.value}}</h5>
+              <p class="card-text information">Total reserves comprise holdings of monetary gold, special drawing rights, reserves of IMF members held by the IMF, and holdings of foreign exchange under the control of monetary authorities.</p>
+              <p class="card-text text-end"><small class="text-muted">Last updated on {{responseObj6.0.lastupdated}}</small></p>
+            </div>
+            <div id="myPlot13" class="card-img-bottom" style="width: 100%"></div>
+          </div>
+        </div>
       </div>
+  
     </div>
-
+  
+    <hr class="bg-light">
+  
   </div>
-
-  <hr class="bg-light">
+  
+  <footer class="text-center text-white">
+    <!-- Grid container -->
+    <div class="container p-4">
+      <!-- Section: Social media -->
+      <section class="mb-4">
+        <!-- Facebook -->
+        <a
+          class="btn btn-outline-light btn-floating m-1"
+          href="#!"
+          role="button"
+          ><i class="fab fa-facebook-f"></i
+        ></a>
+  
+        <!-- Twitter -->
+        <a
+          class="btn btn-outline-light btn-floating m-1"
+          href="#!"
+          role="button"
+          ><i class="fab fa-twitter"></i
+        ></a>
+  
+        <!-- Google -->
+        <a
+          class="btn btn-outline-light btn-floating m-1"
+          href="#!"
+          role="button"
+          ><i class="fab fa-google"></i
+        ></a>
+  
+        <!-- Instagram -->
+        <a
+          class="btn btn-outline-light btn-floating m-1"
+          href="#!"
+          role="button"
+          ><i class="fab fa-instagram"></i
+        ></a>
+  
+        <!-- Linkedin -->
+        <a
+          class="btn btn-outline-light btn-floating m-1"
+          href="#!"
+          role="button"
+          ><i class="fab fa-linkedin-in"></i
+        ></a>
+  
+        <!-- Github -->
+        <a
+          class="btn btn-outline-light btn-floating m-1"
+          href="#!"
+          role="button"
+          ><i class="fab fa-github"></i
+        ></a>
+      </section>
+      <!-- Section: Social media -->
+  
+      <!-- Section: Form -->
+      <section class="">
+        <form action="">
+          <!--Grid row-->
+          <div class="row d-flex justify-content-center">
+            <!--Grid column-->
+            <div class="col-auto">
+              <p class="pt-2">
+                <strong>Sign up for daily updates</strong>
+              </p>
+            </div>
+            <!--Grid column-->
+  
+            <!--Grid column-->
+            <div class="col-md-5 col-12">
+              <!-- Email input -->
+              <div class="form-outline form-white mb-4">
+                <input
+                  type="email"
+                  id="form5Example21"
+                  class="form-control"
+                  placeholder="Email address..."
+                />
+              </div>
+            </div>
+            <!--Grid column-->
+  
+            <!--Grid column-->
+            <div class="col-auto">
+              <!-- Submit button -->
+              <button type="submit" class="btn btn-outline-light mb-4">
+                Subscribe
+              </button>
+            </div>
+            <!--Grid column-->
+          </div>
+          <!--Grid row-->
+        </form>
+      </section>
+      <!-- Section: Form -->
+  
+      <!-- Section: Text -->
+      <section class="mb-4">
+        <p style="max-width: 700px" class="mx-auto">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio
+          nulla nesciunt dignissimos quos libero doloremque minus eaque
+          voluptatum, possimus ipsam id pariatur enim, itaque hic amet est
+          soluta dolorum deserunt.
+        </p>
+      </section>
+      <!-- Section: Text -->
+    </div>
+    <!-- Grid container -->
+  
+    <!-- Copyright -->
+    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2)">
+      Copyright © 2022 All Rights Reserved by :
+      <a
+        class="text-white"
+        href="#"
+        >Misra Centre</a
+      >
+    </div>
+    <!-- Copyright -->
+  </footer>
 
 </div>
 
-<footer class="text-center text-white">
-  <!-- Grid container -->
-  <div class="container p-4">
-    <!-- Section: Social media -->
-    <section class="mb-4">
-      <!-- Facebook -->
-      <a
-        class="btn btn-outline-light btn-floating m-1"
-        href="#!"
-        role="button"
-        ><i class="fab fa-facebook-f"></i
-      ></a>
-
-      <!-- Twitter -->
-      <a
-        class="btn btn-outline-light btn-floating m-1"
-        href="#!"
-        role="button"
-        ><i class="fab fa-twitter"></i
-      ></a>
-
-      <!-- Google -->
-      <a
-        class="btn btn-outline-light btn-floating m-1"
-        href="#!"
-        role="button"
-        ><i class="fab fa-google"></i
-      ></a>
-
-      <!-- Instagram -->
-      <a
-        class="btn btn-outline-light btn-floating m-1"
-        href="#!"
-        role="button"
-        ><i class="fab fa-instagram"></i
-      ></a>
-
-      <!-- Linkedin -->
-      <a
-        class="btn btn-outline-light btn-floating m-1"
-        href="#!"
-        role="button"
-        ><i class="fab fa-linkedin-in"></i
-      ></a>
-
-      <!-- Github -->
-      <a
-        class="btn btn-outline-light btn-floating m-1"
-        href="#!"
-        role="button"
-        ><i class="fab fa-github"></i
-      ></a>
-    </section>
-    <!-- Section: Social media -->
-
-    <!-- Section: Form -->
-    <section class="">
-      <form action="">
-        <!--Grid row-->
-        <div class="row d-flex justify-content-center">
-          <!--Grid column-->
-          <div class="col-auto">
-            <p class="pt-2">
-              <strong>Sign up for daily updates</strong>
-            </p>
-          </div>
-          <!--Grid column-->
-
-          <!--Grid column-->
-          <div class="col-md-5 col-12">
-            <!-- Email input -->
-            <div class="form-outline form-white mb-4">
-              <input
-                type="email"
-                id="form5Example21"
-                class="form-control"
-                placeholder="Email address..."
-              />
-            </div>
-          </div>
-          <!--Grid column-->
-
-          <!--Grid column-->
-          <div class="col-auto">
-            <!-- Submit button -->
-            <button type="submit" class="btn btn-outline-light mb-4">
-              Subscribe
-            </button>
-          </div>
-          <!--Grid column-->
-        </div>
-        <!--Grid row-->
-      </form>
-    </section>
-    <!-- Section: Form -->
-
-    <!-- Section: Text -->
-    <section class="mb-4">
-      <p style="max-width: 700px" class="mx-auto">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio
-        nulla nesciunt dignissimos quos libero doloremque minus eaque
-        voluptatum, possimus ipsam id pariatur enim, itaque hic amet est
-        soluta dolorum deserunt.
-      </p>
-    </section>
-    <!-- Section: Text -->
-  </div>
-  <!-- Grid container -->
-
-  <!-- Copyright -->
-  <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2)">
-    Copyright © 2022 All Rights Reserved by :
-    <a
-      class="text-white"
-      href="#"
-      >Misra Centre</a
-    >
-  </div>
-  <!-- Copyright -->
-</footer>
-
 <script src="{% static 'EcoFin/js/plotly.js' %}"></script>
+
+<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
 
 <script>
 
@@ -259,6 +385,13 @@
   data4 = JSON.parse("{{response4|escapejs}}");
   data5 = JSON.parse("{{response5|escapejs}}");
   data6 = JSON.parse("{{response6|escapejs}}");
+  data7 = JSON.parse("{{response1|escapejs}}");
+  data8 = JSON.parse("{{response2|escapejs}}");
+  data9 = JSON.parse("{{response3|escapejs}}");
+  data10 = JSON.parse("{{response4|escapejs}}");
+  data11 = JSON.parse("{{response5|escapejs}}");
+  data12 = JSON.parse("{{response6|escapejs}}");
+  data13 = JSON.parse("{{response1|escapejs}}");
 
   genrateGraph(data1,"myPlot1","line","v");
   genrateGraph(data2,"myPlot2","bar","v");
@@ -266,6 +399,13 @@
   genrateGraph(data4,"myPlot4","bar","h");
   genrateGraph(data5,"myPlot5","line","v");
   genrateGraph(data6,"myPlot6","bar","v");
+  genrateGraph(data7,"myPlot7","line","v");
+  genrateGraph(data8,"myPlot8","bar","v");
+  genrateGraph(data9,"myPlot9","line","v");
+  genrateGraph(data10,"myPlot10","bar","h");
+  genrateGraph(data11,"myPlot11","line","v");
+  genrateGraph(data12,"myPlot12","bar","v");
+  genrateGraph(data13,"myPlot13","line","v");
 
 </script>
 
