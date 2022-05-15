@@ -36,7 +36,7 @@ def home(request):
     # Passing extDataJson and extDataObj datas to (home.html) template.
     return render(request, 'EcoFin/imf.html', {'extDataJson': extDataJson, 'extDataObj': extDataObj})
 
-def wb(request):
+def dashboard(request):
 
     country1="ind"
     country2="ind"
