@@ -36,7 +36,20 @@ def home(request):
     # Passing extDataJson and extDataObj datas to (home.html) template.
     return render(request, 'EcoFin/imf.html', {'extDataJson': extDataJson, 'extDataObj': extDataObj})
 
-def wb(request, country1="ind",country2="ind",country3="ind",country4="ind",country5="ind",country6="ind", indicator1="GDPG",indicator2="GDPC",indicator3="GDPCG",indicator4="TR",indicator5="CAB",indicator6="CPI"):
+def wb(request):
+
+    country1="ind"
+    country2="ind"
+    country3="ind"
+    country4="ind"
+    country5="ind"
+    country6="ind"
+    indicator1="GDPG"
+    indicator2="GDPC"
+    indicator3="GDPCG"
+    indicator4="TR"
+    indicator5="CAB"
+    indicator6="CPI"
 
     # WORLD BANK DATA
 
