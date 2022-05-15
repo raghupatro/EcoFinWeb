@@ -403,6 +403,18 @@
   genrateGraph(data12,"myPlot12","bar","v");
   genrateGraph(data13,"myPlot13","line","v");
 
+  $(document).ready(function() {
+    // executes when HTML-Document is loaded and DOM is ready
+     $( ".page-section" ).hover(
+     function() {
+       $(this).addClass('shadow-lg').css('cursor', 'pointer'); 
+     }, function() {
+       $(this).removeClass('shadow-lg');
+     }
+   );
+   // document ready  
+  });
+  
 </script>
 
 {% endblock content %}
