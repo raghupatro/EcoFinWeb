@@ -178,95 +178,109 @@ def dashboard(request):
         "responseObj6": responseObj6
     }
 
-    return render(request, 'EcoFin/dashboard.html', {"res":response})
+    return render(request, 'EcoFin/dashboard.html', {"res":response,"activeHome":"active"})
+
+def about(request):
+    response = {
+        "Title":"About Us",
+        "Body":"About Us",
+    }
+    return render(request,'EcoFin/about.html',{"res":response,"activeAbout":"active"})
+
+def contact(request):
+    response = {
+        "Title":"Contact Us",
+        "Body":"Contact Us",
+    }
+    return render(request,'EcoFin/contact.html',{"res":response,"activeContact":"active"})    
 
 def gdp(request):
     response = {
-        "Title":"gdp",
-        "Body":"",
+        "Title":"Gross Domestic Product (GDP)",
+        "Body":"Gross Domestic Product (GDP)",
     }
     return render(request, 'EcoFin/gdp.html', {"res":response})
 
 def inflation(request):
     response = {
-        "Title":"inflation",
-        "Body":"",
+        "Title":"Inflation",
+        "Body":"Infilation",
     }
     return render(request, 'EcoFin/inflation.html', {"res":response})
 
 def businessPerformance(request):
     response = {
-        "Title":"businessPerformance",
-        "Body":"",
+        "Title":"Business Performance",
+        "Body":"Business Performance",
     }
     return render(request, 'EcoFin/businessPerformance.html', {"res":response})
 
 def tradeForex(request):
     response = {
-        "Title":"tradeForex",
-        "Body":"",
+        "Title":"Trade and Forex",
+        "Body":"Trade and Forex",
     }
     return render(request, 'EcoFin/tradeForex.html', {"res":response})
 
 def unemployment(request):
     response = {
-        "Title":"unemployment",
-        "Body":"",
+        "Title":"Unemployment",
+        "Body":"Unemployment",
     }
     return render(request, 'EcoFin/unemployment.html', {"res":response})
 
 def fiscalSituation(request):
     response = {
-        "Title":"fiscalSituation",
-        "Body":"",
+        "Title":"Fiscal Situation",
+        "Body":"Fiscal Situation",
     }
     return render(request, 'EcoFin/fiscalSituation.html', {"res":response})
 
 def interestRatesBond(request):
     response = {
-        "Title":"interestRatesBond",
-        "Body":"",
+        "Title":"Interest Rates & Bond",
+        "Body":"Interest Rates & Bond",
     }
     return render(request, 'EcoFin/interestRatesBond.html', {"res":response})
 
 def equityMarkets(request):
     response = {
-        "Title":"equityMarkets",
-        "Body":"",
+        "Title":"Equity Markets",
+        "Body":"Equity Markets",
     }
     return render(request, 'EcoFin/equityMarkets.html', {"res":response}) 
 
 def commodityMarkets(request):
     response = {
-        "Title":"commodityMarkets",
-        "Body":"",
+        "Title":"Ccommodity Markets",
+        "Body":"Commodity Markets",
     }
     return render(request, 'EcoFin/commodityMarkets.html', {"res":response})
 
 def foreignInvestment(request):
     response = {
-        "Title":"foreignInvestment",
-        "Body":"",
+        "Title":"Foreign Investment",
+        "Body":"Foreign Investment",
     }
     return render(request, 'EcoFin/foreignInvestment.html', {"res":response})
 
 def moneyCredit(request):
     response = {
-        "Title":"moneyCredit",
-        "Body":"",
+        "Title":"Money & Credit",
+        "Body":"Money & Credit",
     }
     return render(request, 'EcoFin/moneyCredit.html', {"res":response})
 
 def realEstate(request):
     response = {
-        "Title":"ealEstate",
-        "Body":"",
+        "Title":"Real Estate",
+        "Body":"Real Estate",
     }
     return render(request, 'EcoFin/realEstate.html', {"res":response})   
 
 def ventureCapitalIPO(request):
     response = {
-        "Title":"ventureCapitalIPO",
-        "Body":"",
+        "Title":"Venture Capital & IPOs",
+        "Body":"Venture Capital & IPOs",
     }
     return render(request, 'EcoFin/ventureCapitalIPO.html', {"res":response})                      

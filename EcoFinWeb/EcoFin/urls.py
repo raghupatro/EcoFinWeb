@@ -3,6 +3,8 @@ from django.urls import path
 
 urlpatterns = [
     path('dashboard',views.dashboard,name="dashboard"),
+    path('about',views.about,name="about"),
+    path('contact',views.contact,name="contact"),
     path('gdp',views.gdp,name="gdp"),
     path('inflation',views.inflation,name="inflation"),
     path('businessPerformance',views.businessPerformance,name="businessPerformance"),
