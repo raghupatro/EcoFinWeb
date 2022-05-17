@@ -4,12 +4,15 @@
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    {% comment %}
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    {% endcomment %}
+    <meta name="viewport" >
     <link rel="stylesheet" href="{% static 'EcoFin/css/bootstrap.min.css' %}" />
     <link rel="stylesheet" href="{% static 'EcoFin/css/style.css' %}" />
+    <script src="{% static 'EcoFin/js/font-awesome.js' %}"></script>
+    <script src="{% static 'EcoFin/js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'EcoFin/js/popper.min.js' %}"></script>
+    <script src="{% static 'EcoFin/js/jquery-3.6.0.js' %}"></script>
     <script src="{% static 'EcoFin/js/plotly.min.js' %}"></script>
+    <script src="{% static 'EcoFin/js/plotly.js' %}"></script>
     <title>EcoFinWeb</title>
   </head>
   <body class="bg-grad">
@@ -19,18 +22,21 @@
     </h1> 
 
     <nav class="navbar navbar-expand-lg navbar-light bg-light py-3">
-      <div class="container">
-        <a class="navbar-brand fs-3" href="#">EcoFinWEB</a>
+      <div class="container-fluid">
+        <a class="navbar-brand fs-3 ms-4" href="#">EcoFinWEB</a>
         <div class="float-end">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0 flex-row">
             <li class="nav-item">
-              <a class="nav-link d-inline {{activeHome}} fs-5" href="{% url 'dashboard' %}">Home</a>
+              <a class="nav-link d-inline {{activeHome}} mx-2 fs-5" href="{% url 'dashboard' %}">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link d-inline {{activeAbout}} mx-4 fs-5" href="{% url 'about' %}">About</a>
+              <a class="nav-link d-inline {{activeAbout}} mx-2 fs-5" href="{% url 'about' %}">About</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link d-inline {{activeContact}} fs-5" href="{% url 'contact' %}">Contact</a>
+              <a class="nav-link d-inline {{activeContact}} mx-2 fs-5" href="{% url 'contact' %}">Contact</a>
+            </li>
+            <li class="nav-item d-flex justify-content-center align-items-center fs-4">
+              <a class="nav-link d-inline badge ms-3 me-4 bg-info text-light fw-normal px-3" href="{% url 'contact' %}">FAQs</a>
             </li>
           </ul>
         </div>
@@ -159,8 +165,5 @@
       </div>
       <!-- Copyright -->
     </footer>
-    
-    <script src="{% static 'EcoFin/js/font-awesome.js' %}"></script>
-    <script src="{% static 'EcoFin/js/bootstrap.bundle.min.js' %}"></script>
   </body>
 </html>

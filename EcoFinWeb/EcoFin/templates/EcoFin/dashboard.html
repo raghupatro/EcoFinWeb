@@ -97,145 +97,171 @@
       <div class="row container-fluid">
         <div class="col-12 col-md-6 col-lg-6 p-2" id="graph0">
           <div class="card page-section">
-            <a href="{% url 'gdp' %}"><h5 class="text-light fw-normal bg-info p-3 m-0">Gross Domestic Product (GDP)</h5></a>
+            <a href="{% url 'gdp' %}"><h5 class="text-light fw-normal bg-info p-3 m-0">Gross Domestic Product (GDP) <i class="fa fa-external-link float-end" aria-hidden="true"></i></h5></a>
             <div class="card-body">
-              <h5 class="card-title text-center">{{res.responseObj1.1.0.indicator.value}}</h5>
-              <p class="card-text information">The GDP growth rate measures how fast the economy is growing. It does this by comparing the country's gross domestic product in one quarter with that in the previous one, and with the same quarter of the previous year. The GDP growth rate is driven by GDP's four components.</p>
-              <p class="card-text text-end"><small class="text-muted">Last updated on {{res.responseObj1.0.lastupdated}}</small></p>
+              <h5 class="card-title text-center"><span class="d-inline-block text-truncate w-75">{{res.responseObj1.1.0.indicator.value}}</span> <i class="fa fa-info-circle mx-2 text-primary" aria-hidden="true"></i></h5>
+              <div id="myPlot1" class="card-img-bottom" style="width: 100%"></div>
+              <div class="row p-0 m-0">
+                <p class="card-text text-start col p-0 m-0"><small class="text-muted">Source : IIMA Misra Centre, CEIC</small></p>
+                <p class="card-text text-end col p-0 m-0"><small class="text-muted">Updated on {{res.responseObj1.0.lastupdated}}</small></p>
+              </div>
             </div>
-            <div id="myPlot1" class="card-img-bottom" style="width: 100%"></div>
           </div>
         </div>
         <div class="col-12 col-md-6 col-lg-6 p-2" id="graph1">
           <div class="card page-section">
-            <a href="{% url 'inflation' %}"><h5 class="text-light fw-normal bg-info p-3 m-0">Inflation</h5></a>
+            <a href="{% url 'inflation' %}"><h5 class="text-light fw-normal bg-info p-3 m-0">Inflation <i class="fa fa-external-link float-end" aria-hidden="true"></i></h5></a>
             <div class="card-body">
-              <h5 class="card-title text-center">{{res.responseObj2.1.0.indicator.value}}</h5>
-              <p class="card-text information">GDP per capita measures the economic output of a nation per person. It seeks to determine the prosperity of a nation by economic growth per person in that nation. Per capita income measures the amount of money earned per person in a nation.</p>
-              <p class="card-text text-end"><small class="text-muted">Last updated on {{res.responseObj2.0.lastupdated}}</small></p>
+              <h5 class="card-title text-center"><span class="d-inline-block text-truncate w-75">{{res.responseObj2.1.0.indicator.value}}</span> <i class="fa fa-info-circle mx-2 text-primary" aria-hidden="true"></i></h5>
+              <div id="myPlot2" class="card-img-bottom" style="width: 100%"></div>
+              <div class="row p-0 m-0">
+                <p class="card-text text-start col p-0 m-0"><small class="text-muted">Source : IIMA Misra Centre, CEIC</small></p>
+                <p class="card-text text-end col p-0 m-0"><small class="text-muted">Updated on {{res.responseObj2.0.lastupdated}}</small></p>
+              </div>
             </div>
-            <div id="myPlot2" class="card-img-bottom" style="width: 100%"></div>
           </div>
         </div>
         <div class="col-12 col-md-6 col-lg-6 p-2" id="graph2">
           <div class="card page-section">
-            <a href="{% url 'businessPerformance' %}"><h5 class="text-light fw-normal bg-info p-3 m-0">Business Performance</h5></a>
+            <a href="{% url 'businessPerformance' %}"><h5 class="text-light fw-normal bg-info p-3 m-0">Business Performance <i class="fa fa-external-link float-end" aria-hidden="true"></i></h5></a>
             <div class="card-body">
-              <h5 class="card-title text-center">{{res.responseObj3.1.0.indicator.value}}</h5>
-              <p class="card-text information">How is the population in a country or given area calculated? The population of a given area is defined as the number of people usually living in that area, measured on 1 January in a given year. The source can be the most recent population census (a census is when the population is counted).</p>
-              <p class="card-text text-end"><small class="text-muted">Last updated on {{res.responseObj3.0.lastupdated}}</small></p>
+              <h5 class="card-title text-center"><span class="d-inline-block text-truncate w-75">{{res.responseObj3.1.0.indicator.value}}</span> <i class="fa fa-info-circle mx-2 text-primary" aria-hidden="true"></i></h5>
+              <div id="myPlot3" class="card-img-bottom" style="width: 100%"></div>
+              <div class="row p-0 m-0">
+                <p class="card-text text-start col p-0 m-0"><small class="text-muted">Source : IIMA Misra Centre, CEIC</small></p>
+                <p class="card-text text-end col p-0 m-0"><small class="text-muted">Updated on {{res.responseObj3.0.lastupdated}}</small></p>
+              </div>
             </div>
-            <div id="myPlot3" class="card-img-bottom" style="width: 100%"></div>
           </div>
         </div>
         <div class="col-12 col-md-6 col-lg-6 p-2" id="graph3">
           <div class="card page-section">
-            <a href="{% url 'tradeForex' %}"><h5 class="text-light fw-normal bg-info p-3 m-0">Trade & Forex</h5></a>
+            <a href="{% url 'tradeForex' %}"><h5 class="text-light fw-normal bg-info p-3 m-0">Trade & Forex <i class="fa fa-external-link float-end" aria-hidden="true"></i></h5></a>
             <div class="card-body">
-              <h5 class="card-title text-center">{{res.responseObj4.1.0.indicator.value}}</h5>
-              <p class="card-text information">This rapid growth increase was mainly caused by a decreasing death rate (more rapidly than birth rate), and particularly an increase in average human age. By 2000 the population counted 6 billion heads, however, population growth (doubling time) started to decline after 1965 because of decreasing birth rates.</p>
-              <p class="card-text text-end"><small class="text-muted">Last updated on {{res.responseObj4.0.lastupdated}}</small></p>
+              <h5 class="card-title text-center"><span class="d-inline-block text-truncate w-75">{{res.responseObj4.1.0.indicator.value}}</span> <i class="fa fa-info-circle mx-2 text-primary" aria-hidden="true"></i></h5>
+              <div id="myPlot4" class="card-img-bottom" style="width: 100%"></div>
+              <div class="row p-0 m-0">
+                <p class="card-text text-start col p-0 m-0"><small class="text-muted">Source : IIMA Misra Centre, CEIC</small></p>
+                <p class="card-text text-end col p-0 m-0"><small class="text-muted">Updated on {{res.responseObj4.0.lastupdated}}</small></p>
+              </div>
             </div>
-            <div id="myPlot4" class="card-img-bottom" style="width: 100%"></div>
           </div>
         </div>
         <div class="col-12 col-md-6 col-lg-6 p-2" id="graph4">
           <div class="card page-section">
-            <a href="{% url 'unemployment' %}"><h5 class="text-light fw-normal bg-info p-3 m-0">Unemployment</h5></a>
+            <a href="{% url 'unemployment' %}"><h5 class="text-light fw-normal bg-info p-3 m-0">Unemployment <i class="fa fa-external-link float-end" aria-hidden="true"></i></h5></a>
             <div class="card-body">
-              <h5 class="card-title text-center">{{res.responseObj5.1.0.indicator.value}}</h5>
-              <p class="card-text information">The current account is an important indicator of an economy's health. It is defined as the sum of the balance of trade (goods and services exports minus imports), net income from abroad, and net current transfers.</p>
-              <p class="card-text text-end"><small class="text-muted">Last updated on {{res.responseObj5.0.lastupdated}}</small></p>
+              <h5 class="card-title text-center"><span class="d-inline-block text-truncate w-75">{{res.responseObj5.1.0.indicator.value}}</span> <i class="fa fa-info-circle mx-2 text-primary" aria-hidden="true"></i></h5>
+              <div id="myPlot5" class="card-img-bottom" style="width: 100%"></div>
+              <div class="row p-0 m-0">
+                <p class="card-text text-start col p-0 m-0"><small class="text-muted">Source : IIMA Misra Centre, CEIC</small></p>
+                <p class="card-text text-end col p-0 m-0"><small class="text-muted">Updated on {{res.responseObj5.0.lastupdated}}</small></p>
+              </div>
             </div>
-            <div id="myPlot5" class="card-img-bottom" style="width: 100%"></div>
           </div>
         </div>
         <div class="col-12 col-md-6 col-lg-6 p-2" id="graph5">
           <div class="card page-section">
-            <a href="{% url 'fiscalSituation' %}"><h5 class="text-light fw-normal bg-info p-3 m-0">Fiscal Situation</h5></a>
+            <a href="{% url 'fiscalSituation' %}"><h5 class="text-light fw-normal bg-info p-3 m-0">Fiscal Situation <i class="fa fa-external-link float-end" aria-hidden="true"></i></h5></a>
             <div class="card-body">
-              <h5 class="card-title text-center">{{res.responseObj6.1.0.indicator.value}}</h5>
-              <p class="card-text information">Total reserves comprise holdings of monetary gold, special drawing rights, reserves of IMF members held by the IMF, and holdings of foreign exchange under the control of monetary authorities.</p>
-              <p class="card-text text-end"><small class="text-muted">Last updated on {{res.responseObj6.0.lastupdated}}</small></p>
+              <h5 class="card-title text-center"><span class="d-inline-block text-truncate w-75">{{res.responseObj6.1.0.indicator.value}}</span> <i class="fa fa-info-circle mx-2 text-primary" aria-hidden="true"></i></h5>
+              <div id="myPlot6" class="card-img-bottom" style="width: 100%"></div>
+              <div class="row p-0 m-0">
+                <p class="card-text text-start col p-0 m-0"><small class="text-muted">Source : IIMA Misra Centre, CEIC</small></p>
+                <p class="card-text text-end col p-0 m-0"><small class="text-muted">Updated on {{res.responseObj6.0.lastupdated}}</small></p>
+              </div>
             </div>
-            <div id="myPlot6" class="card-img-bottom" style="width: 100%"></div>
           </div>
         </div>
         <div class="col-12 col-md-6 col-lg-6 p-2" id="graph6">
           <div class="card page-section">
-            <a href="{% url 'interestRatesBond' %}"><h5 class="text-light fw-normal bg-info p-3 m-0">Interest rates & bond</h5></a>
+            <a href="{% url 'interestRatesBond' %}"><h5 class="text-light fw-normal bg-info p-3 m-0">Interest rates & bond <i class="fa fa-external-link float-end" aria-hidden="true"></i></h5></a>
             <div class="card-body">
-              <h5 class="card-title text-center">{{res.responseObj1.1.0.indicator.value}}</h5>
-              <p class="card-text information">The GDP growth rate measures how fast the economy is growing. It does this by comparing the country's gross domestic product in one quarter with that in the previous one, and with the same quarter of the previous year. The GDP growth rate is driven by GDP's four components.</p>
-              <p class="card-text text-end"><small class="text-muted">Last updated on {{res.responseObj1.0.lastupdated}}</small></p>
+              <h5 class="card-title text-center"><span class="d-inline-block text-truncate w-75">{{res.responseObj7.1.0.indicator.value}}</span> <i class="fa fa-info-circle mx-2 text-primary" aria-hidden="true"></i></h5>
+              <div id="myPlot7" class="card-img-bottom" style="width: 100%"></div>
+              <div class="row p-0 m-0">
+                <p class="card-text text-start col p-0 m-0"><small class="text-muted">Source : IIMA Misra Centre, CEIC</small></p>
+                <p class="card-text text-end col p-0 m-0"><small class="text-muted">Updated on {{res.responseObj7.0.lastupdated}}</small></p>
+              </div>
             </div>
-            <div id="myPlot7" class="card-img-bottom" style="width: 100%"></div>
           </div>
         </div>
         <div class="col-12 col-md-6 col-lg-6 p-2" id="graph7">
           <div class="card page-section">
-            <a href="{% url 'equityMarkets' %}"><h5 class="text-light fw-normal bg-info p-3 m-0">Equity Markets</h5></a>
+            <a href="{% url 'equityMarkets' %}"><h5 class="text-light fw-normal bg-info p-3 m-0">Equity Markets <i class="fa fa-external-link float-end" aria-hidden="true"></i></h5></a>
             <div class="card-body">
-              <h5 class="card-title text-center">{{res.responseObj2.1.0.indicator.value}}</h5>
-              <p class="card-text information">GDP per capita measures the economic output of a nation per person. It seeks to determine the prosperity of a nation by economic growth per person in that nation. Per capita income measures the amount of money earned per person in a nation.</p>
-              <p class="card-text text-end"><small class="text-muted">Last updated on {{res.responseObj2.0.lastupdated}}</small></p>
+              <h5 class="card-title text-center"><span class="d-inline-block text-truncate w-75">{{res.responseObj8.1.0.indicator.value}}</span> <i class="fa fa-info-circle mx-2 text-primary" aria-hidden="true"></i></h5>
+              <div id="myPlot8" class="card-img-bottom" style="width: 100%"></div>
+              <div class="row p-0 m-0">
+                <p class="card-text text-start col p-0 m-0"><small class="text-muted">Source : IIMA Misra Centre, CEIC</small></p>
+                <p class="card-text text-end col p-0 m-0"><small class="text-muted">Updated on {{res.responseObj8.0.lastupdated}}</small></p>
+              </div>
             </div>
-            <div id="myPlot8" class="card-img-bottom" style="width: 100%"></div>
           </div>
         </div>
         <div class="col-12 col-md-6 col-lg-6 p-2" id="graph8">
           <div class="card page-section">
-            <a href="{% url 'commodityMarkets' %}"><h5 class="text-light fw-normal bg-info p-3 m-0">Commodity Markets</h5></a>
+            <a href="{% url 'commodityMarkets' %}"><h5 class="text-light fw-normal bg-info p-3 m-0">Commodity Markets <i class="fa fa-external-link float-end" aria-hidden="true"></i></h5></a>
             <div class="card-body">
-              <h5 class="card-title text-center">{{res.responseObj3.1.0.indicator.value}}</h5>
-              <p class="card-text information">How is the population in a country or given area calculated? The population of a given area is defined as the number of people usually living in that area, measured on 1 January in a given year. The source can be the most recent population census (a census is when the population is counted).</p>
-              <p class="card-text text-end"><small class="text-muted">Last updated on {{res.responseObj3.0.lastupdated}}</small></p>
+              <h5 class="card-title text-center"><span class="d-inline-block text-truncate w-75">{{res.responseObj9.1.0.indicator.value}}</span> <i class="fa fa-info-circle mx-2 text-primary" aria-hidden="true"></i></h5>
+              <div id="myPlot9" class="card-img-bottom" style="width: 100%"></div>
+              <div class="row p-0 m-0">
+                <p class="card-text text-start col p-0 m-0"><small class="text-muted">Source : IIMA Misra Centre, CEIC</small></p>
+                <p class="card-text text-end col p-0 m-0"><small class="text-muted">Updated on {{res.responseObj9.0.lastupdated}}</small></p>
+              </div>
             </div>
-            <div id="myPlot9" class="card-img-bottom" style="width: 100%"></div>
           </div>
         </div>
         <div class="col-12 col-md-6 col-lg-6 p-2" id="graph9">
           <div class="card page-section">
-            <a href="{% url 'foreignInvestment' %}"><h5 class="text-light fw-normal bg-info p-3 m-0">Foreign Investment</h5></a>
+            <a href="{% url 'foreignInvestment' %}"><h5 class="text-light fw-normal bg-info p-3 m-0">Foreign Investment <i class="fa fa-external-link float-end" aria-hidden="true"></i></h5></a>
             <div class="card-body">
-              <h5 class="card-title text-center">{{res.responseObj4.1.0.indicator.value}}</h5>
-              <p class="card-text information">This rapid growth increase was mainly caused by a decreasing death rate (more rapidly than birth rate), and particularly an increase in average human age. By 2000 the population counted 6 billion heads, however, population growth (doubling time) started to decline after 1965 because of decreasing birth rates.</p>
-              <p class="card-text text-end"><small class="text-muted">Last updated on {{res.responseObj4.0.lastupdated}}</small></p>
+              <h5 class="card-title text-center"><span class="d-inline-block text-truncate w-75">{{res.responseObj10.1.0.indicator.value}}</span> <i class="fa fa-info-circle mx-2 text-primary" aria-hidden="true"></i></h5>
+              <div id="myPlot10" class="card-img-bottom" style="width: 100%"></div>
+              <div class="row p-0 m-0">
+                <p class="card-text text-start col p-0 m-0"><small class="text-muted">Source : IIMA Misra Centre, CEIC</small></p>
+                <p class="card-text text-end col p-0 m-0"><small class="text-muted">Updated on {{res.responseObj10.0.lastupdated}}</small></p>
+              </div>
             </div>
-            <div id="myPlot10" class="card-img-bottom" style="width: 100%"></div>
           </div>
         </div>
         <div class="col-12 col-md-6 col-lg-6 p-2" id="graph10">
           <div class="card page-section">
-            <a href="{% url 'moneyCredit' %}"><h5 class="text-light fw-normal bg-info p-3 m-0">Money & Credit</h5></a>
+            <a href="{% url 'moneyCredit' %}"><h5 class="text-light fw-normal bg-info p-3 m-0">Money & Credit <i class="fa fa-external-link float-end" aria-hidden="true"></i></h5></a>
             <div class="card-body">
-              <h5 class="card-title text-center">{{res.responseObj5.1.0.indicator.value}}</h5>
-              <p class="card-text information">The current account is an important indicator of an economy's health. It is defined as the sum of the balance of trade (goods and services exports minus imports), net income from abroad, and net current transfers.</p>
-              <p class="card-text text-end"><small class="text-muted">Last updated on {{res.responseObj5.0.lastupdated}}</small></p>
+              <h5 class="card-title text-center"><span class="d-inline-block text-truncate w-75">{{res.responseObj12.1.0.indicator.value}}</span> <i class="fa fa-info-circle mx-2 text-primary" aria-hidden="true"></i></h5>
+              <div id="myPlot11" class="card-img-bottom" style="width: 100%"></div>
+              <div class="row p-0 m-0">
+                <p class="card-text text-start col p-0 m-0"><small class="text-muted">Source : IIMA Misra Centre, CEIC</small></p>
+                <p class="card-text text-end col p-0 m-0"><small class="text-muted">Updated on {{res.responseObj11.0.lastupdated}}</small></p>
+              </div>
             </div>
-            <div id="myPlot11" class="card-img-bottom" style="width: 100%"></div>
           </div>
         </div>
         <div class="col-12 col-md-6 col-lg-6 p-2" id="graph11">
           <div class="card page-section">
-            <a href="{% url 'realEstate' %}"><h5 class="text-light fw-normal bg-info p-3 m-0">Real Estate</h5></a>
+            <a href="{% url 'realEstate' %}"><h5 class="text-light fw-normal bg-info p-3 m-0">Real Estate <i class="fa fa-external-link float-end" aria-hidden="true"></i></h5></a>
             <div class="card-body">
-              <h5 class="card-title text-center">{{res.responseObj6.1.0.indicator.value}}</h5>
-              <p class="card-text information">Total reserves comprise holdings of monetary gold, special drawing rights, reserves of IMF members held by the IMF, and holdings of foreign exchange under the control of monetary authorities.</p>
-              <p class="card-text text-end"><small class="text-muted">Last updated on {{res.responseObj6.0.lastupdated}}</small></p>
+              <h5 class="card-title text-center"><span class="d-inline-block text-truncate w-75">{{res.responseObj12.1.0.indicator.value}}</span> <i class="fa fa-info-circle mx-2 text-primary" aria-hidden="true"></i></h5>
+              <div id="myPlot12" class="card-img-bottom" style="width: 100%"></div>
+              <div class="row p-0 m-0">
+                <p class="card-text text-start col p-0 m-0"><small class="text-muted">Source : IIMA Misra Centre, CEIC</small></p>
+                <p class="card-text text-end col p-0 m-0"><small class="text-muted">Updated on {{res.responseObj12.0.lastupdated}}</small></p>
+              </div>
             </div>
-            <div id="myPlot12" class="card-img-bottom" style="width: 100%"></div>
           </div>
         </div>
         <div class="col-12 col-md-12 col-lg-12 p-2" id="graph12">
           <div class="card page-section">
-            <a href="{% url 'ventureCapitalIPO' %}"><h5 class="text-light fw-normal bg-info p-3 m-0">Venture Capital & IPOs</h5></a>
+            <a href="{% url 'ventureCapitalIPO' %}"><h5 class="text-light fw-normal bg-info p-3 m-0">Venture Capital & IPOs <i class="fa fa-external-link float-end" aria-hidden="true"></i></h5></a>
             <div class="card-body">
-              <h5 class="card-title text-center">{{res.responseObj6.1.0.indicator.value}}</h5>
-              <p class="card-text information">Total reserves comprise holdings of monetary gold, special drawing rights, reserves of IMF members held by the IMF, and holdings of foreign exchange under the control of monetary authorities.</p>
-              <p class="card-text text-end"><small class="text-muted">Last updated on {{res.responseObj6.0.lastupdated}}</small></p>
+              <h5 class="card-title text-center"><span class="d-inline-block text-truncate w-75">{{res.responseObj13.1.0.indicator.value}}</span> <i class="fa fa-info-circle mx-2 text-primary" aria-hidden="true"></i></h5>
+              <div id="myPlot13" class="card-img-bottom" style="width: 100%"></div>
+              <div class="row p-0 m-0">
+                <p class="card-text text-start col p-0 m-0"><small class="text-muted">Source : IIMA Misra Centre, CEIC</small></p>
+                <p class="card-text text-end col p-0 m-0"><small class="text-muted">Updated on {{res.responseObj13.0.lastupdated}}</small></p>
+              </div>
             </div>
-            <div id="myPlot13" class="card-img-bottom" style="width: 100%"></div>
           </div>
         </div>
       </div>
@@ -243,14 +269,32 @@
     </div>
   
     <hr class="bg-light">
-  
+
+  </div>
+
+  <div class="bg-light py-3">
+    <div class="text-center">
+      <h2 class="mt-5 mb-5">FAQs</h2>
+      <div class="accordion container" id="accordionPanelsStayOpenExample">
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="panelsStayOpen-headingOne">
+            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
+              Accordion Item #1
+            </button>
+          </h2>
+          <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingOne">
+            <div class="accordion-body">
+              <strong>This is the first item's accordion body.</strong> It is shown by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 
 </div>
 
-<script src="{% static 'EcoFin/js/plotly.js' %}"></script>
-
-<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+<br>
 
 <script> 
 
@@ -260,13 +304,13 @@
   data4 = JSON.parse("{{res.response4|escapejs}}");
   data5 = JSON.parse("{{res.response5|escapejs}}");
   data6 = JSON.parse("{{res.response6|escapejs}}");
-  data7 = JSON.parse("{{res.response1|escapejs}}");
-  data8 = JSON.parse("{{res.response2|escapejs}}");
-  data9 = JSON.parse("{{res.response3|escapejs}}");
-  data10 = JSON.parse("{{res.response4|escapejs}}");
-  data11 = JSON.parse("{{res.response5|escapejs}}");
-  data12 = JSON.parse("{{res.response6|escapejs}}");
-  data13 = JSON.parse("{{res.response1|escapejs}}");
+  data7 = JSON.parse("{{res.response7|escapejs}}");
+  data8 = JSON.parse("{{res.response8|escapejs}}");
+  data9 = JSON.parse("{{res.response9|escapejs}}");
+  data10 = JSON.parse("{{res.response10|escapejs}}");
+  data11 = JSON.parse("{{res.response11|escapejs}}");
+  data12 = JSON.parse("{{res.response12|escapejs}}");
+  data13 = JSON.parse("{{res.response13|escapejs}}");
 
   genrateGraph(data1,"myPlot1","line","v");
   genrateGraph(data2,"myPlot2","bar","v");

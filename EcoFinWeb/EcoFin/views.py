@@ -44,12 +44,28 @@ def dashboard(request):
     country4="ind"
     country5="ind"
     country6="ind"
+    country7="ind"
+    country8="ind"
+    country9="ind"
+    country10="ind"
+    country11="ind"
+    country12="ind"
+    country13="ind"
+
     indicator1="GDPG"
     indicator2="GDPC"
     indicator3="GDPCG"
-    indicator4="TR"
-    indicator5="CAB"
-    indicator6="CPI"
+    indicator4="PP"
+    indicator5="PG"
+    indicator6="UNER"
+    indicator7="ISRP"
+    indicator8="TR"
+    indicator9="CAB"
+    indicator10="EXP"
+    indicator11="CPI"
+    indicator12="GDPG"
+    indicator13="GDPC"
+
 
     # WORLD BANK DATA
 
@@ -108,6 +124,13 @@ def dashboard(request):
     indicator4=indicatorFind(indicator4)
     indicator5=indicatorFind(indicator5)
     indicator6=indicatorFind(indicator6)
+    indicator7=indicatorFind(indicator7)
+    indicator8=indicatorFind(indicator8)
+    indicator9=indicatorFind(indicator9)
+    indicator10=indicatorFind(indicator10)
+    indicator11=indicatorFind(indicator11)
+    indicator12=indicatorFind(indicator12)
+    indicator13=indicatorFind(indicator13)
 
     url1 = "http://api.worldbank.org/v2/country/"+country1+"/indicator/" + \
         indicator1+"?format=json&per_page=200&mrv=5&frequency=Y"
@@ -145,24 +168,50 @@ def dashboard(request):
     response6 = json.dumps(response6)
     responseObj6 = json.loads(response6)
 
-    # print(response1)
-    # print(response2)
-    # print(response3)
-    # print(response4)
-    # print(response5)
-    # print(response6)
+    url7 = "http://api.worldbank.org/v2/country/"+country7+"/indicator/" + \
+        indicator7+"?format=json&per_page=200&mrv=5&frequency=Y"
+    response7 = requests.get(url7).json()
+    response7 = json.dumps(response7)
+    responseObj7 = json.loads(response7)
 
-    # print(indicator1)
-    # print(indicator2)
-    # print(indicator3)
-    # print(indicator4)
-    # print(indicator5)
-    # print(indicator6)
+    url8 = "http://api.worldbank.org/v2/country/"+country8+"/indicator/" + \
+        indicator8+"?format=json&per_page=200&mrv=5&frequency=Y"
+    response8 = requests.get(url8).json()
+    response8 = json.dumps(response8)
+    responseObj8 = json.loads(response8)
 
-    # print(country1+" "+country2+" "+country3+" "+country4+" "+country5+" "+country6)
+    url9 = "http://api.worldbank.org/v2/country/"+country9+"/indicator/" + \
+        indicator9+"?format=json&per_page=200&mrv=5&frequency=Y"
+    response9 = requests.get(url9).json()
+    response9 = json.dumps(response9)
+    responseObj9 = json.loads(response9)
+
+    url10 = "http://api.worldbank.org/v2/country/"+country10+"/indicator/" + \
+        indicator10+"?format=json&per_page=200&mrv=5&frequency=Y"
+    response10 = requests.get(url10).json()
+    response10 = json.dumps(response10)
+    responseObj10 = json.loads(response10)
+
+    url11 = "http://api.worldbank.org/v2/country/"+country11+"/indicator/" + \
+        indicator11+"?format=json&per_page=200&mrv=5&frequency=Y"
+    response11 = requests.get(url11).json()
+    response11 = json.dumps(response11)
+    responseObj11 = json.loads(response11)
+
+    url12 = "http://api.worldbank.org/v2/country/"+country12+"/indicator/" + \
+        indicator12+"?format=json&per_page=200&mrv=5&frequency=Y"
+    response12 = requests.get(url12).json()
+    response12 = json.dumps(response12)
+    responseObj12 = json.loads(response12)
+
+    url13 = "http://api.worldbank.org/v2/country/"+country13+"/indicator/" + \
+        indicator13+"?format=json&per_page=200&mrv=5&frequency=Y"
+    response13 = requests.get(url13).json()
+    response13 = json.dumps(response13)
+    responseObj13 = json.loads(response13)
 
     response = {
-        "Title":"Indian Economy & Financial Markets at a Glance",
+        "Title":"At a Glance: Indian Economy and Financial Markets",
         "Body":"",
         "response1": response1, 
         "responseObj1": responseObj1, 
@@ -175,7 +224,21 @@ def dashboard(request):
         "response5": response5, 
         "responseObj5": responseObj5, 
         "response6": response6, 
-        "responseObj6": responseObj6
+        "responseObj6": responseObj6,
+        "response7": response7, 
+        "responseObj7": responseObj7, 
+        "response8": response8, 
+        "responseObj8": responseObj8, 
+        "response9": response9, 
+        "responseObj9": responseObj9, 
+        "response10": response10, 
+        "responseObj10": responseObj10, 
+        "response11": response11, 
+        "responseObj11": responseObj11, 
+        "response12": response12, 
+        "responseObj12": responseObj12,
+        "response13": response13, 
+        "responseObj13": responseObj13,
     }
 
     return render(request, 'EcoFin/dashboard.html', {"res":response,"activeHome":"active"})
