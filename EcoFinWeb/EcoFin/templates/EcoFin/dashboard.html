@@ -97,9 +97,9 @@
       <div class="row container-fluid">
         <div class="col-12 col-md-6 col-lg-6 p-2" id="graph0">
           <div class="card page-section">
-            <a href="{% url 'gdp' %}"><h5 class="text-light fw-normal bg-info p-3 m-0">Gross Domestic Product (GDP) <i class="fa fa-external-link float-end" aria-hidden="true"></i></h5></a>
+            <a href="{% url 'gdp' %}"><h5 class="text-light fw-normal bg-info p-3 m-0">Gross Domestic Product (GDP) <i class="fa fa-external-link float-end"></i></h5></a>
             <div class="card-body">
-              <h5 class="card-title text-center d-flex justify-content-center align-items-center"><span class="d-inline-block text-truncate" style="max-width:75%;">{{res.responseObj1.1.0.indicator.value}}</span> <a href="#faq0"><i class="fa fa-info-circle mx-2 text-primary" aria-hidden="true"></i></a></h5>
+              <h5 class="card-title text-center d-flex justify-content-center align-items-center"><span class="d-inline-block text-truncate" style="max-width:75%;">{{res.responseObj1.1.0.indicator.value}}</span> <a href="#faq0"><i class="fa fa-info-circle mx-2 text-primary" aria-hidden="true" data-bs-toggle="tooltip" data-bs-placement="right" title="Tooltip on right"></i></a></h5>
               <div id="myPlot1" class="card-img-bottom" style="width: 100%"></div>
               <div class="row p-0 m-0">
                 <p class="card-text text-start col p-0 m-0"><small class="text-muted">Source : IIMA Misra Centre, CEIC</small></p>
