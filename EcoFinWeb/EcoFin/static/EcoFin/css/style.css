@@ -46,14 +46,23 @@ body {
 }
 
 .bg-info {
-  background-color: #2a2a72;
-  background-image: linear-gradient(180deg, #2a2a72 0%, #009ffd 74%);
+  /* background-color: #2a2a72;
+  background-image: linear-gradient(180deg, #2a2a72 0%, #009ffd 74%); */
+  background: #005bd3;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #0072ff, #005bd3);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #0072ff, #005bd3); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
 .bg-grad {
-  background-color: #2a2a72;
-  background-image: linear-gradient(45deg, #2a2a72 0%, #009ffd 74%);
+  /* background-color: #2a2a72;
+  background-image: linear-gradient(45deg, #2a2a72 0%, #009ffd 74%); */
+  background: #00c6ff;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #0072ff, #00c6ff);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #0072ff, #00c6ff); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
 }
+
+
 
 a {
   text-decoration: none;
