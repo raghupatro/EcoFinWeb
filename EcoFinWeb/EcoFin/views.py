@@ -1,12 +1,18 @@
+import re
 from urllib import response
 from django.http import Http404, HttpResponse
 from django.shortcuts import render
 import requests
 import json
+from ceic_api_client.api_client import ApiClient
+from ceic_api_client.apis.dictionary_api import DictionaryApi
+from ceic_api_client.apis.series_api import SeriesApi
+from ceic_api_client.apis.insights_api import InsightsApi
 
 # Creating views here.
 
 def home(request):
+    #J8eKumIKFij724fRyZw4kbx5bbS46qsQHTmDy7GjqPBCINsrZbZcvxgTQADGNU9rutVJ37UhYpwOKGphmdyDF8RkePFbzcsJhKZehJTqJND5AbzTP8piXm71SiJNrOMJ
     # IMF DATA
     # url = 'http://dataservices.imf.org/REST/SDMX_JSON.svc/'
     # key = 'CompactData/IFS/M.GB.PMP_IX' # adjust codes here
@@ -14,27 +20,78 @@ def home(request):
 
     # with open('data.json', 'w') as jsonfile:
     # json.dump(response, jsonfile)
-    f = open('data.json')
-    response = json.load(f)
+    # f = open('data.json')
+    # response = json.load(f)
 
-    jsonData = response
-    obsData = jsonData['CompactData']['DataSet']['Series']['Obs']
+    # jsonData = response
+    # obsData = jsonData['CompactData']['DataSet']['Series']['Obs']
 
-    extData = []
+    # extData = []
 
     # Extracting useful data from json response and creating a new python dict object list extData[].
-    for i in obsData:
-        extData.append(
-            dict({"time": i['@TIME_PERIOD'], "obsValue": i['@OBS_VALUE']}))
+    # for i in obsData:
+    #     extData.append(
+    #         dict({"time": i['@TIME_PERIOD'], "obsValue": i['@OBS_VALUE']}))
 
-    # Converting extracted data to json format.
-    extDataJson = json.dumps(extData)
+    # # Converting extracted data to json format.
+    # extDataJson = json.dumps(extData)
 
-    # Converting extracted data to json object.
-    extDataObj = json.loads(extDataJson)
+    # # Converting extracted data to json object.
+    # extDataObj = json.loads(extDataJson)
 
     # Passing extDataJson and extDataObj datas to (home.html) template.
-    return render(request, 'EcoFin/imf.html', {'extDataJson': extDataJson, 'extDataObj': extDataObj})
+    # return render(request, 'EcoFin/imf.html', {'extDataJson': extDataJson, 'extDataObj': extDataObj})
+
+
+    # access_token = "J8eKumIKFij724fRyZw4kbx5bbS46qsQHTmDy7GjqPBCINsrZbZcvxgTQADGNU9rutVJ37UhYpwOKGphmdyDF8RkePFbzcsJhKZehJTqJND5AbzTP8piXm71SiJNrOMJ"
+    # example_series_id = "211637902_SR4104471"
+
+    # api_client = ApiClient()
+    # series_api = SeriesApi(api_client=api_client)
+
+    # series_result = series_api.get_series(id=example_series_id, token=access_token)
+    # series_metadata_result = series_api.get_series_metadata(id=example_series_id, token=access_token)
+    # series_time_points_result = series_api.get_series_time_points(id=example_series_id, token=access_token)
+
+    # # Access series data result
+    # series = series_result.data[0]
+    # series_metadata = series.metadata
+    # series_time_points = series.time_points
+    # # OR
+    # series_result = series_result.to_dict()
+    # series = series_result["data"][0]
+    # series_metadata = series["metadata"]
+    # series_time_points = series["time_points"]
+
+    # # Access series metadata data result
+    # series_metadata = series_metadata_result.data[0].metadata
+    # series_id = series_metadata.id
+    # series_frequency = series_metadata.frequency
+    # series_start_date = series_metadata.start_date
+    # # OR
+    # series_metadata = series_metadata_result.to_dict()["data"][0]["metadata"]
+    # series_id = series_metadata["id"]
+    # series_frequency = series_metadata["frequency"]
+    # series_start_date = series_metadata["start_date"]
+
+    # # Access series time points data result
+    # series_time_points = series_time_points_result.data[0].time_points
+    # first_time_point_date = series_time_points[0].date
+    # first_time_point_value = series_time_points[0].value
+    # second_time_point_date = series_time_points[1].date
+    # second_time_point_value = series_time_points[1].value
+    # # OR
+    # series_time_points = series_time_points_result.to_dict()["data"][0]["time_points"]
+    # first_time_point_date = series_time_points[0]["date"]
+    # first_time_point_value = series_time_points[0]["value"]
+    # second_time_point_date = series_time_points[1]["date"]
+    # second_time_point_value = series_time_points[1]["value"]
+
+    url = "https://api.worldbank.org/v2/country/ru;ind;chn;bra;za/indicator/NY.GDP.MKTP.CD?mrv=30&per_page=150&format=json"
+    response = requests.get(url).json()
+    response = json.dumps(response)
+    responseObject = json.loads(response)
+    return render(request,'EcoFin/test.html',{"res":response,"resObj":responseObject})
 
 def dashboard(request):
 

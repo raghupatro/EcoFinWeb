@@ -1,0 +1,27 @@
+{% extends 'EcoFin/header.html' %} 
+{% load static %} 
+{% block content %}
+<div class="h-75 bg-light w-100">
+
+</div>
+<script>
+    data = JSON.parse("{{res|escapejs}}");
+    data = data[1];
+
+    var xb = [];
+    var yb = [];
+    var xr = [];
+    var yr = [];
+    var xi = [];
+    var yi = [];
+    var xc = [];
+    var yc = [];
+    var xs = [];
+    var ys = [];
+
+    for(auto itr:data){
+        console.log(itr);
+    }
+
+</script>
+{% endblock %}
