@@ -1,27 +1,121 @@
-{% extends 'EcoFin/header.html' %} 
-{% load static %} 
-{% block content %}
+{% extends 'EcoFin/header.html' %} {% load static %} {% block content %}
 <div class="h-75 bg-light w-100">
-
+    <div class="col-12 col-md-12 col-lg-12 p-2" id="graph0">
+        <div class="card page-section">
+          <a href="{% url 'gdp' %}"><h5 class="text-light fw-normal bg-info p-3 m-0">Gross Domestic Product (GDP) <i class="fa fa-external-link float-end"></i></h5></a>
+          <div class="card-body">
+            <h5 class="card-title text-center d-flex justify-content-center align-items-center"><span class="d-inline-block text-truncate" style="max-width:75%;">{{resObj.1.0.indicator.value}}</span> <a href="#faq0"><i class="fa fa-info-circle mx-2 text-primary" aria-hidden="true" data-bs-toggle="tooltip" data-bs-placement="right" title="Tooltip on right"></i></a></h5>
+            <div id="myTestDiv" class="card-img-bottom" style="width: 100%"></div>
+            <div class="row p-0 m-0">
+              <p class="card-text text-start col p-0 m-0"><small class="text-muted text-truncate">Source : IIMA Misra Centre, World Bank</small></p>
+              <p class="card-text text-end col p-0 m-0"><small class="text-muted">Updated on {{resObj.0.lastupdated}}</small></p>
+            </div>
+          </div>
+        </div>
+    </div>
 </div>
 <script>
-    data = JSON.parse("{{res|escapejs}}");
-    data = data[1];
+  data = JSON.parse("{{res|escapejs}}");
+  data = data[1];
 
-    var xb = [];
-    var yb = [];
-    var xr = [];
-    var yr = [];
-    var xi = [];
-    var yi = [];
-    var xc = [];
-    var yc = [];
-    var xs = [];
-    var ys = [];
+  var xb = [];
+  var yb = [];
+  var xr = [];
+  var yr = [];
+  var xi = [];
+  var yi = [];
+  var xc = [];
+  var yc = [];
+  var xs = [];
+  var ys = [];
 
-    for(auto itr:data){
-        console.log(itr);
+  data.forEach(genratedData);
+
+  function genratedData(item, cnt) {
+    var date = item.date;
+    var value = item.value;
+
+    if (cnt >= 0 && cnt < 30) {
+      xb.push(date);
+      yb.push(value/1000000000);
+      //console.log(date+" "+value);
+    } else if (cnt >= 30 && cnt < 60) {
+      xc.push(date);
+      yc.push(value/1000000000);
+      //console.log(date+" "+value);
+    } else if (cnt >= 60 && cnt < 90) {
+      xi.push(date);
+      yi.push(value/1000000000);
+      //console.log(date+" "+value);
+    } else if (cnt >= 90 && cnt < 120) {
+      xr.push(date);
+      yr.push(value/1000000000);
+      //console.log(date+" "+value);
+    } else {
+      xs.push(date);
+      ys.push(value/1000000000);
+      //console.log(date+" "+value);
     }
+  }
+
+  var Brazil = {
+    name: 'Brazil',
+    x: xb,
+    y: yb,
+    type: "scatter",
+  };
+
+  var Russia = {
+    name: 'Russia',
+    x: xr,
+    y: yr,
+    type: "scatter",
+  };
+
+  var India = {
+    name: 'India',
+    x: xi,
+    y: yi,
+    type: "scatter",
+    mode: 'lines+markers',
+  };
+
+  var China = {
+    name: 'China',
+    x: xc,
+    y: yc,
+    type: "scatter",
+  };
+
+  var SouthAfrica = {
+    name: 'South Africa',
+    x: xs,
+    y: ys,
+    type: "scatter",
+  };
+
+  var layout = {
+    xaxis: {
+      type: "date",
+      title: "Years",
+      ticks: "outside",
+      tick0: 0,
+      dtick: "M60",
+      fixedrange: true,
+    },
+    yaxis: {
+      title: "Values in USD (in billions)",
+      ticks: "outside",
+      tick0: 0,
+      dtick: 3000,
+      fixedrange: true,
+    },
+    title: "GDP (current US$)",
+  };
+
+  var data = [Brazil, Russia, India, China, SouthAfrica]
+
+  Plotly.newPlot('myTestDiv', data, layout);
 
 </script>
 {% endblock %}

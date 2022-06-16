@@ -8,18 +8,19 @@ from ceic_api_client.api_client import ApiClient
 from ceic_api_client.apis.dictionary_api import DictionaryApi
 from ceic_api_client.apis.series_api import SeriesApi
 from ceic_api_client.apis.insights_api import InsightsApi
+from urllib3 import HTTPResponse
 
 # Creating views here.
 
 def home(request):
     #J8eKumIKFij724fRyZw4kbx5bbS46qsQHTmDy7GjqPBCINsrZbZcvxgTQADGNU9rutVJ37UhYpwOKGphmdyDF8RkePFbzcsJhKZehJTqJND5AbzTP8piXm71SiJNrOMJ
     # IMF DATA
-    # url = 'http://dataservices.imf.org/REST/SDMX_JSON.svc/'
-    # key = 'CompactData/IFS/M.GB.PMP_IX' # adjust codes here
-    # response = (requests.get(f'{url}{key}').json()) # Navigate to series in API-returned JSON data
-
-    # with open('data.json', 'w') as jsonfile:
-    # json.dump(response, jsonfile)
+    url = 'http://dataservices.imf.org/REST/SDMX_JSON.svc/'
+    key = 'CompactData/APDREO/A.AU+KR.NGDP_RPCH+LUR?startPeriod=2010&endPeriod=2017' # adjust codes here
+    response = (requests.get(f'{url}{key}').json()) # Navigate to series in API-returned JSON data
+    with open('data.json', 'w') as jsonfile:
+        json.dump(response, jsonfile)
+    print(response)
     # f = open('data.json')
     # response = json.load(f)
 
@@ -87,11 +88,12 @@ def home(request):
     # second_time_point_date = series_time_points[1]["date"]
     # second_time_point_value = series_time_points[1]["value"]
 
-    url = "https://api.worldbank.org/v2/country/ru;ind;chn;bra;za/indicator/NY.GDP.MKTP.CD?mrv=30&per_page=150&format=json"
-    response = requests.get(url).json()
-    response = json.dumps(response)
-    responseObject = json.loads(response)
-    return render(request,'EcoFin/test.html',{"res":response,"resObj":responseObject})
+    # url = "https://api.worldbank.org/v2/country/ru;ind;chn;bra;za/indicator/NY.GDP.MKTP.CD?mrv=30&per_page=150&format=json"
+    # response = requests.get(url).json()
+    # response = json.dumps(response)
+    # responseObject = json.loads(response)
+    # return render(request,'EcoFin/test.html',{"res":response,"resObj":responseObject})
+    return HttpResponse("Hello")
 
 def dashboard(request):
 
@@ -190,79 +192,79 @@ def dashboard(request):
     indicator13=indicatorFind(indicator13)
 
     url1 = "http://api.worldbank.org/v2/country/"+country1+"/indicator/" + \
-        indicator1+"?format=json&per_page=200&mrv=5&frequency=Y"
+        indicator1+"?format=json&per_page=200&mrv=10&frequency=Y"
     response1 = requests.get(url1).json()
     response1 = json.dumps(response1)
     responseObj1 = json.loads(response1)
 
     url2 = "http://api.worldbank.org/v2/country/"+country2+"/indicator/" + \
-        indicator2+"?format=json&per_page=200&mrv=5&frequency=Y"
+        indicator2+"?format=json&per_page=200&mrv=10&frequency=Y"
     response2 = requests.get(url2).json()
     response2 = json.dumps(response2)
     responseObj2 = json.loads(response2)
 
     url3 = "http://api.worldbank.org/v2/country/"+country3+"/indicator/" + \
-        indicator3+"?format=json&per_page=200&mrv=5&frequency=Y"
+        indicator3+"?format=json&per_page=200&mrv=10&frequency=Y"
     response3 = requests.get(url3).json()
     response3 = json.dumps(response3)
     responseObj3 = json.loads(response3)
 
     url4 = "http://api.worldbank.org/v2/country/"+country4+"/indicator/" + \
-        indicator4+"?format=json&per_page=200&mrv=5&frequency=Y"
+        indicator4+"?format=json&per_page=200&mrv=10&frequency=Y"
     response4 = requests.get(url4).json()
     response4 = json.dumps(response4)
     responseObj4 = json.loads(response4)
 
     url5 = "http://api.worldbank.org/v2/country/"+country5+"/indicator/" + \
-        indicator5+"?format=json&per_page=200&mrv=5&frequency=Y"
+        indicator5+"?format=json&per_page=200&mrv=10&frequency=Y"
     response5 = requests.get(url5).json()
     response5 = json.dumps(response5)
     responseObj5 = json.loads(response5)
 
     url6 = "http://api.worldbank.org/v2/country/"+country6+"/indicator/" + \
-        indicator6+"?format=json&per_page=200&mrv=5&frequency=Y"
+        indicator6+"?format=json&per_page=200&mrv=10&frequency=Y"
     response6 = requests.get(url6).json()
     response6 = json.dumps(response6)
     responseObj6 = json.loads(response6)
 
     url7 = "http://api.worldbank.org/v2/country/"+country7+"/indicator/" + \
-        indicator7+"?format=json&per_page=200&mrv=5&frequency=Y"
+        indicator7+"?format=json&per_page=200&mrv=10&frequency=Y"
     response7 = requests.get(url7).json()
     response7 = json.dumps(response7)
     responseObj7 = json.loads(response7)
 
     url8 = "http://api.worldbank.org/v2/country/"+country8+"/indicator/" + \
-        indicator8+"?format=json&per_page=200&mrv=5&frequency=Y"
+        indicator8+"?format=json&per_page=200&mrv=10&frequency=Y"
     response8 = requests.get(url8).json()
     response8 = json.dumps(response8)
     responseObj8 = json.loads(response8)
 
     url9 = "http://api.worldbank.org/v2/country/"+country9+"/indicator/" + \
-        indicator9+"?format=json&per_page=200&mrv=5&frequency=Y"
+        indicator9+"?format=json&per_page=200&mrv=10&frequency=Y"
     response9 = requests.get(url9).json()
     response9 = json.dumps(response9)
     responseObj9 = json.loads(response9)
 
     url10 = "http://api.worldbank.org/v2/country/"+country10+"/indicator/" + \
-        indicator10+"?format=json&per_page=200&mrv=5&frequency=Y"
+        indicator10+"?format=json&per_page=200&mrv=10&frequency=Y"
     response10 = requests.get(url10).json()
     response10 = json.dumps(response10)
     responseObj10 = json.loads(response10)
 
     url11 = "http://api.worldbank.org/v2/country/"+country11+"/indicator/" + \
-        indicator11+"?format=json&per_page=200&mrv=5&frequency=Y"
+        indicator11+"?format=json&per_page=200&mrv=10&frequency=Y"
     response11 = requests.get(url11).json()
     response11 = json.dumps(response11)
     responseObj11 = json.loads(response11)
 
     url12 = "http://api.worldbank.org/v2/country/"+country12+"/indicator/" + \
-        indicator12+"?format=json&per_page=200&mrv=5&frequency=Y"
+        indicator12+"?format=json&per_page=200&mrv=10&frequency=Y"
     response12 = requests.get(url12).json()
     response12 = json.dumps(response12)
     responseObj12 = json.loads(response12)
 
     url13 = "http://api.worldbank.org/v2/country/"+country13+"/indicator/" + \
-        indicator13+"?format=json&per_page=200&mrv=5&frequency=Y"
+        indicator13+"?format=json&per_page=200&mrv=10&frequency=Y"
     response13 = requests.get(url13).json()
     response13 = json.dumps(response13)
     responseObj13 = json.loads(response13)

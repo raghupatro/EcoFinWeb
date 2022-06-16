@@ -13,7 +13,7 @@ body::-webkit-scrollbar {
 
 /* Hide scrollbar for IE, Edge and Firefox */
 body {
-  font-family: 'Montserrat Alternates', sans-serif;
+  font-family: "Open Sans", sans-serif;
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
 }
@@ -48,21 +48,18 @@ body {
 .bg-info {
   /* background-color: #2a2a72;
   background-image: linear-gradient(180deg, #2a2a72 0%, #009ffd 74%); */
-  background: #005bd3;  /* fallback for old browsers */
-  background: -webkit-linear-gradient(to right, #0072ff, #005bd3);  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right, #0072ff, #005bd3); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background-color: #3f72af !important;
+}
+
+.text-primary{
+  color: #3f72af !important;
 }
 
 .bg-grad {
-  /* background-color: #2a2a72;
-  background-image: linear-gradient(45deg, #2a2a72 0%, #009ffd 74%); */
-  background: #00c6ff;  /* fallback for old browsers */
-  background: -webkit-linear-gradient(to right, #0072ff, #00c6ff);  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right, #0072ff, #00c6ff); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
+  background-color: #dedede;
+  /* background-image: url("https://www.transparenttextures.com/patterns/climpek.png"); */
+  /* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
 }
-
-
 
 a {
   text-decoration: none;
