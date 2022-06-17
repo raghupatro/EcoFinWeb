@@ -21,40 +21,40 @@
   <style>
     #loading {
       position: fixed;
-      width: 100%;
+      width: 100vw;
       height: 100vh;
-      background: #fff url("{% static " EcoFin/img/loader.gif" %}") no-repeat center center;
+      background: #fff no-repeat center center;
       z-index: 99999;
     }
   </style>
 </head>
 
 <body class="bg-grad" onload="myFunction()">
-  <div id="loading"></div>
+  <div id="loading" class="p-3"><div class="d-flex justify-content-center align-items-center h-100" ><img src="{% static 'EcoFin/img/loader.gif' %}" height="80" width="80" alt=""></div></div>
 
   <h1 class="text-center py-5 text-light m-0 d-md-none d-none d-lg-block" style="background-color: #112d4e">
     {{res.Title}}
   </h1>
 
-  <h5 class="text-center py-4 px-3 text-light m-0 d-md-block d-block d-lg-none" style="background-color: #112d4e">
+  <h5 class="text-center py-4 px-4 text-light m-0 d-md-block d-block d-lg-none" style="background-color: #112d4e">
     {{res.Title}}
   </h5>
 
   <nav class="navbar navbar-expand-lg navbar-light bg-light py-3">
     <div class="container-fluid">
       <a class="navbar-brand fs-3 ms-4 d-none d-md-block fw-bold text-primary" href="#">EcoFinWEB</a>
-      <div class="float-md-end">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0 flex-row">
-          <li class="nav-item">
-            <a class="nav-link d-inline {{activeHome}} mx-2 mx-md-1 fs-5 fw-bold" href="{% url 'dashboard' %}">Home</a>
+      <div class="float-md-end mx-auto mx-md-0">
+        <ul class="navbar-nav me-auto mb-0 mb-lg-0 flex-row">
+          <li class="nav-item my-auto">
+            <a class="nav-link d-inline {{activeHome}} mx-2 mx-md-1 fw-bold" href="{% url 'dashboard' %}">Home</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link d-inline {{activeAbout}} mx-2 mx-md-1 fs-5 fw-bold" href="{% url 'about' %}">About</a>
+          <li class="nav-item my-auto">
+            <a class="nav-link d-inline {{activeAbout}} mx-2 mx-md-1 fw-bold" href="{% url 'about' %}">About</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link d-inline {{activeContact}} mx-2 mx-md-1 fs-5 fw-bold" href="{% url 'contact' %}">Contact</a>
+          <li class="nav-item my-auto">
+            <a class="nav-link d-inline {{activeContact}} mx-2 mx-md-1 fw-bold" href="{% url 'contact' %}">Contact</a>
           </li>
-          <li class="nav-item d-flex justify-content-center align-items-center fs-4">
+          <li class="nav-item my-auto fw-bold">
             <a class="nav-link d-inline badge ms-3 mx-md-3 bg-info text-light fw-normal px-3" href="#FAQs">FAQs</a>
           </li>
         </ul>

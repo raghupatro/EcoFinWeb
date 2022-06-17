@@ -1,13 +1,9 @@
 import re
 from urllib import response
 from django.http import Http404, HttpResponse
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 import requests
 import json
-from ceic_api_client.api_client import ApiClient
-from ceic_api_client.apis.dictionary_api import DictionaryApi
-from ceic_api_client.apis.series_api import SeriesApi
-from ceic_api_client.apis.insights_api import InsightsApi
 from urllib3 import HTTPResponse
 
 # Creating views here.
@@ -15,12 +11,12 @@ from urllib3 import HTTPResponse
 def home(request):
     #J8eKumIKFij724fRyZw4kbx5bbS46qsQHTmDy7GjqPBCINsrZbZcvxgTQADGNU9rutVJ37UhYpwOKGphmdyDF8RkePFbzcsJhKZehJTqJND5AbzTP8piXm71SiJNrOMJ
     # IMF DATA
-    url = 'http://dataservices.imf.org/REST/SDMX_JSON.svc/'
-    key = 'CompactData/APDREO/A.AU+KR.NGDP_RPCH+LUR?startPeriod=2010&endPeriod=2017' # adjust codes here
-    response = (requests.get(f'{url}{key}').json()) # Navigate to series in API-returned JSON data
-    with open('data.json', 'w') as jsonfile:
-        json.dump(response, jsonfile)
-    print(response)
+    # url = 'http://dataservices.imf.org/REST/SDMX_JSON.svc/'
+    # key = 'CompactData/APDREO/A.AU+KR.NGDP_RPCH+LUR?startPeriod=2010&endPeriod=2017' # adjust codes here
+    # response = (requests.get(f'{url}{key}').json()) # Navigate to series in API-returned JSON data
+    # with open('data.json', 'w') as jsonfile:
+    #     json.dump(response, jsonfile)
+    # print(response)
     # f = open('data.json')
     # response = json.load(f)
 
@@ -93,7 +89,8 @@ def home(request):
     # response = json.dumps(response)
     # responseObject = json.loads(response)
     # return render(request,'EcoFin/test.html',{"res":response,"resObj":responseObject})
-    return HttpResponse("Hello")
+    # return HttpResponse("Hello")
+    return redirect(dashboard)
 
 def dashboard(request):
 
