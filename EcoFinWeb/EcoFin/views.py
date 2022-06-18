@@ -17,7 +17,7 @@ def home(request):
     # J8eKumIKFij724fRyZw4kbx5bbS46qsQHTmDy7GjqPBCINsrZbZcvxgTQADGNU9rutVJ37UhYpwOKGphmdyDF8RkePFbzcsJhKZehJTqJND5AbzTP8piXm71SiJNrOMJ
 
     # IMF DATA
-    startPeriod = str(2012)
+    startPeriod = str(2010)
     endPeriod = str(2022)
     indicators = 'NGDP_RPCH+LUR'
     countries = 'AU+KR'

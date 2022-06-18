@@ -1,34 +1,146 @@
 {% extends 'EcoFin/header.html' %} {% load static %} {% block content %}
-<h1 class="text-center p-3">EcoFinWebsite ( IMF Data )</h1>
-<div id="myPlot1" style="width:100%;"></div>
-<div id="myPlot2" style="width:100%;"></div>
-<div id="myPlot3" style="width:100%;"></div>
-<div id="myPlot4" style="width:100%;"></div>
+
+<div class="row container-fluid px-0 mx-auto">
+
+  <div class="col-12 col-md-6 col-lg-6 p-0 p-md-2" id="graph1">
+    <div class="card page-section">
+      <a href="{% url 'gdp' %}">
+        <h5 class="text-light fw-normal bg-info p-3 m-0">Gross Domestic Product (GDP) <i
+            class="fa fa-external-link float-end"></i></h5>
+      </a>
+      <div class="card-body">
+        <h6 class="card-title text-center d-flex justify-content-center align-items-center"><span
+            class="d-inline-block text-truncate p-2 fw-bold" style="max-width:75%;">Indicator-1</span> <a
+            href="#faq0"><i class="fa fa-info-circle mx-2 text-primary" aria-hidden="true" data-bs-t6ggle="tooltip"
+              data-bs-placement="right" title="Tooltip on right"></i></a></h6>
+        <div id="myPlot1" style="width: 100%"></div>
+        <div class="row p-0 m-0">
+          <p class="card-text text-md-start text-center col-12 col-md-6 p-0 m-0"><small
+              class="text-muted text-truncate mt-1">Source : IIMA Misra Centre, IMF</small></p>
+          <p class="card-text text-md-end text-center col-12 col-md-6 p-0 m-0"><small class="text-muted mt-1">Updated
+              on 22/05/22</small></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-12 col-md-6 col-lg-6 p-0 p-md-2" id="graph2">
+    <div class="card page-section">
+      <a href="{% url 'gdp' %}">
+        <h5 class="text-light fw-normal bg-info p-3 m-0">Gross Domestic Product (GDP) <i
+            class="fa fa-external-link float-end"></i></h5>
+      </a>
+      <div class="card-body">
+        <h6 class="card-title text-center d-flex justify-content-center align-items-center"><span
+            class="d-inline-block text-truncate p-2 fw-bold" style="max-width:75%;">Indicator-2</span> <a
+            href="#faq0"><i class="fa fa-info-circle mx-2 text-primary" aria-hidden="true" data-bs-t6ggle="tooltip"
+              data-bs-placement="right" title="Tooltip on right"></i></a></h6>
+        <div id="myPlot2" style="width: 100%"></div>
+        <div class="row p-0 m-0">
+          <p class="card-text text-md-start text-center col-12 col-md-6 p-0 m-0"><small
+              class="text-muted text-truncate mt-1">Source : IIMA Misra Centre, IMF</small></p>
+          <p class="card-text text-md-end text-center col-12 col-md-6 p-0 m-0"><small class="text-muted mt-1">Updated
+              on 22/05/22</small></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-12 col-md-6 col-lg-6 p-0 p-md-2" id="graph3">
+    <div class="card page-section">
+      <a href="{% url 'gdp' %}">
+        <h5 class="text-light fw-normal bg-info p-3 m-0">Gross Domestic Product (GDP) <i
+            class="fa fa-external-link float-end"></i></h5>
+      </a>
+      <div class="card-body">
+        <h6 class="card-title text-center d-flex justify-content-center align-items-center"><span
+            class="d-inline-block text-truncate p-2 fw-bold" style="max-width:75%;">Indicator-3</span> <a
+            href="#faq0"><i class="fa fa-info-circle mx-2 text-primary" aria-hidden="true" data-bs-t6ggle="tooltip"
+              data-bs-placement="right" title="Tooltip on right"></i></a></h6>
+        <div id="myPlot3" style="width: 100%"></div>
+        <div class="row p-0 m-0">
+          <p class="card-text text-md-start text-center col-12 col-md-6 p-0 m-0"><small
+              class="text-muted text-truncate mt-1">Source : IIMA Misra Centre, IMF</small></p>
+          <p class="card-text text-md-end text-center col-12 col-md-6 p-0 m-0"><small class="text-muted mt-1">Updated
+              on 22/05/22</small></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-12 col-md-6 col-lg-6 p-0 p-md-2" id="graph4">
+    <div class="card page-section">
+      <a href="{% url 'gdp' %}">
+        <h5 class="text-light fw-normal bg-info p-3 m-0">Gross Domestic Product (GDP) <i
+            class="fa fa-external-link float-end"></i></h5>
+      </a>
+      <div class="card-body">
+        <h6 class="card-title text-center d-flex justify-content-center align-items-center"><span
+            class="d-inline-block text-truncate p-2 fw-bold" style="max-width:75%;">Indicator-4</span> <a
+            href="#faq0"><i class="fa fa-info-circle mx-2 text-primary" aria-hidden="true" data-bs-t6ggle="tooltip"
+              data-bs-placement="right" title="Tooltip on right"></i></a></h6>
+        <div id="myPlot4" style="width: 100%"></div>
+        <div class="row p-0 m-0">
+          <p class="card-text text-md-start text-center col-12 col-md-6 p-0 m-0"><small
+              class="text-muted text-truncate mt-1">Source : IIMA Misra Centre, IMF</small></p>
+          <p class="card-text text-md-end text-center col-12 col-md-6 p-0 m-0"><small class="text-muted mt-1">Updated
+              on 22/05/22</small></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-12 col-md-12 col-lg-12 p-0 p-md-2" id="graph5">
+    <div class="card page-section">
+      <a href="{% url 'gdp' %}">
+        <h5 class="text-light fw-normal bg-info p-3 m-0">Gross Domestic Product (GDP) <i
+            class="fa fa-external-link float-end"></i></h5>
+      </a>
+      <div class="card-body">
+        <h6 class="card-title text-center d-flex justify-content-center align-items-center"><span
+            class="d-inline-block text-truncate p-2 fw-bold" style="max-width:75%;">Indicator-5</span> <a
+            href="#faq0"><i class="fa fa-info-circle mx-2 text-primary" aria-hidden="true" data-bs-t6ggle="tooltip"
+              data-bs-placement="right" title="Tooltip on right"></i></a></h6>
+        <div id="myPlot5" style="width: 100%"></div>
+        <div class="row p-0 m-0">
+          <p class="card-text text-md-start text-center col-12 col-md-6 p-0 m-0"><small
+              class="text-muted text-truncate mt-1">Source : IIMA Misra Centre, IMF</small></p>
+          <p class="card-text text-md-end text-center col-12 col-md-6 p-0 m-0"><small class="text-muted mt-1">Updated
+              on 22/05/22</small></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 <script>
 
   var data = "{{extDataJson|escapejs}}";
   data = JSON.parse(data);
-  //console.log(data);
+  mainData = data;
+  // console.log(data);
 
   data.forEach(genratedDatas);
+  
+  genrateMultiGraph(mainData, "myPlot5", "line", "v");
 
-  function genratedDatas(itemData,indexData){
+  function genratedDatas(itemData, indexData) {
     data = itemData[0]['timeSeries'];
-    plotId = "myPlot"+(indexData+1);
+    plotId = "myPlot" + (indexData + 1);
     tog = "line";
     ot = "v";
     // console.log(itemData[0]['timeSeries'])
-    genrateGraph(data,plotId,tog,ot);
+    genrateGraph(data, plotId, tog, ot);
   }
-
+  
   function genrateGraph(data, plotId, typeOfGraph, orientationType) {
     var xValues = [];
     var yValues = [];
 
     // console.log(data,plotId,typeOfGraph,orientationType);
-    
+
     data.forEach(genratedData);
-  
+
     function genratedData(item, index) {
       let date = new Date(item.time);
       if (item.value != null) {
@@ -36,23 +148,39 @@
         yValues.push(item.value);
       }
     }
-  
+
     var dataPlot = [
       {
         x: xValues,
         y: yValues,
         type: typeOfGraph,
+        line: {
+          color: 'red',
+          width: 2,
+        },
+        orientation: orientationType,
+      },
+      {
+        x: xValues,
+        y: yValues,
+        type: 'bar',
+        marker: {
+          color: ['rgba(255, 99, 71, 1)', 'rgba(255, 99, 71, 0.95)', 'rgba(255, 99, 71, 0.9)', 'rgba(255, 99, 71, 0.85)', 'rgba(255, 99, 71, 0.8)', 'rgba(255, 99, 71, 0.75)',
+            'rgba(255, 99, 71, 0.7)', 'rgba(255, 99, 71, 0.65)', 'rgba(255, 99, 71, 0.6)', 'rgba(255, 99, 71, 0.55)', 'rgba(255, 99, 71, 0.5)', 'rgba(255, 99, 71, 0.45)', 'rgba(255, 99, 71, 0.4)'],
+        },
         orientation: orientationType,
       },
     ];
-  
+
     var layout = {
       autosize: true,
+
       font: {
         family: 'Open Sans, serif',
         size: 12,
         // color: '#7f7f7f'
       },
+
       margin: {
         l: 20,
         r: 20,
@@ -60,32 +188,205 @@
         t: 100,
         pad: 1
       },
+
       paper_bgcolor: '#dedede',
       plot_bgcolor: '#dedede',
+
       xaxis: {
         type: "date",
         title: "Years",
         ticks: "outside",
+        tickangle: 'auto',
         tick0: 0,
         dtick: "M12",
         tickformat: '%Y',
         fixedrange: true,
         automargin: true,
       },
+
       yaxis: {
         title: "Values",
         fixedrange: true,
         automargin: true,
       },
+
       title: "Time vs Value",
+      showlegend: true,
+      legend: {
+        x: 0.5,
+        xanchor: 'center',
+        y: 1.15,
+        "orientation": "h"
+      },
     };
-  
+
     const config = {
-      displayModeBar: false, // this is the line that hides the bar.
+      displayModeBar: false,
     };
-  
+
     Plotly.newPlot(plotId, dataPlot, layout, config);
   }
-  
+
+  function genrateMultiGraph(data, plotId, typeOfGraph, orientationType) {
+
+    var x1Values = [];
+    var y1Values = [];
+
+    var x2Values = [];
+    var y2Values = [];
+
+    var x3Values = [];
+    var y3Values = [];
+
+    var x4Values = [];
+    var y4Values = [];
+
+    // console.log(data[0],plotId,typeOfGraph,orientationType);
+
+    var data1 = data[0][0]['timeSeries'];
+    var data2 = data[1][0]['timeSeries'];
+    var data3 = data[2][0]['timeSeries'];
+    var data4 = data[3][0]['timeSeries'];
+
+    // console.log(data1);
+
+    data1.forEach(genratedData1);
+    data2.forEach(genratedData2);
+    data3.forEach(genratedData3);
+    data4.forEach(genratedData4);
+
+    function genratedData1(item, index) {
+      let date = new Date(item.time);
+      if (item.value != null) {
+        x1Values.push(date.getFullYear());
+        y1Values.push(item.value);
+      }
+    }
+
+    function genratedData2(item, index) {
+      let date = new Date(item.time);
+      if (item.value != null) {
+        x2Values.push(date.getFullYear());
+        y2Values.push(item.value);
+      }
+    }
+
+    function genratedData3(item, index) {
+      let date = new Date(item.time);
+      if (item.value != null) {
+        x3Values.push(date.getFullYear());
+        y3Values.push(item.value);
+      }
+    }
+
+    function genratedData4(item, index) {
+      let date = new Date(item.time);
+      if (item.value != null) {
+        x4Values.push(date.getFullYear());
+        y4Values.push(item.value);
+      }
+    }
+
+    // console.log(x1Values, x2Values, x3Values, x4Values);
+    // console.log(y1Values, y2Values, y3Values, y4Values);
+
+    var dataPlot = [
+      {
+        x: x1Values,
+        y: y1Values,
+        type: typeOfGraph,
+        line: {
+          // color: 'yellow',
+          width: 2,
+        },
+        orientation: orientationType,
+      },
+      {
+        x: x2Values,
+        y: y2Values,
+        type: typeOfGraph,
+        line: {
+          // color: 'yellow',
+          width: 2,
+        },
+        orientation: orientationType,
+      },
+      {
+        x: x3Values,
+        y: y3Values,
+        type: typeOfGraph,
+        line: {
+          // color: 'yellow',
+          width: 2,
+        },
+        orientation: orientationType,
+      },
+      {
+        x: x4Values,
+        y: y4Values,
+        type: typeOfGraph,
+        line: {
+          // color: 'yellow',
+          width: 2,
+        },
+        orientation: orientationType,
+      },
+    ];
+
+    var layout = {
+      autosize: true,
+
+      font: {
+        family: 'Open Sans, serif',
+        size: 12,
+        // color: '#7f7f7f'
+      },
+
+      margin: {
+        l: 20,
+        r: 20,
+        b: 100,
+        t: 100,
+        pad: 1
+      },
+
+      paper_bgcolor: '#dedede',
+      plot_bgcolor: '#dedede',
+
+      xaxis: {
+        type: "date",
+        title: "Years",
+        ticks: "outside",
+        tickangle: 'auto',
+        tick0: 0,
+        dtick: "M12",
+        tickformat: '%Y',
+        fixedrange: true,
+        automargin: true,
+      },
+
+      yaxis: {
+        title: "Values",
+        fixedrange: true,
+        automargin: true,
+      },
+
+      title: "Time vs Value",
+      showlegend: true,
+      legend: {
+        x: 0.5,
+        xanchor: 'center',
+        y: 1.15,
+        "orientation": "h"
+      },
+    };
+
+    const config = {
+      displayModeBar: false,
+    };
+
+    Plotly.newPlot(plotId, dataPlot, layout, config);
+  }
+
 </script>
 {% endblock content %}
