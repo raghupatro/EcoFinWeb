@@ -1,44 +1,63 @@
 import re
 from urllib import response
+from xml.etree.ElementTree import tostring
 from django.http import Http404, HttpResponse
 from django.shortcuts import redirect, render
 import requests
 import json
 from urllib3 import HTTPResponse
 
-# Creating views here.
+def imfAPI(database,frequency,countries,indicators,startPeriod,endPeriod):
+    url = 'http://dataservices.imf.org/REST/SDMX_JSON.svc/CompactData/'+database+'/'+frequency+'.'+countries+'.'+indicators+'?startPeriod='+startPeriod+'&endPeriod='+endPeriod
+    responseIMF = requests.get(url).json()
+    return responseIMF
 
+# Creating views here.
 def home(request):
-    #J8eKumIKFij724fRyZw4kbx5bbS46qsQHTmDy7GjqPBCINsrZbZcvxgTQADGNU9rutVJ37UhYpwOKGphmdyDF8RkePFbzcsJhKZehJTqJND5AbzTP8piXm71SiJNrOMJ
+    # J8eKumIKFij724fRyZw4kbx5bbS46qsQHTmDy7GjqPBCINsrZbZcvxgTQADGNU9rutVJ37UhYpwOKGphmdyDF8RkePFbzcsJhKZehJTqJND5AbzTP8piXm71SiJNrOMJ
+
     # IMF DATA
-    # url = 'http://dataservices.imf.org/REST/SDMX_JSON.svc/'
-    # key = 'CompactData/APDREO/A.AU+KR.NGDP_RPCH+LUR?startPeriod=2010&endPeriod=2017' # adjust codes here
-    # response = (requests.get(f'{url}{key}').json()) # Navigate to series in API-returned JSON data
+    startPeriod = str(2012)
+    endPeriod = str(2022)
+    indicators = 'NGDP_RPCH+LUR'
+    countries = 'AU+KR'
+    frequency = 'A'
+    database = 'APDREO'
+    response = imfAPI(database,frequency,countries,indicators,startPeriod,endPeriod)
+    
     # with open('data.json', 'w') as jsonfile:
     #     json.dump(response, jsonfile)
     # print(response)
     # f = open('data.json')
     # response = json.load(f)
 
-    # jsonData = response
-    # obsData = jsonData['CompactData']['DataSet']['Series']['Obs']
+    jsonData = response
+    series = jsonData['CompactData']['DataSet']['Series']
+    
+    extData = []
 
-    # extData = []
+    for s in series:
+        newSeries = []
+        countryCode = s['@REF_AREA']
+        indicatorCode = s['@INDICATOR']
+        timeSeries = []
+        for i in s['Obs']:
+            timeSeries.append(dict({"time": i['@TIME_PERIOD'], "value": i['@OBS_VALUE']}))
+        newSeries.append(dict({"countryCode":countryCode,"indicatorCode":indicatorCode,"timeSeries":timeSeries}))
+        extData.append(newSeries)
+    
+    # for data in extData:
+    #     print(data)
+    #     print("\n")
 
-    # Extracting useful data from json response and creating a new python dict object list extData[].
-    # for i in obsData:
-    #     extData.append(
-    #         dict({"time": i['@TIME_PERIOD'], "obsValue": i['@OBS_VALUE']}))
+    # Converting extracted data to json format.
+    extDataJson = json.dumps(extData)
 
-    # # Converting extracted data to json format.
-    # extDataJson = json.dumps(extData)
-
-    # # Converting extracted data to json object.
-    # extDataObj = json.loads(extDataJson)
+    # Converting extracted data to json object.
+    extDataObj = json.loads(extDataJson)
 
     # Passing extDataJson and extDataObj datas to (home.html) template.
-    # return render(request, 'EcoFin/imf.html', {'extDataJson': extDataJson, 'extDataObj': extDataObj})
-
+    return render(request, 'EcoFin/imf.html', {'extDataJson': extDataJson, 'extDataObj': extDataObj})
 
     # access_token = "J8eKumIKFij724fRyZw4kbx5bbS46qsQHTmDy7GjqPBCINsrZbZcvxgTQADGNU9rutVJ37UhYpwOKGphmdyDF8RkePFbzcsJhKZehJTqJND5AbzTP8piXm71SiJNrOMJ"
     # example_series_id = "211637902_SR4104471"
@@ -90,38 +109,38 @@ def home(request):
     # responseObject = json.loads(response)
     # return render(request,'EcoFin/test.html',{"res":response,"resObj":responseObject})
     # return HttpResponse("Hello")
-    return redirect(dashboard)
+    # return redirect(dashboard)
+
 
 def dashboard(request):
 
-    country1="ind"
-    country2="ind"
-    country3="ind"
-    country4="ind"
-    country5="ind"
-    country6="ind"
-    country7="ind"
-    country8="ind"
-    country9="ind"
-    country10="ind"
-    country11="ind"
-    country12="ind"
-    country13="ind"
+    country1 = "ind"
+    country2 = "ind"
+    country3 = "ind"
+    country4 = "ind"
+    country5 = "ind"
+    country6 = "ind"
+    country7 = "ind"
+    country8 = "ind"
+    country9 = "ind"
+    country10 = "ind"
+    country11 = "ind"
+    country12 = "ind"
+    country13 = "ind"
 
-    indicator1="GDPG"
-    indicator2="GDPC"
-    indicator3="GDPCG"
-    indicator4="PP"
-    indicator5="PG"
-    indicator6="UNER"
-    indicator7="ISRP"
-    indicator8="TR"
-    indicator9="CAB"
-    indicator10="EXP"
-    indicator11="CPI"
-    indicator12="GDPG"
-    indicator13="GDPC"
-
+    indicator1 = "GDPG"
+    indicator2 = "GDPC"
+    indicator3 = "GDPCG"
+    indicator4 = "PP"
+    indicator5 = "PG"
+    indicator6 = "UNER"
+    indicator7 = "ISRP"
+    indicator8 = "TR"
+    indicator9 = "CAB"
+    indicator10 = "EXP"
+    indicator11 = "CPI"
+    indicator12 = "GDPG"
+    indicator13 = "GDPC"
 
     # WORLD BANK DATA
 
@@ -174,19 +193,19 @@ def dashboard(request):
         else:
             return HttpResponse("404, Page not found !!!")
 
-    indicator1=indicatorFind(indicator1)
-    indicator2=indicatorFind(indicator2)
-    indicator3=indicatorFind(indicator3)
-    indicator4=indicatorFind(indicator4)
-    indicator5=indicatorFind(indicator5)
-    indicator6=indicatorFind(indicator6)
-    indicator7=indicatorFind(indicator7)
-    indicator8=indicatorFind(indicator8)
-    indicator9=indicatorFind(indicator9)
-    indicator10=indicatorFind(indicator10)
-    indicator11=indicatorFind(indicator11)
-    indicator12=indicatorFind(indicator12)
-    indicator13=indicatorFind(indicator13)
+    indicator1 = indicatorFind(indicator1)
+    indicator2 = indicatorFind(indicator2)
+    indicator3 = indicatorFind(indicator3)
+    indicator4 = indicatorFind(indicator4)
+    indicator5 = indicatorFind(indicator5)
+    indicator6 = indicatorFind(indicator6)
+    indicator7 = indicatorFind(indicator7)
+    indicator8 = indicatorFind(indicator8)
+    indicator9 = indicatorFind(indicator9)
+    indicator10 = indicatorFind(indicator10)
+    indicator11 = indicatorFind(indicator11)
+    indicator12 = indicatorFind(indicator12)
+    indicator13 = indicatorFind(indicator13)
 
     url1 = "http://api.worldbank.org/v2/country/"+country1+"/indicator/" + \
         indicator1+"?format=json&per_page=200&mrv=10&frequency=Y"
@@ -267,139 +286,154 @@ def dashboard(request):
     responseObj13 = json.loads(response13)
 
     response = {
-        "Title":"At a Glance: Indian Economy and Financial Markets",
-        "Body":"",
-        "response1": response1, 
-        "responseObj1": responseObj1, 
-        "response2": response2, 
-        "responseObj2": responseObj2, 
-        "response3": response3, 
-        "responseObj3": responseObj3, 
-        "response4": response4, 
-        "responseObj4": responseObj4, 
-        "response5": response5, 
-        "responseObj5": responseObj5, 
-        "response6": response6, 
+        "Title": "At a Glance: Indian Economy and Financial Markets",
+        "Body": "",
+        "response1": response1,
+        "responseObj1": responseObj1,
+        "response2": response2,
+        "responseObj2": responseObj2,
+        "response3": response3,
+        "responseObj3": responseObj3,
+        "response4": response4,
+        "responseObj4": responseObj4,
+        "response5": response5,
+        "responseObj5": responseObj5,
+        "response6": response6,
         "responseObj6": responseObj6,
-        "response7": response7, 
-        "responseObj7": responseObj7, 
-        "response8": response8, 
-        "responseObj8": responseObj8, 
-        "response9": response9, 
-        "responseObj9": responseObj9, 
-        "response10": response10, 
-        "responseObj10": responseObj10, 
-        "response11": response11, 
-        "responseObj11": responseObj11, 
-        "response12": response12, 
+        "response7": response7,
+        "responseObj7": responseObj7,
+        "response8": response8,
+        "responseObj8": responseObj8,
+        "response9": response9,
+        "responseObj9": responseObj9,
+        "response10": response10,
+        "responseObj10": responseObj10,
+        "response11": response11,
+        "responseObj11": responseObj11,
+        "response12": response12,
         "responseObj12": responseObj12,
-        "response13": response13, 
+        "response13": response13,
         "responseObj13": responseObj13,
     }
 
-    return render(request, 'EcoFin/dashboard.html', {"res":response,"activeHome":"active"})
+    return render(request, 'EcoFin/dashboard.html', {"res": response, "activeHome": "active"})
+
 
 def about(request):
     response = {
-        "Title":"About Us",
-        "Body":"About Us",
+        "Title": "About Us",
+        "Body": "About Us",
     }
-    return render(request,'EcoFin/about.html',{"res":response,"activeAbout":"active"})
+    return render(request, 'EcoFin/about.html', {"res": response, "activeAbout": "active"})
+
 
 def contact(request):
     response = {
-        "Title":"Contact Us",
-        "Body":"Contact Us",
+        "Title": "Contact Us",
+        "Body": "Contact Us",
     }
-    return render(request,'EcoFin/contact.html',{"res":response,"activeContact":"active"})    
+    return render(request, 'EcoFin/contact.html', {"res": response, "activeContact": "active"})
+
 
 def gdp(request):
     response = {
-        "Title":"Gross Domestic Product (GDP)",
-        "Body":"Gross Domestic Product (GDP)",
+        "Title": "Gross Domestic Product (GDP)",
+        "Body": "Gross Domestic Product (GDP)",
     }
-    return render(request, 'EcoFin/gdp.html', {"res":response})
+    return render(request, 'EcoFin/gdp.html', {"res": response})
+
 
 def inflation(request):
     response = {
-        "Title":"Inflation",
-        "Body":"Infilation",
+        "Title": "Inflation",
+        "Body": "Infilation",
     }
-    return render(request, 'EcoFin/inflation.html', {"res":response})
+    return render(request, 'EcoFin/inflation.html', {"res": response})
+
 
 def businessPerformance(request):
     response = {
-        "Title":"Business Performance",
-        "Body":"Business Performance",
+        "Title": "Business Performance",
+        "Body": "Business Performance",
     }
-    return render(request, 'EcoFin/businessPerformance.html', {"res":response})
+    return render(request, 'EcoFin/businessPerformance.html', {"res": response})
+
 
 def tradeForex(request):
     response = {
-        "Title":"Trade and Forex",
-        "Body":"Trade and Forex",
+        "Title": "Trade and Forex",
+        "Body": "Trade and Forex",
     }
-    return render(request, 'EcoFin/tradeForex.html', {"res":response})
+    return render(request, 'EcoFin/tradeForex.html', {"res": response})
+
 
 def unemployment(request):
     response = {
-        "Title":"Unemployment",
-        "Body":"Unemployment",
+        "Title": "Unemployment",
+        "Body": "Unemployment",
     }
-    return render(request, 'EcoFin/unemployment.html', {"res":response})
+    return render(request, 'EcoFin/unemployment.html', {"res": response})
+
 
 def fiscalSituation(request):
     response = {
-        "Title":"Fiscal Situation",
-        "Body":"Fiscal Situation",
+        "Title": "Fiscal Situation",
+        "Body": "Fiscal Situation",
     }
-    return render(request, 'EcoFin/fiscalSituation.html', {"res":response})
+    return render(request, 'EcoFin/fiscalSituation.html', {"res": response})
+
 
 def interestRatesBond(request):
     response = {
-        "Title":"Interest Rates & Bond",
-        "Body":"Interest Rates & Bond",
+        "Title": "Interest Rates & Bond",
+        "Body": "Interest Rates & Bond",
     }
-    return render(request, 'EcoFin/interestRatesBond.html', {"res":response})
+    return render(request, 'EcoFin/interestRatesBond.html', {"res": response})
+
 
 def equityMarkets(request):
     response = {
-        "Title":"Equity Markets",
-        "Body":"Equity Markets",
+        "Title": "Equity Markets",
+        "Body": "Equity Markets",
     }
-    return render(request, 'EcoFin/equityMarkets.html', {"res":response}) 
+    return render(request, 'EcoFin/equityMarkets.html', {"res": response})
+
 
 def commodityMarkets(request):
     response = {
-        "Title":"Ccommodity Markets",
-        "Body":"Commodity Markets",
+        "Title": "Ccommodity Markets",
+        "Body": "Commodity Markets",
     }
-    return render(request, 'EcoFin/commodityMarkets.html', {"res":response})
+    return render(request, 'EcoFin/commodityMarkets.html', {"res": response})
+
 
 def foreignInvestment(request):
     response = {
-        "Title":"Foreign Investment",
-        "Body":"Foreign Investment",
+        "Title": "Foreign Investment",
+        "Body": "Foreign Investment",
     }
-    return render(request, 'EcoFin/foreignInvestment.html', {"res":response})
+    return render(request, 'EcoFin/foreignInvestment.html', {"res": response})
+
 
 def moneyCredit(request):
     response = {
-        "Title":"Money & Credit",
-        "Body":"Money & Credit",
+        "Title": "Money & Credit",
+        "Body": "Money & Credit",
     }
-    return render(request, 'EcoFin/moneyCredit.html', {"res":response})
+    return render(request, 'EcoFin/moneyCredit.html', {"res": response})
+
 
 def realEstate(request):
     response = {
-        "Title":"Real Estate",
-        "Body":"Real Estate",
+        "Title": "Real Estate",
+        "Body": "Real Estate",
     }
-    return render(request, 'EcoFin/realEstate.html', {"res":response})   
+    return render(request, 'EcoFin/realEstate.html', {"res": response})
+
 
 def ventureCapitalIPO(request):
     response = {
-        "Title":"Venture Capital & IPOs",
-        "Body":"Venture Capital & IPOs",
+        "Title": "Venture Capital & IPOs",
+        "Body": "Venture Capital & IPOs",
     }
-    return render(request, 'EcoFin/ventureCapitalIPO.html', {"res":response})                      
+    return render(request, 'EcoFin/ventureCapitalIPO.html', {"res": response})

@@ -1,1 +1,108 @@
-{"CompactData": {"@xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance", "@xmlns:xsd": "http://www.w3.org/2001/XMLSchema", "@xsi:schemaLocation": "http://www.SDMX.org/resources/SDMXML/schemas/v2_0/message https://registry.sdmx.org/schemas/v2_0/SDMXMessage.xsd http://dataservices.imf.org/compact/APDREO http://dataservices.imf.org/compact/APDREO.xsd", "@xmlns": "http://www.SDMX.org/resources/SDMXML/schemas/v2_0/message", "Header": {"ID": "64047445-a351-49f8-a88f-a42e6df76ee1", "Test": "false", "Prepared": "2022-06-16T19:19:30", "Sender": {"@id": "1C0", "Name": {"@xml:lang": "en", "#text": "IMF"}, "Contact": {"URI": "http://www.imf.org", "Telephone": "+ 1 (202) 623-6220"}}, "Receiver": {"@id": "ZZZ"}, "DataSetID": "APDREO"}, "DataSet": {"@xmlns": "http://dataservices.imf.org/compact/APDREO", "Series": [{"@FREQ": "A", "@REF_AREA": "AU", "@INDICATOR": "NGDP_RPCH", "@UNIT_MULT": "0", "@TIME_FORMAT": "P1Y", "Obs": [{"@TIME_PERIOD": "2010", "@OBS_VALUE": "2.43837770921001"}, {"@TIME_PERIOD": "2011", "@OBS_VALUE": "2.82815267956273"}, {"@TIME_PERIOD": "2012", "@OBS_VALUE": "3.77674181607951"}, {"@TIME_PERIOD": "2013", "@OBS_VALUE": "2.20642736753646"}, {"@TIME_PERIOD": "2014", "@OBS_VALUE": "2.55639497151093"}, {"@TIME_PERIOD": "2015", "@OBS_VALUE": "2.30952512321483"}, {"@TIME_PERIOD": "2016", "@OBS_VALUE": "2.70126299604829"}, {"@TIME_PERIOD": "2017", "@OBS_VALUE": "2.37800022933396"}]}, {"@FREQ": "A", "@REF_AREA": "KR", "@INDICATOR": "LUR", "@UNIT_MULT": "0", "@TIME_FORMAT": "P1Y", "Obs": [{"@TIME_PERIOD": "2010", "@OBS_VALUE": "3.70833333333333"}, {"@TIME_PERIOD": "2011", "@OBS_VALUE": "3.40833333333333"}, {"@TIME_PERIOD": "2012", "@OBS_VALUE": "3.225"}, {"@TIME_PERIOD": "2013", "@OBS_VALUE": "3.1"}, {"@TIME_PERIOD": "2014", "@OBS_VALUE": "3.49166666666667"}, {"@TIME_PERIOD": "2015", "@OBS_VALUE": "3.59166666666667"}, {"@TIME_PERIOD": "2016", "@OBS_VALUE": "3.675"}, {"@TIME_PERIOD": "2017", "@OBS_VALUE": "3.68333333333333"}]}, {"@FREQ": "A", "@REF_AREA": "KR", "@INDICATOR": "NGDP_RPCH", "@UNIT_MULT": "0", "@TIME_FORMAT": "P1Y", "Obs": [{"@TIME_PERIOD": "2010", "@OBS_VALUE": "6.80482491783671"}, {"@TIME_PERIOD": "2011", "@OBS_VALUE": "3.68566778212528"}, {"@TIME_PERIOD": "2012", "@OBS_VALUE": "2.40253099246186"}, {"@TIME_PERIOD": "2013", "@OBS_VALUE": "3.16470863647185"}, {"@TIME_PERIOD": "2014", "@OBS_VALUE": "3.20245379457361"}, {"@TIME_PERIOD": "2015", "@OBS_VALUE": "2.80910326824134"}, {"@TIME_PERIOD": "2016", "@OBS_VALUE": "2.94688171508626"}, {"@TIME_PERIOD": "2017", "@OBS_VALUE": "3.15962988148612"}]}, {"@FREQ": "A", "@REF_AREA": "AU", "@INDICATOR": "LUR", "@UNIT_MULT": "0", "@TIME_FORMAT": "P1Y", "Obs": [{"@TIME_PERIOD": "2010", "@OBS_VALUE": "5.20833333333333"}, {"@TIME_PERIOD": "2011", "@OBS_VALUE": "5.08333333333334"}, {"@TIME_PERIOD": "2012", "@OBS_VALUE": "5.23333333333333"}, {"@TIME_PERIOD": "2013", "@OBS_VALUE": "5.65833333333333"}, {"@TIME_PERIOD": "2014", "@OBS_VALUE": "6.05833333333334"}, {"@TIME_PERIOD": "2015", "@OBS_VALUE": "6.05833333333333"}, {"@TIME_PERIOD": "2016", "@OBS_VALUE": "5.71666666666666"}, {"@TIME_PERIOD": "2017", "@OBS_VALUE": "5.59166666666667"}]}]}}}
+{
+  "CompactData": {
+    "@xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance",
+    "@xmlns:xsd": "http://www.w3.org/2001/XMLSchema",
+    "@xsi:schemaLocation": "http://www.SDMX.org/resources/SDMXML/schemas/v2_0/message https://registry.sdmx.org/schemas/v2_0/SDMXMessage.xsd http://dataservices.imf.org/compact/APDREO http://dataservices.imf.org/compact/APDREO.xsd",
+    "@xmlns": "http://www.SDMX.org/resources/SDMXML/schemas/v2_0/message",
+    "Header": {
+      "ID": "e6e071c2-1f08-4558-86dc-db6f11962658",
+      "Test": "false",
+      "Prepared": "2022-06-18T11:12:31",
+      "Sender": {
+        "@id": "1C0",
+        "Name": { "@xml:lang": "en", "#text": "IMF" },
+        "Contact": {
+          "URI": "http://www.imf.org",
+          "Telephone": "+ 1 (202) 623-6220"
+        }
+      },
+      "Receiver": { "@id": "ZZZ" },
+      "DataSetID": "APDREO"
+    },
+    "DataSet": {
+      "@xmlns": "http://dataservices.imf.org/compact/APDREO",
+      "Series": [
+        {
+          "@FREQ": "A",
+          "@REF_AREA": "AU",
+          "@INDICATOR": "NGDP_RPCH",
+          "@UNIT_MULT": "0",
+          "@TIME_FORMAT": "P1Y",
+          "Obs": [
+            { "@TIME_PERIOD": "2012", "@OBS_VALUE": "3.77674181607951" },
+            { "@TIME_PERIOD": "2013", "@OBS_VALUE": "2.20642736753646" },
+            { "@TIME_PERIOD": "2014", "@OBS_VALUE": "2.55639497151093" },
+            { "@TIME_PERIOD": "2015", "@OBS_VALUE": "2.30952512321483" },
+            { "@TIME_PERIOD": "2016", "@OBS_VALUE": "2.70126299604829" },
+            { "@TIME_PERIOD": "2017", "@OBS_VALUE": "2.37800022933396" },
+            { "@TIME_PERIOD": "2018", "@OBS_VALUE": "2.76962757254846" },
+            { "@TIME_PERIOD": "2019", "@OBS_VALUE": "1.9954959634788" },
+            { "@TIME_PERIOD": "2020", "@OBS_VALUE": "-2.17919815454212" },
+            { "@TIME_PERIOD": "2021", "@OBS_VALUE": "4.69309804293886" },
+            { "@TIME_PERIOD": "2022", "@OBS_VALUE": "4.16109446613204" }
+          ]
+        },
+        {
+          "@FREQ": "A",
+          "@REF_AREA": "KR",
+          "@INDICATOR": "LUR",
+          "@UNIT_MULT": "0",
+          "@TIME_FORMAT": "P1Y",
+          "Obs": [
+            { "@TIME_PERIOD": "2012", "@OBS_VALUE": "3.225" },
+            { "@TIME_PERIOD": "2013", "@OBS_VALUE": "3.1" },
+            { "@TIME_PERIOD": "2014", "@OBS_VALUE": "3.49166666666667" },
+            { "@TIME_PERIOD": "2015", "@OBS_VALUE": "3.59166666666667" },
+            { "@TIME_PERIOD": "2016", "@OBS_VALUE": "3.675" },
+            { "@TIME_PERIOD": "2017", "@OBS_VALUE": "3.68333333333333" },
+            { "@TIME_PERIOD": "2018", "@OBS_VALUE": "3.83333333333333" },
+            { "@TIME_PERIOD": "2019", "@OBS_VALUE": "3.78333333333333" },
+            { "@TIME_PERIOD": "2020", "@OBS_VALUE": "3.94166666666667" },
+            { "@TIME_PERIOD": "2021", "@OBS_VALUE": "3.675" },
+            { "@TIME_PERIOD": "2022", "@OBS_VALUE": "3.575" }
+          ]
+        },
+        {
+          "@FREQ": "A",
+          "@REF_AREA": "KR",
+          "@INDICATOR": "NGDP_RPCH",
+          "@UNIT_MULT": "0",
+          "@TIME_FORMAT": "P1Y",
+          "Obs": [
+            { "@TIME_PERIOD": "2012", "@OBS_VALUE": "2.40253099246186" },
+            { "@TIME_PERIOD": "2013", "@OBS_VALUE": "3.16470863647185" },
+            { "@TIME_PERIOD": "2014", "@OBS_VALUE": "3.20245379457361" },
+            { "@TIME_PERIOD": "2015", "@OBS_VALUE": "2.80910326824134" },
+            { "@TIME_PERIOD": "2016", "@OBS_VALUE": "2.94688171508626" },
+            { "@TIME_PERIOD": "2017", "@OBS_VALUE": "3.15962988148612" },
+            { "@TIME_PERIOD": "2018", "@OBS_VALUE": "2.90741529728851" },
+            { "@TIME_PERIOD": "2019", "@OBS_VALUE": "2.24397221752362" },
+            { "@TIME_PERIOD": "2020", "@OBS_VALUE": "-0.852031428863826" },
+            { "@TIME_PERIOD": "2021", "@OBS_VALUE": "4.02116391746858" },
+            { "@TIME_PERIOD": "2022", "@OBS_VALUE": "2.5413329059491" }
+          ]
+        },
+        {
+          "@FREQ": "A",
+          "@REF_AREA": "AU",
+          "@INDICATOR": "LUR",
+          "@UNIT_MULT": "0",
+          "@TIME_FORMAT": "P1Y",
+          "Obs": [
+            { "@TIME_PERIOD": "2012", "@OBS_VALUE": "5.23333333333333" },
+            { "@TIME_PERIOD": "2013", "@OBS_VALUE": "5.65833333333333" },
+            { "@TIME_PERIOD": "2014", "@OBS_VALUE": "6.05833333333334" },
+            { "@TIME_PERIOD": "2015", "@OBS_VALUE": "6.05833333333333" },
+            { "@TIME_PERIOD": "2016", "@OBS_VALUE": "5.71666666666666" },
+            { "@TIME_PERIOD": "2017", "@OBS_VALUE": "5.59166666666667" },
+            { "@TIME_PERIOD": "2018", "@OBS_VALUE": "5.3" },
+            { "@TIME_PERIOD": "2019", "@OBS_VALUE": "5.15833333333334" },
+            { "@TIME_PERIOD": "2020", "@OBS_VALUE": "6.49166666666667" },
+            { "@TIME_PERIOD": "2021", "@OBS_VALUE": "5.1" },
+            { "@TIME_PERIOD": "2022", "@OBS_VALUE": "4.02508742081679" }
+          ]
+        }
+      ]
+    }
+  }
+}

@@ -1,45 +1,91 @@
 {% extends 'EcoFin/header.html' %} {% load static %} {% block content %}
 <h1 class="text-center p-3">EcoFinWebsite ( IMF Data )</h1>
-<div id="myPlot" style="width:100%;"></div>
-{% comment %} {% for i in extDataObj %} {{i.time}} {{i.obsValue}}
-<br />
-{% endfor %} {% endcomment %}
+<div id="myPlot1" style="width:100%;"></div>
+<div id="myPlot2" style="width:100%;"></div>
+<div id="myPlot3" style="width:100%;"></div>
+<div id="myPlot4" style="width:100%;"></div>
 <script>
-  var data = "{{extDataJson|escapejs}}";
 
+  var data = "{{extDataJson|escapejs}}";
   data = JSON.parse(data);
   //console.log(data);
 
-  var xValues = [];
-  var yValues = [];
+  data.forEach(genratedDatas);
 
-  data.forEach(genratedData);
-
-  function genratedData(item, index) {
-    let date = new Date(item.time);
-    xValues.push(date);
-    yValues.push(parseInt(item.obsValue));
+  function genratedDatas(itemData,indexData){
+    data = itemData[0]['timeSeries'];
+    plotId = "myPlot"+(indexData+1);
+    tog = "line";
+    ot = "v";
+    // console.log(itemData[0]['timeSeries'])
+    genrateGraph(data,plotId,tog,ot);
   }
 
-  //console.log(xValues);
-  //console.log(yValues);
+  function genrateGraph(data, plotId, typeOfGraph, orientationType) {
+    var xValues = [];
+    var yValues = [];
 
-  //console.log(Math.max(...yValues));
-  //console.log(xValues[xValues.length-1])
-
-  var dataPlot = [{
-    x: xValues,
-    y: yValues,
-    type: "line"
-  }];
-
-  var layout = {
-    xaxis: {title: "Years"},
-    yaxis: {title: "Obs values"},  
-    title: "Time vs Obs value"
-  };
-
-  Plotly.newPlot("myPlot", dataPlot, layout);
-
+    // console.log(data,plotId,typeOfGraph,orientationType);
+    
+    data.forEach(genratedData);
+  
+    function genratedData(item, index) {
+      let date = new Date(item.time);
+      if (item.value != null) {
+        xValues.push(date.getFullYear());
+        yValues.push(item.value);
+      }
+    }
+  
+    var dataPlot = [
+      {
+        x: xValues,
+        y: yValues,
+        type: typeOfGraph,
+        orientation: orientationType,
+      },
+    ];
+  
+    var layout = {
+      autosize: true,
+      font: {
+        family: 'Open Sans, serif',
+        size: 12,
+        // color: '#7f7f7f'
+      },
+      margin: {
+        l: 20,
+        r: 20,
+        b: 100,
+        t: 100,
+        pad: 1
+      },
+      paper_bgcolor: '#dedede',
+      plot_bgcolor: '#dedede',
+      xaxis: {
+        type: "date",
+        title: "Years",
+        ticks: "outside",
+        tick0: 0,
+        dtick: "M12",
+        tickformat: '%Y',
+        fixedrange: true,
+        automargin: true,
+      },
+      yaxis: {
+        title: "Values",
+        fixedrange: true,
+        automargin: true,
+      },
+      title: "Time vs Value",
+    };
+  
+    const config = {
+      displayModeBar: false, // this is the line that hides the bar.
+    };
+  
+    Plotly.newPlot(plotId, dataPlot, layout, config);
+  }
+  
 </script>
 {% endblock content %}
