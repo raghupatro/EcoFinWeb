@@ -7,109 +7,66 @@ import requests
 import json
 from urllib3 import HTTPResponse
 
-def imfAPI(database,frequency,countries,indicators,startPeriod,endPeriod):
-    url = 'http://dataservices.imf.org/REST/SDMX_JSON.svc/CompactData/'+database+'/'+frequency+'.'+countries+'.'+indicators+'?startPeriod='+startPeriod+'&endPeriod='+endPeriod
+
+def imfAPI(database, frequency, countries, indicators, startPeriod, endPeriod):
+    url = 'http://dataservices.imf.org/REST/SDMX_JSON.svc/CompactData/'+database+'/' + \
+        frequency+'.'+countries+'.'+indicators+ \
+        '?startPeriod='+startPeriod+'&endPeriod='+endPeriod
     responseIMF = requests.get(url).json()
-    return responseIMF
-
-# Creating views here.
-def home(request):
-    # J8eKumIKFij724fRyZw4kbx5bbS46qsQHTmDy7GjqPBCINsrZbZcvxgTQADGNU9rutVJ37UhYpwOKGphmdyDF8RkePFbzcsJhKZehJTqJND5AbzTP8piXm71SiJNrOMJ
-
-    # IMF DATA
-    startPeriod = str(2010)
-    endPeriod = str(2022)
-    indicators = 'NGDP_RPCH+LUR'
-    countries = 'AU+KR'
-    frequency = 'A'
-    database = 'APDREO'
-    response = imfAPI(database,frequency,countries,indicators,startPeriod,endPeriod)
-    
-    # with open('data.json', 'w') as jsonfile:
-    #     json.dump(response, jsonfile)
-    # print(response)
-    # f = open('data.json')
-    # response = json.load(f)
-
-    jsonData = response
+    jsonData = responseIMF
     series = jsonData['CompactData']['DataSet']['Series']
-    
     extData = []
-
     for s in series:
         newSeries = []
         countryCode = s['@REF_AREA']
         indicatorCode = s['@INDICATOR']
         timeSeries = []
         for i in s['Obs']:
-            timeSeries.append(dict({"time": i['@TIME_PERIOD'], "value": i['@OBS_VALUE']}))
-        newSeries.append(dict({"countryCode":countryCode,"indicatorCode":indicatorCode,"timeSeries":timeSeries}))
+            timeSeries.append(
+                dict({"time": i['@TIME_PERIOD'], "value": i['@OBS_VALUE']}))
+        newSeries.append(dict(
+            {"countryCode": countryCode, "indicatorCode": indicatorCode, "timeSeries": timeSeries}))
         extData.append(newSeries)
-    
-    # for data in extData:
-    #     print(data)
-    #     print("\n")
+    return extData
 
-    # Converting extracted data to json format.
-    extDataJson = json.dumps(extData)
+# Creating views here.
 
-    # Converting extracted data to json object.
-    extDataObj = json.loads(extDataJson)
 
-    # Passing extDataJson and extDataObj datas to (home.html) template.
-    return render(request, 'EcoFin/imf.html', {'extDataJson': extDataJson, 'extDataObj': extDataObj})
+def home(request):
 
-    # access_token = "J8eKumIKFij724fRyZw4kbx5bbS46qsQHTmDy7GjqPBCINsrZbZcvxgTQADGNU9rutVJ37UhYpwOKGphmdyDF8RkePFbzcsJhKZehJTqJND5AbzTP8piXm71SiJNrOMJ"
-    # example_series_id = "211637902_SR4104471"
+    # IMF DATA
+    # startPeriod = str(2010)
+    # endPeriod = str(2022)
+    # indicators = 'NGDP_RPCH'
+    # countries = 'IN+BD+ID+TL+VN'
+    # frequency = 'A'
+    # database = 'APDREO'
 
-    # api_client = ApiClient()
-    # series_api = SeriesApi(api_client=api_client)
+    extData2 = imfAPI('IFS', 'A', 'IN+BD+BR+TR+VN',
+                      'AIP_IX', str(2010), str(2022))
+    extData3 = imfAPI('APDREO', 'A', 'IN+BD+ID+TL+VN',
+                      'NGDP_RPCH', str(2010), str(2022))
+    extData4 = imfAPI('DOT', 'M', 'IN+BD+ID+TL+VN',
+                      'TXG_FOB_USD.W00', str(2010), str(2022))
 
-    # series_result = series_api.get_series(id=example_series_id, token=access_token)
-    # series_metadata_result = series_api.get_series_metadata(id=example_series_id, token=access_token)
-    # series_time_points_result = series_api.get_series_time_points(id=example_series_id, token=access_token)
+    # with open('data.json', 'w') as jsonfile:
+    #     json.dump(response, jsonfile)
+    # print(response)
+    # f = open('data.json')
+    # response = json.load(f)
 
-    # # Access series data result
-    # series = series_result.data[0]
-    # series_metadata = series.metadata
-    # series_time_points = series.time_points
-    # # OR
-    # series_result = series_result.to_dict()
-    # series = series_result["data"][0]
-    # series_metadata = series["metadata"]
-    # series_time_points = series["time_points"]
+    extDataJson2 = json.dumps(extData2)
+    extDataObj2 = json.loads(extDataJson2)
 
-    # # Access series metadata data result
-    # series_metadata = series_metadata_result.data[0].metadata
-    # series_id = series_metadata.id
-    # series_frequency = series_metadata.frequency
-    # series_start_date = series_metadata.start_date
-    # # OR
-    # series_metadata = series_metadata_result.to_dict()["data"][0]["metadata"]
-    # series_id = series_metadata["id"]
-    # series_frequency = series_metadata["frequency"]
-    # series_start_date = series_metadata["start_date"]
+    extDataJson3 = json.dumps(extData3)
+    extDataObj3 = json.loads(extDataJson3)
 
-    # # Access series time points data result
-    # series_time_points = series_time_points_result.data[0].time_points
-    # first_time_point_date = series_time_points[0].date
-    # first_time_point_value = series_time_points[0].value
-    # second_time_point_date = series_time_points[1].date
-    # second_time_point_value = series_time_points[1].value
-    # # OR
-    # series_time_points = series_time_points_result.to_dict()["data"][0]["time_points"]
-    # first_time_point_date = series_time_points[0]["date"]
-    # first_time_point_value = series_time_points[0]["value"]
-    # second_time_point_date = series_time_points[1]["date"]
-    # second_time_point_value = series_time_points[1]["value"]
+    extDataJson4 = json.dumps(extData4)
+    extDataObj4 = json.loads(extDataJson4)
 
-    # url = "https://api.worldbank.org/v2/country/ru;ind;chn;bra;za/indicator/NY.GDP.MKTP.CD?mrv=30&per_page=150&format=json"
-    # response = requests.get(url).json()
-    # response = json.dumps(response)
-    # responseObject = json.loads(response)
-    # return render(request,'EcoFin/test.html',{"res":response,"resObj":responseObject})
-    # return HttpResponse("Hello")
-    # return redirect(dashboard)
+    return render(request, 'EcoFin/imf.html', {'extDataJson2': extDataJson2, 'extDataObj2': extDataObj2,
+                                               'extDataJson3': extDataJson3, 'extDataObj3': extDataObj3,
+                                               'extDataJson4': extDataJson4, 'extDataObj4': extDataObj4,})
 
 
 def dashboard(request):
