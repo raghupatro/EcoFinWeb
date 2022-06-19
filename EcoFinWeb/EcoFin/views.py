@@ -1,3 +1,4 @@
+from asyncio.windows_events import NULL
 import re
 from urllib import response
 from xml.etree.ElementTree import tostring
@@ -10,11 +11,14 @@ from urllib3 import HTTPResponse
 
 def imfAPI(database, frequency, countries, indicators, startPeriod, endPeriod):
     url = 'http://dataservices.imf.org/REST/SDMX_JSON.svc/CompactData/'+database+'/' + \
-        frequency+'.'+countries+'.'+indicators+ \
+        frequency+'.'+countries+'.'+indicators + \
         '?startPeriod='+startPeriod+'&endPeriod='+endPeriod
     responseIMF = requests.get(url).json()
     jsonData = responseIMF
     series = jsonData['CompactData']['DataSet']['Series']
+    if(database == "FAS"):
+        with open('data.json', 'w') as jsonfile:
+            json.dump(series, jsonfile)
     extData = []
     for s in series:
         newSeries = []
@@ -22,10 +26,11 @@ def imfAPI(database, frequency, countries, indicators, startPeriod, endPeriod):
         indicatorCode = s['@INDICATOR']
         timeSeries = []
         for i in s['Obs']:
-            timeSeries.append(
-                dict({"time": i['@TIME_PERIOD'], "value": i['@OBS_VALUE']}))
-        newSeries.append(dict(
-            {"countryCode": countryCode, "indicatorCode": indicatorCode, "timeSeries": timeSeries}))
+            try:
+                timeSeries.append(dict({"time": i['@TIME_PERIOD'], "value": i['@OBS_VALUE']}))
+            except KeyError:
+                pass    
+        newSeries.append(dict({"countryCode": countryCode, "indicatorCode": indicatorCode, "timeSeries": timeSeries}))
         extData.append(newSeries)
     return extData
 
@@ -48,9 +53,19 @@ def home(request):
                       'NGDP_RPCH', str(2010), str(2022))
     extData4 = imfAPI('DOT', 'M', 'IN+BD+ID+TL+VN',
                       'TXG_FOB_USD.W00', str(2010), str(2022))
+    extData6 = imfAPI('CPI', 'M', 'IN+BD+ID+TL+VN',
+                      'PCPI_PC_CP_A_PT', str(2014), str(2022))
+    extData7 = imfAPI('FM', 'A', 'IN+BD+ID+TL+VN',
+                      'GGXCNL_G01_GDP_PT', str(2010), str(2022))
+    extData9 = imfAPI('IFS', 'A', 'IN+BD+ID+TL+TR',
+                      'IAP_BP6_USD', str(2010), str(2022))
+    extData11 = imfAPI('FAS', 'A', 'IN+PK+ID+ZA+NG',
+                       'FCMTA_NUM', str(2014), str(2022))
+    extData12 = imfAPI('FAS', 'A', 'IN+BR+ID+BD+ZA',
+                       'FCBODCA_NUM', str(2010), str(2022))
 
-    # with open('data.json', 'w') as jsonfile:
-    #     json.dump(response, jsonfile)
+    with open('data.json', 'w') as jsonfile:
+        json.dump(extData11, jsonfile)
     # print(response)
     # f = open('data.json')
     # response = json.load(f)
@@ -64,9 +79,29 @@ def home(request):
     extDataJson4 = json.dumps(extData4)
     extDataObj4 = json.loads(extDataJson4)
 
+    extDataJson6 = json.dumps(extData6)
+    extDataObj6 = json.loads(extDataJson6)
+
+    extDataJson7 = json.dumps(extData7)
+    extDataObj7 = json.loads(extDataJson7)
+
+    extDataJson9 = json.dumps(extData9)
+    extDataObj9 = json.loads(extDataJson9)
+
+    extDataJson11 = json.dumps(extData11)
+    extDataObj11 = json.loads(extDataJson11)
+
+    extDataJson12 = json.dumps(extData12)
+    extDataObj12 = json.loads(extDataJson12)
+
     return render(request, 'EcoFin/imf.html', {'extDataJson2': extDataJson2, 'extDataObj2': extDataObj2,
                                                'extDataJson3': extDataJson3, 'extDataObj3': extDataObj3,
-                                               'extDataJson4': extDataJson4, 'extDataObj4': extDataObj4,})
+                                               'extDataJson4': extDataJson4, 'extDataObj4': extDataObj4,
+                                               'extDataJson6': extDataJson6, 'extDataObj6': extDataObj6,
+                                               'extDataJson7': extDataJson7, 'extDataObj7': extDataObj7,
+                                               'extDataJson9': extDataJson9, 'extDataObj9': extDataObj9,
+                                               'extDataJson11': extDataJson11, 'extDataObj11': extDataObj11, 
+                                               'extDataJson12': extDataJson12, 'extDataObj12': extDataObj12,})
 
 
 def dashboard(request):
