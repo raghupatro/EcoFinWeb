@@ -1,184 +1,744 @@
 {% extends 'EcoFin/header.html' %} {% load static %} {% block content %}
 
-<div class="row container-fluid px-0 mx-auto">
+<div>
 
-  <div class="col-12 col-md-12 col-lg-12 p-0 p-md-2" id="graph2">
-    <div class="card page-section">
-      <a href="{% url 'gdp' %}">
-        <h5 class="text-light fw-normal bg-info p-3 m-0">Gross Domestic Product (GDP) <i
-            class="fa fa-external-link float-end"></i></h5>
-      </a>
-      <div class="card-body">
-        <h6 class="card-title text-center d-flex justify-content-center align-items-center"><span
-            class="d-inline-block text-truncate p-2 fw-bold" style="max-width:75%;">Indicator</span> <a href="#faq0"><i
-              class="fa fa-info-circle mx-2 text-primary" aria-hidden="true" data-bs-t6ggle="tooltip"
-              data-bs-placement="right" title="Tooltip on right"></i></a></h6>
-        <div id="myPlot2" style="width: 100%"></div>
-        <div class="row p-0 m-0">
-          <p class="card-text text-md-start text-center col-12 col-md-6 p-0 m-0"><small
-              class="text-muted text-truncate mt-1">Source : IIMA Misra Centre, IMF</small></p>
-          <p class="card-text text-md-end text-center col-12 col-md-6 p-0 m-0"><small class="text-muted mt-1">Updated
-              on 22/05/22</small></p>
-        </div>
-      </div>
-    </div>
+  <div class="dropdown d-md-block d-block d-lg-none ">
+    <button class="dropdown-toggle w-100 p-3 border-0 text-light fw-bold" type="button" id="dropdownMenuButton1"
+      data-bs-toggle="dropdown" aria-expanded="false" style="background-color: #112d4e">
+      On This Page
+    </button>
+    <ul class="dropdown-menu w-100 text-center mt-0 pt-0" aria-labelledby="dropdownMenuButton1">
+
+      <a href="#graph0" class="p-2 border bg-light nav-gutter dropdown-item">Gross Domestic Product (GDP)</a>
+
+      <a href="#graph1" class="p-2 border bg-light nav-gutter dropdown-item">Inflation</a>
+
+      <a href="#graph2" class="p-2 border bg-light nav-gutter dropdown-item">Business Performance</a>
+
+      <a href="#graph3" class="p-2 border bg-light nav-gutter dropdown-item">Trade & Forex</a>
+
+      <a href="#graph4" class="p-2 border bg-light nav-gutter dropdown-item">Unemployment</a>
+
+      <a href="#graph5" class="p-2 border bg-light nav-gutter dropdown-item">Fiscal Situation</a>
+
+      <a href="#graph6" class="p-2 border bg-light nav-gutter dropdown-item">Interest rates & bond</a>
+
+      <a href="#graph7" class="p-2 border bg-light nav-gutter dropdown-item">Equity Markets</a>
+
+      <a href="#graph8" class="p-2 border bg-light nav-gutter dropdown-item">Commodity Markets</a>
+
+      <a href="#graph9" class="p-2 border bg-light nav-gutter dropdown-item">Foreign Investment</a>
+
+      <a href="#graph10" class="p-2 border bg-light nav-gutter dropdown-item">Money & Credit</a>
+
+      <a href="#graph11" class="p-2 border bg-light nav-gutter dropdown-item">Real Estate</a>
+
+      <a href="#graph12" class="p-2 border bg-light nav-gutter dropdown-item">Venture Capital & IPOs</a>
+
+    </ul>
   </div>
 
-  <div class="col-12 col-md-12 col-lg-12 p-0 p-md-2" id="graph3">
-    <div class="card page-section">
-      <a href="{% url 'gdp' %}">
-        <h5 class="text-light fw-normal bg-info p-3 m-0">Gross Domestic Product (GDP) <i
-            class="fa fa-external-link float-end"></i></h5>
-      </a>
-      <div class="card-body">
-        <h6 class="card-title text-center d-flex justify-content-center align-items-center"><span
-            class="d-inline-block text-truncate p-2 fw-bold" style="max-width:75%;">Indicator</span> <a href="#faq0"><i
-              class="fa fa-info-circle mx-2 text-primary" aria-hidden="true" data-bs-t6ggle="tooltip"
-              data-bs-placement="right" title="Tooltip on right"></i></a></h6>
-        <div id="myPlot3" style="width: 100%"></div>
-        <div class="row p-0 m-0">
-          <p class="card-text text-md-start text-center col-12 col-md-6 p-0 m-0"><small
-              class="text-muted text-truncate mt-1">Source : IIMA Misra Centre, IMF</small></p>
-          <p class="card-text text-md-end text-center col-12 col-md-6 p-0 m-0"><small class="text-muted mt-1">Updated
-              on 22/05/22</small></p>
+  <div class="d-flex justify-content-around">
+
+    <div class="col-12 col-md-12 col-lg-2 mx-auto pt-4 pb-4 sticky-top h-100 d-md-none d-none d-lg-block">
+      <div class="py-2">
+        <div class="card">
+          <h5 class="text-light bg-info p-3 m-0 fw-bold">On This Page</h5>
+          <div class="card-body">
+            <div id="top-menu">
+              <div class="row">
+                <a href="#graph0" class="p-2 border bg-light nav-gutter fw-bold text-primary">Gross Domestic Product</a>
+              </div>
+              <div class="row">
+                <a href="#graph1" class="p-2 border bg-light nav-gutter fw-bold text-primary">Inflation</a>
+              </div>
+              <div class="row">
+                <a href="#graph2" class="p-2 border bg-light nav-gutter fw-bold text-primary">Business Performance</a>
+              </div>
+              <div class="row">
+                <a href="#graph3" class="p-2 border bg-light nav-gutter fw-bold text-primary">Trade & Forex</a>
+              </div>
+              <div class="row">
+                <a href="#graph4" class="p-2 border bg-light nav-gutter fw-bold text-primary">Unemployment</a>
+              </div>
+              <div class="row">
+                <a href="#graph5" class="p-2 border bg-light nav-gutter fw-bold text-primary">Fiscal Situation</a>
+              </div>
+              <div class="row">
+                <a href="#graph6" class="p-2 border bg-light nav-gutter fw-bold text-primary">Interest rates & bond</a>
+              </div>
+              <div class="row">
+                <a href="#graph7" class="p-2 border bg-light nav-gutter fw-bold text-primary">Equity Markets</a>
+              </div>
+              <div class="row"> 
+                <a href="#graph8" class="p-2 border bg-light nav-gutter fw-bold text-primary">Commodity Markets</a>
+              </div>
+              <div class="row">
+                <a href="#graph9" class="p-2 border bg-light nav-gutter fw-bold text-primary">Foreign Investment</a>
+              </div>
+              <div class="row">
+                <a href="#graph10" class="p-2 border bg-light nav-gutter fw-bold text-primary">Money & Credit</a>
+              </div>
+              <div class="row">
+                <a href="#graph11" class="p-2 border bg-light nav-gutter fw-bold text-primary">Real Estate</a>
+              </div>
+              <div class="row">
+                <a href="#graph12" class="p-2 border bg-light nav-gutter fw-bold text-primary">Venture Capital & IPOs</a>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-  </div>
 
-  <div class="col-12 col-md-12 col-lg-12 p-0 p-md-2" id="graph4">
-    <div class="card page-section">
-      <a href="{% url 'gdp' %}">
-        <h5 class="text-light fw-normal bg-info p-3 m-0">Gross Domestic Product (GDP) <i
-            class="fa fa-external-link float-end"></i></h5>
-      </a>
-      <div class="card-body">
-        <h6 class="card-title text-center d-flex justify-content-center align-items-center"><span
-            class="d-inline-block text-truncate p-2 fw-bold" style="max-width:75%;">Indicator</span> <a href="#faq0"><i
-              class="fa fa-info-circle mx-2 text-primary" aria-hidden="true" data-bs-t6ggle="tooltip"
-              data-bs-placement="right" title="Tooltip on right"></i></a></h6>
-        <div id="myPlot4" style="width: 100%"></div>
-        <div class="row p-0 m-0">
-          <p class="card-text text-md-start text-center col-12 col-md-6 p-0 m-0"><small
-              class="text-muted text-truncate mt-1">Source : IIMA Misra Centre, IMF</small></p>
-          <p class="card-text text-md-end text-center col-12 col-md-6 p-0 m-0"><small class="text-muted mt-1">Updated
-              on 22/05/22</small></p>
+
+    </div>
+
+    <div class="col-12 col-md-12 col-lg-10 mx-auto pt-4 pb-4 d-flex justify-content-around">
+
+      <div class="row container-fluid px-0">
+
+        <div class="col-12 col-md-6 col-lg-6 p-0 p-md-2" id="graph0">
+          <div class="card page-section">
+            <a href="{% url 'gdp' %}">
+              <h5 class="text-light fw-normal bg-info p-3 m-0">GDP, PPP<i
+                  class="fa fa-external-link float-end"></i></h5>
+            </a>
+            <div class="card-body">
+              <h6 class="card-title text-center d-flex justify-content-center align-items-center"><span
+                  class="d-inline-block text-truncate p-2 fw-bold"
+                  style="max-width:75%;">{{res.responseObj1.1.0.indicator.value}}</span> <a href="#faq0"><i
+                    class="fa fa-info-circle mx-2 text-primary" aria-hidden="true" data-bs-t6ggle="tooltip"
+                    data-bs-placement="right" title="Tooltip on right"></i></a></h6>
+              <div id="myPlot1" style="width: 100%"></div>
+              <div class="row p-0 m-0">
+                <p class="card-text text-md-start text-center col-12 col-md-6 p-0 m-0"><small
+                    class="text-muted text-truncate mt-1">Source : IIMA Misra Centre, IMF</small></p>
+                <p class="card-text text-md-end text-center col-12 col-md-6 p-0 m-0"><small class="text-muted mt-1">Updated
+                    on {{res.responseObj1.0.lastupdated}}</small></p>
+              </div>
+            </div>
+          </div>
         </div>
+        <div class="col-12 col-md-6 col-lg-6 p-0 p-md-2" id="graph1">
+          <div class="card page-section">
+            <a href="{% url 'inflation' %}">
+              <h5 class="text-light fw-normal bg-info p-3 m-0">Index of Industrial Production <i class="fa fa-external-link float-end"
+                  aria-hidden="true"></i></h5>
+            </a>
+            <div class="card-body">
+              <h6 class="card-title text-center d-flex justify-content-center align-items-center"><span
+                  class="d-inline-block text-truncate p-2 fw-bold"
+                  style="max-width:75%;">{{res.responseObj2.1.0.indicator.value}}</span> <a href="#faq1"><i
+                    class="fa fa-info-circle mx-2 text-primary" aria-hidden="true"></i></a>
+                <h6>
+                  <div id="myPlot2" class="card-img-bottom" style="width: 100%"></div>
+                  <div class="row p-0 m-0">
+                    <p class="card-text text-md-start text-center col-12 col-md-6 p-0 m-0"><small
+                        class="text-muted text-truncate mt-1">Source : IIMA Misra Centre, IMF</small></p>
+                    <p class="card-text text-md-end text-center col-12 col-md-6 p-0 m-0"><small
+                        class="text-muted mt-1">Updated
+                        on {{res.responseObj2.0.lastupdated}}</small></p>
+                  </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-6 p-0 p-md-2" id="graph2">
+          <div class="card page-section">
+            <a href="{% url 'businessPerformance' %}">
+              <h5 class="text-light fw-normal bg-info p-3 m-0">Real GDP growth rate <i
+                  class="fa fa-external-link float-end" aria-hidden="true"></i></h5>
+            </a>
+            <div class="card-body">
+              <h6 class="card-title text-center d-flex justify-content-center align-items-center"><span
+                  class="d-inline-block text-truncate p-2 fw-bold"
+                  style="max-width:75%;">{{res.responseObj3.1.0.indicator.value}}</span> <a href="#faq2"><i
+                    class="fa fa-info-circle mx-2 text-primary" aria-hidden="true"></i></a>
+                <h6>
+                  <div id="myPlot3" class="card-img-bottom" style="width: 100%"></div>
+                  <div class="row p-0 m-0">
+                    <p class="card-text text-md-start text-center col-12 col-md-6 p-0 m-0"><small
+                        class="text-muted text-truncate mt-1">Source : IIMA Misra Centre, IMF</small></p>
+                    <p class="card-text text-md-end text-center col-12 col-md-6 p-0 m-0"><small
+                        class="text-muted mt-1">Updated
+                        on {{res.responseObj3.0.lastupdated}}</small></p>
+                  </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-6 p-0 p-md-2" id="graph3">
+          <div class="card page-section">
+            <a href="{% url 'tradeForex' %}">
+              <h5 class="text-light fw-normal bg-info p-3 m-0">Net Exports <i class="fa fa-external-link float-end"
+                  aria-hidden="true"></i></h5>
+            </a>
+            <div class="card-body">
+              <h6 class="card-title text-center d-flex justify-content-center align-items-center"><span
+                  class="d-inline-block text-truncate p-2 fw-bold"
+                  style="max-width:75%;">{{res.responseObj4.1.0.indicator.value}}</span> <a href="#faq3"><i
+                    class="fa fa-info-circle mx-2 text-primary" aria-hidden="true"></i></a>
+                <h6>
+                  <div id="myPlot4" class="card-img-bottom" style="width: 100%"></div>
+                  <div class="row p-0 m-0">
+                    <p class="card-text text-md-start text-center col-12 col-md-6 p-0 m-0"><small
+                        class="text-muted text-truncate mt-1">Source : IIMA Misra Centre, IMF</small></p>
+                    <p class="card-text text-md-end text-center col-12 col-md-6 p-0 m-0"><small
+                        class="text-muted mt-1">Updated
+                        on {{res.responseObj4.0.lastupdated}}</small></p>
+                  </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-6 p-0 p-md-2" id="graph4">
+          <div class="card page-section">
+            <a href="{% url 'unemployment' %}">
+              <h5 class="text-light fw-normal bg-info p-3 m-0">Exchange-Rate Currency / USD  <i class="fa fa-external-link float-end"
+                  aria-hidden="true"></i></h5>
+            </a>
+            <div class="card-body">
+              <h6 class="card-title text-center d-flex justify-content-center align-items-center"><span
+                  class="d-inline-block text-truncate p-2 fw-bold"
+                  style="max-width:75%;">{{res.responseObj5.1.0.indicator.value}}</span> <a href="#faq4"><i
+                    class="fa fa-info-circle mx-2 text-primary" aria-hidden="true"></i></a>
+                <h6>
+                  <div id="myPlot5" class="card-img-bottom" style="width: 100%"></div>
+                  <div class="row p-0 m-0">
+                    <p class="card-text text-md-start text-center col-12 col-md-6 p-0 m-0"><small
+                        class="text-muted text-truncate mt-1">Source : IIMA Misra Centre, IMF</small></p>
+                    <p class="card-text text-md-end text-center col-12 col-md-6 p-0 m-0"><small
+                        class="text-muted mt-1">Updated
+                        on {{res.responseObj5.0.lastupdated}}</small></p>
+                  </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-6 p-0 p-md-2" id="graph5">
+          <div class="card page-section">
+            <a href="{% url 'fiscalSituation' %}">
+              <h5 class="text-light fw-normal bg-info p-3 m-0">Consumer price index <i class="fa fa-external-link float-end"
+                  aria-hidden="true"></i></h5>
+            </a>
+            <div class="card-body">
+              <h6 class="card-title text-center d-flex justify-content-center align-items-center"><span
+                  class="d-inline-block text-truncate p-2 fw-bold"
+                  style="max-width:75%;">{{res.responseObj6.1.0.indicator.value}}</span> <a href="#faq5"><i
+                    class="fa fa-info-circle mx-2 text-primary" aria-hidden="true"></i></a>
+                <h6>
+                  <div id="myPlot6" class="card-img-bottom" style="width: 100%"></div>
+                  <div class="row p-0 m-0">
+                    <p class="card-text text-md-start text-center col-12 col-md-6 p-0 m-0"><small
+                        class="text-muted text-truncate mt-1">Source : IIMA Misra Centre, IMF</small></p>
+                    <p class="card-text text-md-end text-center col-12 col-md-6 p-0 m-0"><small
+                        class="text-muted mt-1">Updated
+                        on {{res.responseObj6.0.lastupdated}}</small></p>
+                  </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-6 p-0 p-md-2" id="graph6">
+          <div class="card page-section">
+            <a href="{% url 'interestRatesBond' %}">
+              <h5 class="text-light fw-normal bg-info p-3 m-0">Government Fiscal balance <i
+                  class="fa fa-external-link float-end" aria-hidden="true"></i></h5>
+            </a>
+            <div class="card-body">
+              <h6 class="card-title text-center d-flex justify-content-center align-items-center"><span
+                  class="d-inline-block text-truncate p-2 fw-bold"
+                  style="max-width:75%;">{{res.responseObj7.1.0.indicator.value}}</span> <a href="#faq6"><i
+                    class="fa fa-info-circle mx-2 text-primary" aria-hidden="true"></i></a>
+                <h6>
+                  <div id="myPlot7" class="card-img-bottom" style="width: 100%"></div>
+                  <div class="row p-0 m-0">
+                    <p class="card-text text-md-start text-center col-12 col-md-6 p-0 m-0"><small
+                        class="text-muted text-truncate mt-1">Source : IIMA Misra Centre, IMF</small></p>
+                    <p class="card-text text-md-end text-center col-12 col-md-6 p-0 m-0"><small
+                        class="text-muted mt-1">Updated
+                        on {{res.responseObj7.0.lastupdated}}</small></p>
+                  </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-6 p-0 p-md-2" id="graph7">
+          <div class="card page-section">
+            <a href="{% url 'equityMarkets' %}">
+              <h5 class="text-light fw-normal bg-info p-3 m-0">Market capitalization <i class="fa fa-external-link float-end"
+                  aria-hidden="true"></i></h5>
+            </a>
+            <div class="card-body">
+              <h6 class="card-title text-center d-flex justify-content-center align-items-center"><span
+                  class="d-inline-block text-truncate p-2 fw-bold"
+                  style="max-width:75%;">{{res.responseObj8.1.0.indicator.value}}</span> <a href="#faq7"><i
+                    class="fa fa-info-circle mx-2 text-primary" aria-hidden="true"></i></a>
+                <h6>
+                  <div id="myPlot8" class="card-img-bottom" style="width: 100%"></div>
+                  <div class="row p-0 m-0">
+                    <p class="card-text text-md-start text-center col-12 col-md-6 p-0 m-0"><small
+                        class="text-muted text-truncate mt-1">Source : IIMA Misra Centre, IMF</small></p>
+                    <p class="card-text text-md-end text-center col-12 col-md-6 p-0 m-0"><small
+                        class="text-muted mt-1">Updated
+                        on {{res.responseObj8.0.lastupdated}}</small></p>
+                  </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-6 p-0 p-md-2" id="graph8">
+          <div class="card page-section">
+            <a href="{% url 'commodityMarkets' %}">
+              <h5 class="text-light fw-normal bg-info p-3 m-0">Gross debt <i
+                  class="fa fa-external-link float-end" aria-hidden="true"></i></h5>
+            </a>
+            <div class="card-body">
+              <h6 class="card-title text-center d-flex justify-content-center align-items-center"><span
+                  class="d-inline-block text-truncate p-2 fw-bold"
+                  style="max-width:75%;">{{res.responseObj9.1.0.indicator.value}}</span> <a href="#faq8"><i
+                    class="fa fa-info-circle mx-2 text-primary" aria-hidden="true"></i></a>
+                <h6>
+                  <div id="myPlot9" class="card-img-bottom" style="width: 100%"></div>
+                  <div class="row p-0 m-0">
+                    <p class="card-text text-md-start text-center col-12 col-md-6 p-0 m-0"><small
+                        class="text-muted text-truncate mt-1">Source : IIMA Misra Centre, IMF</small></p>
+                    <p class="card-text text-md-end text-center col-12 col-md-6 p-0 m-0"><small
+                        class="text-muted mt-1">Updated
+                        on {{res.responseObj9.0.lastupdated}}</small></p>
+                  </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-6 p-0 p-md-2" id="graph9">
+          <div class="card page-section">
+            <a href="{% url 'foreignInvestment' %}">
+              <h5 class="text-light fw-normal bg-info p-3 m-0">Private debt <i
+                  class="fa fa-external-link float-end" aria-hidden="true"></i></h5>
+            </a>
+            <div class="card-body">
+              <h6 class="card-title text-center d-flex justify-content-center align-items-center"><span
+                  class="d-inline-block text-truncate p-2 fw-bold"
+                  style="max-width:75%;">{{res.responseObj10.1.0.indicator.value}}</span> <a href="#faq9"><i
+                    class="fa fa-info-circle mx-2 text-primary" aria-hidden="true"></i></a></h6>
+              <div id="myPlot10" class="card-img-bottom" style="width: 100%"></div>
+              <div class="row p-0 m-0">
+                <p class="card-text text-md-start text-center col-12 col-md-6 p-0 m-0"><small
+                    class="text-muted text-truncate mt-1">Source : IIMA Misra Centre, IMF</small></p>
+                <p class="card-text text-md-end text-center col-12 col-md-6 p-0 m-0"><small class="text-muted mt-1">Updated
+                    on {{res.responseObj10.0.lastupdated}}</small></p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-6 p-0 p-md-2" id="graph10">
+          <div class="card page-section">
+            <a href="{% url 'moneyCredit' %}">
+              <h5 class="text-light fw-normal bg-info p-3 m-0">Portfolio Investment <i class="fa fa-external-link float-end"
+                  aria-hidden="true"></i></h5>
+            </a>
+            <div class="card-body">
+              <h6 class="card-title text-center d-flex justify-content-center align-items-center"><span
+                  class="d-inline-block text-truncate p-2 fw-bold"
+                  style="max-width:75%;">{{res.responseObj12.1.0.indicator.value}}</span> <a href="#faq10"><i
+                    class="fa fa-info-circle mx-2 text-primary" aria-hidden="true"></i></a></h6>
+              <div id="myPlot11" class="card-img-bottom" style="width: 100%"></div>
+              <div class="row p-0 m-0">
+                <p class="card-text text-md-start text-center col-12 col-md-6 p-0 m-0"><small
+                    class="text-muted text-truncate mt-1">Source : IIMA Misra Centre, IMF</small></p>
+                <p class="card-text text-md-end text-center col-12 col-md-6 p-0 m-0"><small class="text-muted mt-1">Updated
+                    on {{res.responseObj11.0.lastupdated}}</small></p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-6 p-0 p-md-2" id="graph11">
+          <div class="card page-section">
+            <a href="{% url 'realEstate' %}">
+              <h5 class="text-light fw-normal bg-info p-3 m-0">Mobile money transactions <i class="fa fa-external-link float-end"
+                  aria-hidden="true"></i></h5>
+            </a>
+            <div class="card-body">
+              <h6 class="card-title text-center d-flex justify-content-center align-items-center"><span
+                  class="d-inline-block text-truncate p-2 fw-bold"
+                  style="max-width:75%;">{{res.responseObj12.1.0.indicator.value}}</span> <a href="#faq11"><i
+                    class="fa fa-info-circle mx-2 text-primary" aria-hidden="true"></i></a></h6>
+              <div id="myPlot12" class="card-img-bottom" style="width: 100%"></div>
+              <div class="row p-0 m-0">
+                <p class="card-text text-md-start text-center col-12 col-md-6 p-0 m-0"><small
+                    class="text-muted text-truncate mt-1">Source : IIMA Misra Centre, IMF</small></p>
+                <p class="card-text text-md-end text-center col-12 col-md-6 p-0 m-0"><small class="text-muted mt-1">Updated
+                    on {{res.responseObj12.0.lastupdated}}</small></p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-6 p-0 p-md-2" id="graph12">
+          <div class="card page-section">
+            <a href="{% url 'ventureCapitalIPO' %}">
+              <h5 class="text-light fw-normal bg-info p-3 m-0">Commercial bank branches <i
+                  class="fa fa-external-link float-end" aria-hidden="true"></i></h5>
+            </a>
+            <div class="card-body">
+              <h6 class="card-title text-center d-flex justify-content-center align-items-center"><span
+                  class="d-inline-block text-truncate p-2  fw-bold"
+                  style="max-width:75%;">{{res.responseObj13.1.0.indicator.value}}</span> <a href="#faq12"><i
+                    class="fa fa-info-circle mx-2 text-primary" aria-hidden="true"></i></a></h6>
+              <div id="myPlot13" class="card-img-bottom" style="width: 100%"></div>
+              <div class="row p-0 m-0">
+                <p class="card-text text-md-start text-center col-12 col-md-6 p-0 m-0"><small
+                    class="text-muted text-truncate mt-1">Source : IIMA Misra Centre, IMF</small></p>
+                <p class="card-text text-md-end text-center col-12 col-md-6 p-0 m-0"><small class="text-muted mt-1">Updated
+                    on {{res.responseObj13.0.lastupdated}}</small></p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-6 p-0 p-md-2" id="graph13">
+          <div class="card page-section">
+            <a href="{% url 'ventureCapitalIPO' %}">
+              <h5 class="text-light fw-normal bg-info p-3 m-0">Human Development Index <i
+                  class="fa fa-external-link float-end" aria-hidden="true"></i></h5>
+            </a>
+            <div class="card-body">
+              <h6 class="card-title text-center d-flex justify-content-center align-items-center"><span
+                  class="d-inline-block text-truncate p-2  fw-bold"
+                  style="max-width:75%;">{{res.responseObj13.1.0.indicator.value}}</span> <a href="#faq12"><i
+                    class="fa fa-info-circle mx-2 text-primary" aria-hidden="true"></i></a></h6>
+              <div id="myPlot14" class="card-img-bottom" style="width: 100%"></div>
+              <div class="row p-0 m-0">
+                <p class="card-text text-md-start text-center col-12 col-md-6 p-0 m-0"><small
+                    class="text-muted text-truncate mt-1">Source : IIMA Misra Centre, IMF</small></p>
+                <p class="card-text text-md-end text-center col-12 col-md-6 p-0 m-0"><small class="text-muted mt-1">Updated
+                    on {{res.responseObj13.0.lastupdated}}</small></p>
+              </div>
+            </div>
+          </div>
+        </div>
+
       </div>
+
     </div>
+
+    <hr class="bg-light">
+
   </div>
 
-  <div class="col-12 col-md-12 col-lg-12 p-0 p-md-2" id="graph6">
-    <div class="card page-section">
-      <a href="{% url 'gdp' %}">
-        <h5 class="text-light fw-normal bg-info p-3 m-0">Gross Domestic Product (GDP) <i
-            class="fa fa-external-link float-end"></i></h5>
-      </a>
-      <div class="card-body">
-        <h6 class="card-title text-center d-flex justify-content-center align-items-center"><span
-            class="d-inline-block text-truncate p-2 fw-bold" style="max-width:75%;">Indicator</span> <a href="#faq0"><i
-              class="fa fa-info-circle mx-2 text-primary" aria-hidden="true" data-bs-t6ggle="tooltip"
-              data-bs-placement="right" title="Tooltip on right"></i></a></h6>
-        <div id="myPlot6" style="width: 100%"></div>
-        <div class="row p-0 m-0">
-          <p class="card-text text-md-start text-center col-12 col-md-6 p-0 m-0"><small
-              class="text-muted text-truncate mt-1">Source : IIMA Misra Centre, IMF</small></p>
-          <p class="card-text text-md-end text-center col-12 col-md-6 p-0 m-0"><small class="text-muted mt-1">Updated
-              on 22/05/22</small></p>
-        </div>
-      </div>
-    </div>
-  </div>
+  <div class="bg-light pt-4 pb-5" id="FAQs">
+    <div class="text-center">
+      <h2 class="mt-5 mb-5 display-4">FAQs</h2>
+      <div class="accordion container-lg container-fluid" id="faqs">
 
-  <div class="col-12 col-md-12 col-lg-12 p-0 p-md-2" id="graph7">
-    <div class="card page-section">
-      <a href="{% url 'gdp' %}">
-        <h5 class="text-light fw-normal bg-info p-3 m-0">Gross Domestic Product (GDP) <i
-            class="fa fa-external-link float-end"></i></h5>
-      </a>
-      <div class="card-body">
-        <h6 class="card-title text-center d-flex justify-content-center align-items-center"><span
-            class="d-inline-block text-truncate p-2 fw-bold" style="max-width:75%;">Indicator</span> <a href="#faq0"><i
-              class="fa fa-info-circle mx-2 text-primary" aria-hidden="true" data-bs-t6ggle="tooltip"
-              data-bs-placement="right" title="Tooltip on right"></i></a></h6>
-        <div id="myPlot7" style="width: 100%"></div>
-        <div class="row p-0 m-0">
-          <p class="card-text text-md-start text-center col-12 col-md-6 p-0 m-0"><small
-              class="text-muted text-truncate mt-1">Source : IIMA Misra Centre, IMF</small></p>
-          <p class="card-text text-md-end text-center col-12 col-md-6 p-0 m-0"><small class="text-muted mt-1">Updated
-              on 22/05/22</small></p>
+        <div class="accordion-item" id="faq0">
+          <h2 class="accordion-header" id="graph0">
+            <button class="accordion-button bg-info text-light" type="button" data-bs-toggle="collapse"
+              data-bs-target="#graph0c" aria-expanded="true" aria-controls="graph0c">
+              GDP, PPP
+            </button>
+          </h2>
+          <div id="graph0c" class="accordion-collapse collapse show" aria-labelledby="graph0" data-bs-parent="#faqs">
+            <div class="accordion-body">
+              <p class="text-start"><strong>This is the first item's accordion body.</strong> It is shown by default,
+                until the collapse
+                plugin adds the appropriate classes that we use to style each element. These classes control the overall
+                appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with
+                custom
+                CSS or overriding our default variables. It's also worth noting that just about any HTML can go within
+                the
+                <code>.accordion-body</code>, though the transition does limit overflow.
+              </p>
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
-  </div>
 
-  <div class="col-12 col-md-12 col-lg-12 p-0 p-md-2" id="graph9">
-    <div class="card page-section">
-      <a href="{% url 'gdp' %}">
-        <h5 class="text-light fw-normal bg-info p-3 m-0">Gross Domestic Product (GDP) <i
-            class="fa fa-external-link float-end"></i></h5>
-      </a>
-      <div class="card-body">
-        <h6 class="card-title text-center d-flex justify-content-center align-items-center"><span
-            class="d-inline-block text-truncate p-2 fw-bold" style="max-width:75%;">Indicator</span> <a href="#faq0"><i
-              class="fa fa-info-circle mx-2 text-primary" aria-hidden="true" data-bs-t6ggle="tooltip"
-              data-bs-placement="right" title="Tooltip on right"></i></a></h6>
-        <div id="myPlot9" style="width: 100%"></div>
-        <div class="row p-0 m-0">
-          <p class="card-text text-md-start text-center col-12 col-md-6 p-0 m-0"><small
-              class="text-muted text-truncate mt-1">Source : IIMA Misra Centre, IMF</small></p>
-          <p class="card-text text-md-end text-center col-12 col-md-6 p-0 m-0"><small class="text-muted mt-1">Updated
-              on 22/05/22</small></p>
-        </div>
-      </div>
-    </div>
-  </div>
+        <hr>
 
-  <div class="col-12 col-md-12 col-lg-12 p-0 p-md-2" id="graph11">
-    <div class="card page-section">
-      <a href="{% url 'gdp' %}">
-        <h5 class="text-light fw-normal bg-info p-3 m-0">Gross Domestic Product (GDP) <i
-            class="fa fa-external-link float-end"></i></h5>
-      </a>
-      <div class="card-body">
-        <h6 class="card-title text-center d-flex justify-content-center align-items-center"><span
-            class="d-inline-block text-truncate p-2 fw-bold" style="max-width:75%;">Indicator</span> <a href="#faq0"><i
-              class="fa fa-info-circle mx-2 text-primary" aria-hidden="true" data-bs-t6ggle="tooltip"
-              data-bs-placement="right" title="Tooltip on right"></i></a></h6>
-        <div id="myPlot11" style="width: 100%"></div>
-        <div class="row p-0 m-0">
-          <p class="card-text text-md-start text-center col-12 col-md-6 p-0 m-0"><small
-              class="text-muted text-truncate mt-1">Source : IIMA Misra Centre, IMF</small></p>
-          <p class="card-text text-md-end text-center col-12 col-md-6 p-0 m-0"><small class="text-muted mt-1">Updated
-              on 22/05/22</small></p>
+        <div class="accordion-item" id="faq1">
+          <h2 class="accordion-header" id="graph1">
+            <button class="accordion-button bg-info  text-light" type="button" data-bs-toggle="collapse"
+              data-bs-target="#graph1c" aria-expanded="true" aria-controls="graph1c">
+              Index of Industrial Production
+            </button>
+          </h2>
+          <div id="graph1c" class="accordion-collapse collapse show" aria-labelledby="graph1" data-bs-parent="#faqs">
+            <div class="accordion-body">
+              <p class="text-start"><strong>This is the first item's accordion body.</strong> It is shown by default,
+                until the collapse
+                plugin adds the appropriate classes that we use to style each element. These classes control the overall
+                appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with
+                custom
+                CSS or overriding our default variables. It's also worth noting that just about any HTML can go within
+                the
+                <code>.accordion-body</code>, though the transition does limit overflow.
+              </p>
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
-  </div>
 
-  <div class="col-12 col-md-12 col-lg-12 p-0 p-md-2" id="graph12">
-    <div class="card page-section">
-      <a href="{% url 'gdp' %}">
-        <h5 class="text-light fw-normal bg-info p-3 m-0">Gross Domestic Product (GDP) <i
-            class="fa fa-external-link float-end"></i></h5>
-      </a>
-      <div class="card-body">
-        <h6 class="card-title text-center d-flex justify-content-center align-items-center"><span
-            class="d-inline-block text-truncate p-2 fw-bold" style="max-width:75%;">Indicator</span> <a href="#faq0"><i
-              class="fa fa-info-circle mx-2 text-primary" aria-hidden="true" data-bs-t6ggle="tooltip"
-              data-bs-placement="right" title="Tooltip on right"></i></a></h6>
-        <div id="myPlot12" style="width: 100%"></div>
-        <div class="row p-0 m-0">
-          <p class="card-text text-md-start text-center col-12 col-md-6 p-0 m-0"><small
-              class="text-muted text-truncate mt-1">Source : IIMA Misra Centre, IMF</small></p>
-          <p class="card-text text-md-end text-center col-12 col-md-6 p-0 m-0"><small class="text-muted mt-1">Updated
-              on 22/05/22</small></p>
+        <hr>
+
+        <div class="accordion-item" id="faq2">
+          <h2 class="accordion-header" id="graph2">
+            <button class="accordion-button bg-info  text-light" type="button" data-bs-toggle="collapse"
+              data-bs-target="#graph2c" aria-expanded="true" aria-controls="graph2c">
+              Real GDP growth rate
+            </button>
+          </h2>
+          <div id="graph2c" class="accordion-collapse collapse show" aria-labelledby="graph2" data-bs-parent="#faqs">
+            <div class="accordion-body">
+              <p class="text-start"><strong>This is the first item's accordion body.</strong> It is shown by default,
+                until the collapse
+                plugin adds the appropriate classes that we use to style each element. These classes control the overall
+                appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with
+                custom
+                CSS or overriding our default variables. It's also worth noting that just about any HTML can go within
+                the
+                <code>.accordion-body</code>, though the transition does limit overflow.
+              </p>
+            </div>
+          </div>
         </div>
+
+        <hr>
+
+        <div class="accordion-item" id="faq3">
+          <h2 class="accordion-header" id="graph3">
+            <button class="accordion-button bg-info  text-light" type="button" data-bs-toggle="collapse"
+              data-bs-target="#graph3c" aria-expanded="true" aria-controls="graph3c">
+              Net Exports
+            </button>
+          </h2>
+          <div id="graph3c" class="accordion-collapse collapse show" aria-labelledby="graph3" data-bs-parent="#faqs">
+            <div class="accordion-body">
+              <p class="text-start"><strong>This is the first item's accordion body.</strong> It is shown by default,
+                until the collapse
+                plugin adds the appropriate classes that we use to style each element. These classes control the overall
+                appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with
+                custom
+                CSS or overriding our default variables. It's also worth noting that just about any HTML can go within
+                the
+                <code>.accordion-body</code>, though the transition does limit overflow.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <hr>
+
+        <div class="accordion-item" id="faq4">
+          <h2 class="accordion-header" id="graph4">
+            <button class="accordion-button bg-info  text-light" type="button" data-bs-toggle="collapse"
+              data-bs-target="#graph4c" aria-expanded="true" aria-controls="graph4c">
+              Exchange-Rate Currency / USD 
+            </button>
+          </h2>
+          <div id="graph4c" class="accordion-collapse collapse show" aria-labelledby="graph4" data-bs-parent="#faqs">
+            <div class="accordion-body">
+              <p class="text-start"><strong>This is the first item's accordion body.</strong> It is shown by default,
+                until the collapse
+                plugin adds the appropriate classes that we use to style each element. These classes control the overall
+                appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with
+                custom
+                CSS or overriding our default variables. It's also worth noting that just about any HTML can go within
+                the
+                <code>.accordion-body</code>, though the transition does limit overflow.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <hr>
+
+        <div class="accordion-item" id="faq5">
+          <h2 class="accordion-header" id="graph5">
+            <button class="accordion-button bg-info  text-light" type="button" data-bs-toggle="collapse"
+              data-bs-target="#graph5c" aria-expanded="true" aria-controls="graph5c">
+              Consumer price index
+            </button>
+          </h2>
+          <div id="graph5c" class="accordion-collapse collapse show" aria-labelledby="graph5" data-bs-parent="#faqs">
+            <div class="accordion-body">
+              <p class="text-start"><strong>This is the first item's accordion body.</strong> It is shown by default,
+                until the collapse
+                plugin adds the appropriate classes that we use to style each element. These classes control the overall
+                appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with
+                custom
+                CSS or overriding our default variables. It's also worth noting that just about any HTML can go within
+                the
+                <code>.accordion-body</code>, though the transition does limit overflow.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <hr>
+
+        <div class="accordion-item" id="faq6">
+          <h2 class="accordion-header" id="graph6">
+            <button class="accordion-button bg-info  text-light" type="button" data-bs-toggle="collapse"
+              data-bs-target="#graph6c" aria-expanded="true" aria-controls="graph6c">
+              Government Fiscal balance
+            </button>
+          </h2>
+          <div id="graph6c" class="accordion-collapse collapse show" aria-labelledby="graph6" data-bs-parent="#faqs">
+            <div class="accordion-body">
+              <p class="text-start"><strong>This is the first item's accordion body.</strong> It is shown by default,
+                until the collapse
+                plugin adds the appropriate classes that we use to style each element. These classes control the overall
+                appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with
+                custom
+                CSS or overriding our default variables. It's also worth noting that just about any HTML can go within
+                the
+                <code>.accordion-body</code>, though the transition does limit overflow.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <hr>
+
+        <div class="accordion-item" id="faq7">
+          <h2 class="accordion-header" id="graph7">
+            <button class="accordion-button bg-info  text-light" type="button" data-bs-toggle="collapse"
+              data-bs-target="#graph7c" aria-expanded="true" aria-controls="graph7c">
+              Market capitalization
+            </button>
+          </h2>
+          <div id="graph7c" class="accordion-collapse collapse show" aria-labelledby="graph7" data-bs-parent="#faqs">
+            <div class="accordion-body">
+              <p class="text-start"><strong>This is the first item's accordion body.</strong> It is shown by default,
+                until the collapse
+                plugin adds the appropriate classes that we use to style each element. These classes control the overall
+                appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with
+                custom
+                CSS or overriding our default variables. It's also worth noting that just about any HTML can go within
+                the
+                <code>.accordion-body</code>, though the transition does limit overflow.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <hr>
+
+        <div class="accordion-item" id="faq8">
+          <h2 class="accordion-header" id="graph8">
+            <button class="accordion-button bg-info  text-light" type="button" data-bs-toggle="collapse"
+              data-bs-target="#graph8c" aria-expanded="true" aria-controls="graph8c">
+              Gross debt 
+            </button>
+          </h2>
+          <div id="graph8c" class="accordion-collapse collapse show" aria-labelledby="graph8" data-bs-parent="#faqs">
+            <div class="accordion-body">
+              <p class="text-start"><strong>This is the first item's accordion body.</strong> It is shown by default,
+                until the collapse
+                plugin adds the appropriate classes that we use to style each element. These classes control the overall
+                appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with
+                custom
+                CSS or overriding our default variables. It's also worth noting that just about any HTML can go within
+                the
+                <code>.accordion-body</code>, though the transition does limit overflow.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <hr>
+
+        <div class="accordion-item" id="faq9">
+          <h2 class="accordion-header" id="graph9">
+            <button class="accordion-button bg-info  text-light" type="button" data-bs-toggle="collapse"
+              data-bs-target="#graph9c" aria-expanded="true" aria-controls="graph9c">
+              Private debt 
+            </button>
+          </h2>
+          <div id="graph9c" class="accordion-collapse collapse show" aria-labelledby="graph9" data-bs-parent="#faqs">
+            <div class="accordion-body">
+              <p class="text-start"><strong>This is the first item's accordion body.</strong> It is shown by default,
+                until the collapse
+                plugin adds the appropriate classes that we use to style each element. These classes control the overall
+                appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with
+                custom
+                CSS or overriding our default variables. It's also worth noting that just about any HTML can go within
+                the
+                <code>.accordion-body</code>, though the transition does limit overflow.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <hr>
+
+        <div class="accordion-item" id="faq10">
+          <h2 class="accordion-header" id="graph10">
+            <button class="accordion-button bg-info  text-light" type="button" data-bs-toggle="collapse"
+              data-bs-target="#graph10c" aria-expanded="true" aria-controls="graph10c">
+              Portfolio Investment 
+            </button>
+          </h2>
+          <div id="graph10c" class="accordion-collapse collapse show" aria-labelledby="graph10" data-bs-parent="#faqs">
+            <div class="accordion-body">
+              <p class="text-start"><strong>This is the first item's accordion body.</strong> It is shown by default,
+                until the collapse
+                plugin adds the appropriate classes that we use to style each element. These classes control the overall
+                appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with
+                custom
+                CSS or overriding our default variables. It's also worth noting that just about any HTML can go within
+                the
+                <code>.accordion-body</code>, though the transition does limit overflow.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <hr>
+
+        <div class="accordion-item" id="faq11">
+          <h2 class="accordion-header" id="graph11">
+            <button class="accordion-button bg-info  text-light" type="button" data-bs-toggle="collapse"
+              data-bs-target="#graph11c" aria-expanded="true" aria-controls="graph11c">
+              Mobile money transactions 
+            </button>
+          </h2>
+          <div id="graph11c" class="accordion-collapse collapse show" aria-labelledby="graph11" data-bs-parent="#faqs">
+            <div class="accordion-body">
+              <p class="text-start"><strong>This is the first item's accordion body.</strong> It is shown by default,
+                until the collapse
+                plugin adds the appropriate classes that we use to style each element. These classes control the overall
+                appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with
+                custom
+                CSS or overriding our default variables. It's also worth noting that just about any HTML can go within
+                the
+                <code>.accordion-body</code>, though the transition does limit overflow.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <hr>
+
+        <div class="accordion-item" id="faq12">
+          <h2 class="accordion-header" id="graph12">
+            <button class="accordion-button bg-info  text-light" type="button" data-bs-toggle="collapse"
+              data-bs-target="#graph12c" aria-expanded="true" aria-controls="graph12c">
+              Commercial bank branches 
+            </button>
+          </h2>
+          <div id="graph12c" class="accordion-collapse collapse show" aria-labelledby="graph12" data-bs-parent="#faqs">
+            <div class="accordion-body">
+              <p class="text-start"><strong>This is the first item's accordion body.</strong> It is shown by default,
+                until the collapse
+                plugin adds the appropriate classes that we use to style each element. These classes control the overall
+                appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with
+                custom
+                CSS or overriding our default variables. It's also worth noting that just about any HTML can go within
+                the
+                <code>.accordion-body</code>, though the transition does limit overflow.
+              </p>
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
   </div>
 
 </div>
+
+<br>
 
 <script>
 
@@ -188,16 +748,27 @@
       success: function (result) {
         // console.log(JSON.parse(result));
         res = JSON.parse(result);
+        // console.log(res);
+
+        // var data1 = JSON.parse(res.extDataJson1);
         var data2 = JSON.parse(res.extDataJson2);
         var data3 = JSON.parse(res.extDataJson3);
         var data4 = JSON.parse(res.extDataJson4);
+        // var data5 = JSON.parse(res.extDataJson5);
         var data6 = JSON.parse(res.extDataJson6);
         var data7 = JSON.parse(res.extDataJson7);
+        // var data8 = JSON.parse(res.extDataJson8);
         var data9 = JSON.parse(res.extDataJson9);
+        // var data10 = JSON.parse(res.extDataJson10);
         var data11 = JSON.parse(res.extDataJson11);
         var data12 = JSON.parse(res.extDataJson12);
+        var data13 = JSON.parse(res.extDataJson13);
+        // var data14 = JSON.parse(res.extDataJson14);
 
         // data.forEach(genratedDatas);
+
+        // // console.log(data1); 
+        // genrateMultiGraph(data1, "myPlot1", "line", "v");
 
         // console.log(data2);
         genrateMultiGraph(data2, "myPlot2", "line", "v");
@@ -208,20 +779,35 @@
         // console.log(data4);
         genrateMultiGraph(data4, "myPlot4", "line", "v");
 
+        // // console.log(data5);
+        // genrateMultiGraph(data5, "myPlot5", "line", "v");
+
         // console.log(data6);
         genrateMultiGraph(data6, "myPlot6", "line", "v");
 
         // console.log(data7);
         genrateMultiGraph(data7, "myPlot7", "line", "v");
 
+        // // console.log(data8);
+        // genrateMultiGraph(data8, "myPlot8", "line", "v");
+
         // console.log(data9);
         genrateMultiGraph(data9, "myPlot9", "line", "v");
 
-        // console.log(data11);
+        // // console.log(data10);
+        // genrateMultiGraph(data10, "myPlot10", "line", "v");
+
+        // console.log(data9);
         genrateMultiGraph(data11, "myPlot11", "line", "v");
 
-        // console.log(data12);
+        // console.log(data11);
         genrateMultiGraph(data12, "myPlot12", "line", "v");
+
+        // console.log(data12);
+        genrateMultiGraph(data13, "myPlot13", "line", "v");
+
+        // // console.log(data13);
+        // genrateMultiGraph(data14, "myPlot14", "line", "v");
 
         var preloader = document.getElementById("loading");
         setInterval(() => {
