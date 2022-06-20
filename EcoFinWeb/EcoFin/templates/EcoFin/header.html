@@ -29,7 +29,7 @@
   </style>
 </head>
 
-<body class="bg-grad" onload="myFunction()">
+<body class="bg-grad">
   <div id="loading" class="p-3"><div class="d-flex justify-content-center align-items-center h-100" ><img src="{% static 'EcoFin/img/loader.gif' %}" height="80" width="80" alt=""></div></div>
 
   <h1 class="text-center py-5 text-light m-0 d-md-none d-none d-lg-block" style="background-color: #112d4e">
@@ -146,14 +146,6 @@
     <!-- Copyright -->
   </footer>
 
-  <script>
-    var preloader = document.getElementById("loading");
-    function myFunction() {
-      setInterval(() => {
-        preloader.style.display = "none";
-      }, 2000);
-    }
-  </script>
 </body>
 
 </html>

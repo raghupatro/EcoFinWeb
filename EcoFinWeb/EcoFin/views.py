@@ -1,8 +1,5 @@
-from asyncio.windows_events import NULL
-import re
 from urllib import response
-from xml.etree.ElementTree import tostring
-from django.http import Http404, HttpResponse
+from django.http import Http404, HttpResponse, JsonResponse
 from django.shortcuts import redirect, render
 import requests
 import json
@@ -16,9 +13,9 @@ def imfAPI(database, frequency, countries, indicators, startPeriod, endPeriod):
     responseIMF = requests.get(url).json()
     jsonData = responseIMF
     series = jsonData['CompactData']['DataSet']['Series']
-    if(database == "FAS"):
-        with open('data.json', 'w') as jsonfile:
-            json.dump(series, jsonfile)
+    # if(database == "FAS"):
+    #     with open('data.json', 'w') as jsonfile:
+    #         json.dump(series, jsonfile)
     extData = []
     for s in series:
         newSeries = []
@@ -27,25 +24,20 @@ def imfAPI(database, frequency, countries, indicators, startPeriod, endPeriod):
         timeSeries = []
         for i in s['Obs']:
             try:
-                timeSeries.append(dict({"time": i['@TIME_PERIOD'], "value": i['@OBS_VALUE']}))
+                timeSeries.append(
+                    dict({"time": i['@TIME_PERIOD'], "value": i['@OBS_VALUE']}))
             except KeyError:
-                pass    
-        newSeries.append(dict({"countryCode": countryCode, "indicatorCode": indicatorCode, "timeSeries": timeSeries}))
+                pass
+        newSeries.append(dict(
+            {"countryCode": countryCode, "indicatorCode": indicatorCode, "timeSeries": timeSeries}))
         extData.append(newSeries)
     return extData
+
 
 # Creating views here.
 
 
-def home(request):
-
-    # IMF DATA
-    # startPeriod = str(2010)
-    # endPeriod = str(2022)
-    # indicators = 'NGDP_RPCH'
-    # countries = 'IN+BD+ID+TL+VN'
-    # frequency = 'A'
-    # database = 'APDREO'
+def imfData(request):
 
     extData2 = imfAPI('IFS', 'A', 'IN+BD+BR+TR+VN',
                       'AIP_IX', str(2010), str(2022))
@@ -64,8 +56,8 @@ def home(request):
     extData12 = imfAPI('FAS', 'A', 'IN+BR+ID+BD+ZA',
                        'FCBODCA_NUM', str(2010), str(2022))
 
-    with open('data.json', 'w') as jsonfile:
-        json.dump(extData11, jsonfile)
+    # with open('data.json', 'w') as jsonfile:
+    #     json.dump(extData11, jsonfile)
     # print(response)
     # f = open('data.json')
     # response = json.load(f)
@@ -94,14 +86,32 @@ def home(request):
     extDataJson12 = json.dumps(extData12)
     extDataObj12 = json.loads(extDataJson12)
 
-    return render(request, 'EcoFin/imf.html', {'extDataJson2': extDataJson2, 'extDataObj2': extDataObj2,
-                                               'extDataJson3': extDataJson3, 'extDataObj3': extDataObj3,
-                                               'extDataJson4': extDataJson4, 'extDataObj4': extDataObj4,
-                                               'extDataJson6': extDataJson6, 'extDataObj6': extDataObj6,
-                                               'extDataJson7': extDataJson7, 'extDataObj7': extDataObj7,
-                                               'extDataJson9': extDataJson9, 'extDataObj9': extDataObj9,
-                                               'extDataJson11': extDataJson11, 'extDataObj11': extDataObj11, 
-                                               'extDataJson12': extDataJson12, 'extDataObj12': extDataObj12,})
+    extResponse = {
+        'extDataJson2': extDataJson2,
+        'extDataObj2': extDataObj2,
+        'extDataJson3': extDataJson3, 
+        'extDataObj3': extDataObj3,
+        'extDataJson4': extDataJson4, 
+        'extDataObj4': extDataObj4,
+        'extDataJson6': extDataJson6, 
+        'extDataObj6': extDataObj6,
+        'extDataJson7': extDataJson7, 
+        'extDataObj7': extDataObj7,
+        'extDataJson9': extDataJson9, 
+        'extDataObj9': extDataObj9,
+        'extDataJson11': extDataJson11, 
+        'extDataObj11': extDataObj11,
+        'extDataJson12': extDataJson12, 
+        'extDataObj12': extDataObj12,
+    }
+
+    response = json.dumps(extResponse)
+
+    return JsonResponse(response, safe=False)
+    # return render(request, 'EcoFin/imf.html', {'res':extResponse})return render(request, 'EcoFin/imf.html', {'res':extResponse})
+
+def home(request):
+    return render(request, 'EcoFin/imf.html', {}) 
 
 
 def dashboard(request):
@@ -309,6 +319,10 @@ def dashboard(request):
     }
 
     return render(request, 'EcoFin/dashboard.html', {"res": response, "activeHome": "active"})
+
+
+def errorPage(request):
+    return render(request, 'EcoFin/errorPage.html', {})
 
 
 def about(request):

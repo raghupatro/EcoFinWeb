@@ -1,0 +1,11 @@
+{% extends 'EcoFin/header.html' %} {% load static %} {% block content %}
+<div id="error" class="p-3" style="height:50vh;width:100vw;">
+  <div class="d-flex justify-content-center align-items-center h-100">
+    <h1 class="my-auto">Something Went Wrong...</h1>
+  </div>
+</div>
+<script>
+    var preloader = document.getElementById("loading");
+    preloader.style.display = "none";
+</script>
+{% endblock content %}
