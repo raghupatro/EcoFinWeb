@@ -1,218 +1,162 @@
 [
   {
-    "countryCode": "BRA",
-    "indicatorCode": "NY.GDP.MKTP.KD.ZG",
-    "time": "2021",
-    "value": null
+    "1990": 0.429,
+    "1991": 0.433,
+    "1992": 0.44,
+    "1993": 0.446,
+    "1994": 0.453,
+    "1995": 0.461,
+    "1996": 0.468,
+    "1997": 0.474,
+    "1998": 0.481,
+    "1999": 0.489,
+    "2000": 0.495,
+    "2001": 0.499,
+    "2002": 0.506,
+    "2003": 0.518,
+    "2004": 0.527,
+    "2005": 0.536,
+    "2006": 0.546,
+    "2007": 0.555,
+    "2008": 0.563,
+    "2009": 0.569,
+    "2010": 0.579,
+    "2011": 0.588,
+    "2012": 0.597,
+    "2013": 0.604,
+    "2014": 0.616,
+    "2015": 0.624,
+    "2016": 0.63,
+    "2017": 0.64,
+    "2018": 0.642,
+    "2019": 0.645
   },
   {
-    "countryCode": "BRA",
-    "indicatorCode": "NY.GDP.MKTP.KD.ZG",
-    "time": "2020",
-    "value": -4.05904827267271
+    "1990": 0.523,
+    "1991": 0.529,
+    "1992": 0.534,
+    "1993": 0.541,
+    "1994": 0.55,
+    "1995": 0.56,
+    "1996": 0.573,
+    "1997": 0.587,
+    "1998": 0.586,
+    "1999": 0.594,
+    "2000": 0.603,
+    "2001": 0.609,
+    "2002": 0.615,
+    "2003": 0.622,
+    "2004": 0.628,
+    "2005": 0.632,
+    "2006": 0.642,
+    "2007": 0.643,
+    "2008": 0.647,
+    "2009": 0.658,
+    "2010": 0.665,
+    "2011": 0.673,
+    "2012": 0.681,
+    "2013": 0.687,
+    "2014": 0.69,
+    "2015": 0.695,
+    "2016": 0.703,
+    "2017": 0.707,
+    "2018": 0.712,
+    "2019": 0.718
   },
   {
-    "countryCode": "BRA",
-    "indicatorCode": "NY.GDP.MKTP.KD.ZG",
-    "time": "2019",
-    "value": 1.41115298506995
+    "1990": 0.613,
+    "1991": 0.621,
+    "1992": 0.627,
+    "1993": 0.635,
+    "1994": 0.642,
+    "1995": 0.651,
+    "1996": 0.658,
+    "1997": 0.665,
+    "1998": 0.67,
+    "1999": 0.676,
+    "2000": 0.685,
+    "2001": 0.691,
+    "2002": 0.699,
+    "2003": 0.695,
+    "2004": 0.698,
+    "2005": 0.7,
+    "2006": 0.702,
+    "2007": 0.706,
+    "2008": 0.717,
+    "2009": 0.719,
+    "2010": 0.727,
+    "2011": 0.731,
+    "2012": 0.735,
+    "2013": 0.753,
+    "2014": 0.756,
+    "2015": 0.756,
+    "2016": 0.758,
+    "2017": 0.761,
+    "2018": 0.762,
+    "2019": 0.765
   },
   {
-    "countryCode": "BRA",
-    "indicatorCode": "NY.GDP.MKTP.KD.ZG",
-    "time": "2018",
-    "value": 1.78366676137003
+    "1990": 0.656,
+    "1991": 0.66,
+    "1992": 0.664,
+    "1993": 0.668,
+    "1994": 0.675,
+    "1995": 0.677,
+    "1996": 0.683,
+    "1997": 0.689,
+    "1998": 0.695,
+    "1999": 0.699,
+    "2000": 0.708,
+    "2001": 0.712,
+    "2002": 0.718,
+    "2003": 0.722,
+    "2004": 0.731,
+    "2005": 0.737,
+    "2006": 0.745,
+    "2007": 0.746,
+    "2008": 0.748,
+    "2009": 0.748,
+    "2010": 0.748,
+    "2011": 0.755,
+    "2012": 0.759,
+    "2013": 0.756,
+    "2014": 0.761,
+    "2015": 0.766,
+    "2016": 0.768,
+    "2017": 0.771,
+    "2018": 0.776,
+    "2019": 0.779
   },
   {
-    "countryCode": "BRA",
-    "indicatorCode": "NY.GDP.MKTP.KD.ZG",
-    "time": "2017",
-    "value": 1.32286905390815
-  },
-  {
-    "countryCode": "BRA",
-    "indicatorCode": "NY.GDP.MKTP.KD.ZG",
-    "time": "2016",
-    "value": -3.2759169063211
-  },
-  {
-    "countryCode": "BRA",
-    "indicatorCode": "NY.GDP.MKTP.KD.ZG",
-    "time": "2015",
-    "value": -3.54576339347278
-  },
-  {
-    "countryCode": "BRA",
-    "indicatorCode": "NY.GDP.MKTP.KD.ZG",
-    "time": "2014",
-    "value": 0.503955740273241
-  },
-  {
-    "countryCode": "BRA",
-    "indicatorCode": "NY.GDP.MKTP.KD.ZG",
-    "time": "2013",
-    "value": 3.0048226702888
-  },
-  {
-    "countryCode": "BRA",
-    "indicatorCode": "NY.GDP.MKTP.KD.ZG",
-    "time": "2012",
-    "value": 1.92117598509462
-  },
-  {
-    "countryCode": "BRA",
-    "indicatorCode": "NY.GDP.MKTP.KD.ZG",
-    "time": "2011",
-    "value": 3.97442307944702
-  },
-  {
-    "countryCode": "BRA",
-    "indicatorCode": "NY.GDP.MKTP.KD.ZG",
-    "time": "2010",
-    "value": 7.52822581812151
-  },
-  {
-    "countryCode": "CHN",
-    "indicatorCode": "NY.GDP.MKTP.KD.ZG",
-    "time": "2021",
-    "value": null
-  },
-  {
-    "countryCode": "CHN",
-    "indicatorCode": "NY.GDP.MKTP.KD.ZG",
-    "time": "2020",
-    "value": 2.3475135727457
-  },
-  {
-    "countryCode": "CHN",
-    "indicatorCode": "NY.GDP.MKTP.KD.ZG",
-    "time": "2019",
-    "value": 5.94971423273162
-  },
-  {
-    "countryCode": "CHN",
-    "indicatorCode": "NY.GDP.MKTP.KD.ZG",
-    "time": "2018",
-    "value": 6.74977383247717
-  },
-  {
-    "countryCode": "CHN",
-    "indicatorCode": "NY.GDP.MKTP.KD.ZG",
-    "time": "2017",
-    "value": 6.94720079327288
-  },
-  {
-    "countryCode": "CHN",
-    "indicatorCode": "NY.GDP.MKTP.KD.ZG",
-    "time": "2016",
-    "value": 6.84876220503246
-  },
-  {
-    "countryCode": "CHN",
-    "indicatorCode": "NY.GDP.MKTP.KD.ZG",
-    "time": "2015",
-    "value": 7.04132887865481
-  },
-  {
-    "countryCode": "CHN",
-    "indicatorCode": "NY.GDP.MKTP.KD.ZG",
-    "time": "2014",
-    "value": 7.42576365645755
-  },
-  {
-    "countryCode": "CHN",
-    "indicatorCode": "NY.GDP.MKTP.KD.ZG",
-    "time": "2013",
-    "value": 7.766150097539
-  },
-  {
-    "countryCode": "CHN",
-    "indicatorCode": "NY.GDP.MKTP.KD.ZG",
-    "time": "2012",
-    "value": 7.86373644866194
-  },
-  {
-    "countryCode": "CHN",
-    "indicatorCode": "NY.GDP.MKTP.KD.ZG",
-    "time": "2011",
-    "value": 9.55083217886229
-  },
-  {
-    "countryCode": "CHN",
-    "indicatorCode": "NY.GDP.MKTP.KD.ZG",
-    "time": "2010",
-    "value": 10.6358710646812
-  },
-  {
-    "countryCode": "IND",
-    "indicatorCode": "NY.GDP.MKTP.KD.ZG",
-    "time": "2021",
-    "value": null
-  },
-  {
-    "countryCode": "IND",
-    "indicatorCode": "NY.GDP.MKTP.KD.ZG",
-    "time": "2020",
-    "value": -7.25175478178826
-  },
-  {
-    "countryCode": "IND",
-    "indicatorCode": "NY.GDP.MKTP.KD.ZG",
-    "time": "2019",
-    "value": 4.0415541865323
-  },
-  {
-    "countryCode": "IND",
-    "indicatorCode": "NY.GDP.MKTP.KD.ZG",
-    "time": "2018",
-    "value": 6.53298901139763
-  },
-  {
-    "countryCode": "IND",
-    "indicatorCode": "NY.GDP.MKTP.KD.ZG",
-    "time": "2017",
-    "value": 6.79538341897911
-  },
-  {
-    "countryCode": "IND",
-    "indicatorCode": "NY.GDP.MKTP.KD.ZG",
-    "time": "2016",
-    "value": 8.25630550179086
-  },
-  {
-    "countryCode": "IND",
-    "indicatorCode": "NY.GDP.MKTP.KD.ZG",
-    "time": "2015",
-    "value": 7.99625378571471
-  },
-  {
-    "countryCode": "IND",
-    "indicatorCode": "NY.GDP.MKTP.KD.ZG",
-    "time": "2014",
-    "value": 7.41022760508854
-  },
-  {
-    "countryCode": "IND",
-    "indicatorCode": "NY.GDP.MKTP.KD.ZG",
-    "time": "2013",
-    "value": 6.38610640094825
-  },
-  {
-    "countryCode": "IND",
-    "indicatorCode": "NY.GDP.MKTP.KD.ZG",
-    "time": "2012",
-    "value": 5.45638875297365
-  },
-  {
-    "countryCode": "IND",
-    "indicatorCode": "NY.GDP.MKTP.KD.ZG",
-    "time": "2011",
-    "value": 5.24131500140663
-  },
-  {
-    "countryCode": "IND",
-    "indicatorCode": "NY.GDP.MKTP.KD.ZG",
-    "time": "2010",
-    "value": 8.49758470158106
+    "1990": 0.627,
+    "1991": 0.634,
+    "1992": 0.642,
+    "1993": 0.648,
+    "1994": 0.65,
+    "1995": 0.653,
+    "1996": 0.65,
+    "1997": 0.646,
+    "1998": 0.64,
+    "1999": 0.635,
+    "2000": 0.631,
+    "2001": 0.611,
+    "2002": 0.619,
+    "2003": 0.619,
+    "2004": 0.619,
+    "2005": 0.622,
+    "2006": 0.626,
+    "2007": 0.632,
+    "2008": 0.646,
+    "2009": 0.655,
+    "2010": 0.664,
+    "2011": 0.665,
+    "2012": 0.675,
+    "2013": 0.685,
+    "2014": 0.693,
+    "2015": 0.701,
+    "2016": 0.703,
+    "2017": 0.705,
+    "2018": 0.707,
+    "2019": 0.709
   }
 ]

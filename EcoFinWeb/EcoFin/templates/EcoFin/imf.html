@@ -750,25 +750,25 @@
         res = JSON.parse(result);
         // console.log(res);
 
-        // var data1 = JSON.parse(res.extDataJson1);
+        var data1 = JSON.parse(res.extDataJson1);
         var data2 = JSON.parse(res.extDataJson2);
         var data3 = JSON.parse(res.extDataJson3);
         var data4 = JSON.parse(res.extDataJson4);
-        // var data5 = JSON.parse(res.extDataJson5);
+        var data5 = JSON.parse(res.extDataJson5);
         var data6 = JSON.parse(res.extDataJson6);
         var data7 = JSON.parse(res.extDataJson7);
-        // var data8 = JSON.parse(res.extDataJson8);
+        var data8 = JSON.parse(res.extDataJson8);
         var data9 = JSON.parse(res.extDataJson9);
         // var data10 = JSON.parse(res.extDataJson10);
         var data11 = JSON.parse(res.extDataJson11);
         var data12 = JSON.parse(res.extDataJson12);
         var data13 = JSON.parse(res.extDataJson13);
-        // var data14 = JSON.parse(res.extDataJson14);
+        var data14 = JSON.parse(res.extDataJson14);
 
         // data.forEach(genratedDatas);
 
-        // // console.log(data1); 
-        // genrateMultiGraph(data1, "myPlot1", "line", "v");
+        // console.log(data1); 
+        genrateWBMultiGraph(data1, "myPlot1", "line", "v");
 
         // console.log(data2);
         genrateMultiGraph(data2, "myPlot2", "line", "v");
@@ -779,8 +779,8 @@
         // console.log(data4);
         genrateMultiGraph(data4, "myPlot4", "line", "v");
 
-        // // console.log(data5);
-        // genrateMultiGraph(data5, "myPlot5", "line", "v");
+        // console.log(data5);
+        genrateGraph(data5, "myPlot5", "line", "v");
 
         // console.log(data6);
         genrateMultiGraph(data6, "myPlot6", "line", "v");
@@ -788,26 +788,26 @@
         // console.log(data7);
         genrateMultiGraph(data7, "myPlot7", "line", "v");
 
-        // // console.log(data8);
-        // genrateMultiGraph(data8, "myPlot8", "line", "v");
+        // console.log(data8);
+        genrateWBMultiGraph(data8, "myPlot8", "line", "v");
 
         // console.log(data9);
         genrateMultiGraph(data9, "myPlot9", "line", "v");
 
-        // // console.log(data10);
+        // console.log(data10);
         // genrateMultiGraph(data10, "myPlot10", "line", "v");
 
-        // console.log(data9);
+        // console.log(data11);
         genrateMultiGraph(data11, "myPlot11", "line", "v");
 
-        // console.log(data11);
+        // console.log(data12);
         genrateMultiGraph(data12, "myPlot12", "line", "v");
 
-        // console.log(data12);
+        // console.log(data13);
         genrateMultiGraph(data13, "myPlot13", "line", "v");
 
-        // // console.log(data13);
-        // genrateMultiGraph(data14, "myPlot14", "line", "v");
+        // console.log(data14);
+        genrateHRDOMultiGraph(data14, "myPlot14", "line", "v");
 
         var preloader = document.getElementById("loading");
         setInterval(() => {
@@ -824,27 +824,18 @@
     });
   });
 
-  function genratedDatas(itemData, indexData) {
-    data = itemData[0]['timeSeries'];
-    plotId = "myPlot" + (indexData + 1);
-    tog = "line";
-    ot = "v";
-    // console.log(itemData[0]['timeSeries'])
-    genrateGraph(data, plotId, tog, ot);
-  }
-
   function genrateGraph(data, plotId, typeOfGraph, orientationType) {
     var xValues = [];
     var yValues = [];
 
     // console.log(data,plotId,typeOfGraph,orientationType);
 
-    data.forEach(genratedData);
+    data[0]["timeSeries"].forEach(genratedData);
 
     function genratedData(item, index) {
       let date = new Date(item.time);
       if (item.value != null) {
-        xValues.push(date.getFullYear());
+        xValues.push(date);
         yValues.push(item.value);
       }
     }
@@ -857,16 +848,6 @@
         line: {
           color: 'red',
           width: 2,
-        },
-        orientation: orientationType,
-      },
-      {
-        x: xValues,
-        y: yValues,
-        type: 'bar',
-        marker: {
-          color: ['rgba(255, 99, 71, 1)', 'rgba(255, 99, 71, 0.95)', 'rgba(255, 99, 71, 0.9)', 'rgba(255, 99, 71, 0.85)', 'rgba(255, 99, 71, 0.8)', 'rgba(255, 99, 71, 0.75)',
-            'rgba(255, 99, 71, 0.7)', 'rgba(255, 99, 71, 0.65)', 'rgba(255, 99, 71, 0.6)', 'rgba(255, 99, 71, 0.55)', 'rgba(255, 99, 71, 0.5)', 'rgba(255, 99, 71, 0.45)', 'rgba(255, 99, 71, 0.4)'],
         },
         orientation: orientationType,
       },
@@ -1110,6 +1091,338 @@
 
     Plotly.newPlot(plotId, dataPlot, layout, config);
   }
+
+  function genrateWBMultiGraph(data, plotId, typeOfGraph, orientationType) {
+
+    var x1Values = [];
+    var y1Values = [];
+
+    var x2Values = [];
+    var y2Values = [];
+
+    var x3Values = [];
+    var y3Values = [];
+
+    var x4Values = [];
+    var y4Values = [];
+
+    var x5Values = [];
+    var y5Values = [];
+
+    // console.log(data[0],plotId,typeOfGraph,orientationType);
+
+    data.forEach(genratedData);
+
+    function genratedData(item, index) {
+      let date = new Date(item.time);
+      if (item.value != null && index<12) {
+        x1Values.push(date);
+        y1Values.push(item.value);
+      }
+      else if (item.value != null && (index>=12 && index<24)) {
+        x2Values.push(date);
+        y2Values.push(item.value);
+      }
+      else if (item.value != null && (index>=24 && index<36)) {
+        x3Values.push(date);
+        y3Values.push(item.value);
+      }
+      else if (item.value != null && (index>=36 && index<48)) {
+        x4Values.push(date);
+        y4Values.push(item.value);
+      }
+      else if (item.value != null && (index>=48 && index<60)) {
+        x5Values.push(date);
+        y5Values.push(item.value);
+      }
+    }
+
+    // console.log(x1Values, x2Values, x3Values, x4Values, x5Values);
+    // console.log(y1Values, y2Values, y3Values, y4Values, y5Values);
+
+    var dataPlot = [
+      {
+        x: x1Values,
+        y: y1Values,
+        type: typeOfGraph,
+        line: {
+          // color: 'yellow',
+          width: 2,
+        },
+        orientation: orientationType,
+      },
+      {
+        x: x2Values,
+        y: y2Values,
+        type: typeOfGraph,
+        line: {
+          // color: 'yellow',
+          width: 2,
+        },
+        orientation: orientationType,
+      },
+      {
+        x: x3Values,
+        y: y3Values,
+        type: typeOfGraph,
+        line: {
+          // color: 'yellow',
+          width: 2,
+        },
+        orientation: orientationType,
+      },
+      {
+        x: x4Values,
+        y: y4Values,
+        type: typeOfGraph,
+        line: {
+          // color: 'yellow',
+          width: 2,
+        },
+        orientation: orientationType,
+      },
+      {
+        x: x5Values,
+        y: y5Values,
+        type: typeOfGraph,
+        line: {
+          // color: 'yellow',
+          width: 2,
+        },
+        orientation: orientationType,
+      },
+    ];
+
+    var layout = {
+      autosize: true,
+
+      font: {
+        family: 'Open Sans, serif',
+        size: 12,
+        // color: '#7f7f7f'
+      },
+
+      margin: {
+        l: 20,
+        r: 20,
+        b: 100,
+        t: 100,
+        pad: 1
+      },
+
+      paper_bgcolor: '#dedede',
+      plot_bgcolor: '#dedede',
+
+      xaxis: {
+        type: "date",
+        title: "Years",
+        ticks: "outside",
+        tickangle: 'auto',
+        tick0: 0,
+        dtick: "M12",
+        tickformat: '%Y',
+        fixedrange: true,
+        automargin: true,
+      },
+
+      yaxis: {
+        title: "Values",
+        fixedrange: true,
+        automargin: true,
+      },
+
+      title: "Time vs Value",
+      showlegend: true,
+      legend: {
+        x: 0.5,
+        xanchor: 'center',
+        y: 1.15,
+        "orientation": "h"
+      },
+    };
+
+    const config = {
+      displayModeBar: false,
+    };
+
+    Plotly.newPlot(plotId, dataPlot, layout, config);
+    }
+
+  function genrateHRDOMultiGraph(data, plotId, typeOfGraph, orientationType) {
+
+    var x1Values = [];
+    var y1Values = [];
+
+    var x2Values = [];
+    var y2Values = [];
+
+    var x3Values = [];
+    var y3Values = [];
+
+    var x4Values = [];
+    var y4Values = [];
+
+    var x5Values = [];
+    var y5Values = [];
+
+    var data1 = data[0];
+    var data2 = data[1];
+    var data3 = data[2];
+    var data4 = data[3];
+    var data5 = data[4];
+
+    // console.log(data1);
+
+    for(let a in data1){
+      var date = new Date(a);
+      if (a != null) {
+        x1Values.push(date);
+        y1Values.push(data1[a]);
+      }
+    }
+
+    for(let b in data2){
+      let date = new Date(b);
+      if (b != null) {
+        x2Values.push(date);
+        y2Values.push(data2[b]);
+      }
+    }
+
+    for(let c in data3){
+      let date = new Date(c);
+      if (c != null) {
+        x3Values.push(date);
+        y3Values.push(data3[c]);
+      }
+    }
+
+    for(let d in data4){
+      let date = new Date(d);
+      if (d != null) {
+        x4Values.push(date);
+        y4Values.push(data4[d]);
+      }
+    }
+
+    for(let e in data5){
+      let date = new Date(e);
+      if (e != null) {
+        x5Values.push(date);
+        y5Values.push(data5[e]);
+      }
+    }
+
+    // console.log(x1Values, x2Values, x3Values, x4Values);
+    // console.log(y1Values, y2Values, y3Values, y4Values);
+
+    var dataPlot = [
+      {
+        x: x1Values,
+        y: y1Values,
+        type: typeOfGraph,
+        line: {
+          // color: 'yellow',
+          width: 2,
+        },
+        orientation: orientationType,
+      },
+      {
+        x: x2Values,
+        y: y2Values,
+        type: typeOfGraph,
+        line: {
+          // color: 'yellow',
+          width: 2,
+        },
+        orientation: orientationType,
+      },
+      {
+        x: x3Values,
+        y: y3Values,
+        type: typeOfGraph,
+        line: {
+          // color: 'yellow',
+          width: 2,
+        },
+        orientation: orientationType,
+      },
+      {
+        x: x4Values,
+        y: y4Values,
+        type: typeOfGraph,
+        line: {
+          // color: 'yellow',
+          width: 2,
+        },
+        orientation: orientationType,
+      },
+      {
+        x: x5Values,
+        y: y5Values,
+        type: typeOfGraph,
+        line: {
+          // color: 'yellow',
+          width: 2,
+        },
+        orientation: orientationType,
+      },
+    ];
+
+    var layout = {
+      autosize: true,
+
+      font: {
+        family: 'Open Sans, serif',
+        size: 12,
+        // color: '#7f7f7f'
+      },
+
+      margin: {
+        l: 20,
+        r: 20,
+        b: 100,
+        t: 100,
+        pad: 1
+      },
+
+      paper_bgcolor: '#dedede',
+      plot_bgcolor: '#dedede',
+
+      xaxis: {
+        type: "date",
+        title: "Years",
+        ticks: "outside",
+        tickangle: 'auto',
+        tick0: 0,
+        dtick: "M36",
+        tickformat: '%Y',
+        fixedrange: true,
+        automargin: true,
+      },
+
+      yaxis: {
+        title: "Values",
+        fixedrange: true,
+        automargin: true,
+      },
+
+      title: "Time vs Value",
+      showlegend: true,
+      legend: {
+        x: 0.5,
+        xanchor: 'center',
+        y: 1.15,
+        "orientation": "h"
+      },
+    };
+
+    const config = {
+      displayModeBar: false,
+    };
+
+    Plotly.newPlot(plotId, dataPlot, layout, config);
+    }
 
 </script>
 

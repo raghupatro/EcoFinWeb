@@ -6,6 +6,25 @@ import json
 from urllib3 import HTTPResponse
 
 
+def hrdoAPI(countries):
+    url = 'http://ec2-54-174-131-205.compute-1.amazonaws.com/API/HDRO_API.php/country_code='+countries+'/indicator_id=137506'
+    responseIMF = requests.get(url).json()
+    extData = []      
+    jsonDataIND = responseIMF["indicator_value"]["IND"]["137506"]
+    jsonDataIDN = responseIMF["indicator_value"]["IDN"]["137506"]
+    jsonDataBRA = responseIMF["indicator_value"]["BRA"]["137506"]
+    jsonDataZAF = responseIMF["indicator_value"]["ZAF"]["137506"]
+    jsonDataMEX = responseIMF["indicator_value"]["MEX"]["137506"]    
+    extData.append(jsonDataIND)
+    extData.append(jsonDataIDN)
+    extData.append(jsonDataBRA)
+    extData.append(jsonDataMEX)
+    extData.append(jsonDataZAF)
+    # with open('data.json', 'w') as jsonfile:
+    #     json.dump(extData, jsonfile) 
+    return extData    
+
+
 def imfAPI(database, frequency, countries, indicators, startPeriod, endPeriod):
     url = 'http://dataservices.imf.org/REST/SDMX_JSON.svc/CompactData/'+database+'/' + \
         frequency+'.'+countries+'.'+indicators + \
@@ -13,9 +32,6 @@ def imfAPI(database, frequency, countries, indicators, startPeriod, endPeriod):
     responseIMF = requests.get(url).json()
     jsonData = responseIMF
     series = jsonData['CompactData']['DataSet']['Series']
-    # if(database == "FAS"):
-    #     with open('data.json', 'w') as jsonfile:
-    #         json.dump(series, jsonfile)
     extData = []
     for s in series:
         newSeries = []
@@ -28,8 +44,30 @@ def imfAPI(database, frequency, countries, indicators, startPeriod, endPeriod):
             except KeyError:
                 pass
         newSeries.append(dict({"countryCode": countryCode, "indicatorCode": indicatorCode, "timeSeries": timeSeries}))
-        extData.append(newSeries)
+        extData.append(newSeries)         
     return extData
+
+
+def imfAPIone(database, frequency, countries, indicators, startPeriod, endPeriod):
+    url = 'http://dataservices.imf.org/REST/SDMX_JSON.svc/CompactData/'+database+'/' + \
+        frequency+'.'+countries+'.'+indicators + \
+        '?startPeriod='+startPeriod+'&endPeriod='+endPeriod
+    responseIMF = requests.get(url).json()
+    jsonData = responseIMF
+    series = jsonData['CompactData']['DataSet']['Series']
+    extData = []
+    countryCode = series['@REF_AREA']
+    indicatorCode = series['@INDICATOR']
+    timeSeries = []
+    for i in series['Obs']:
+        try:
+            timeSeries.append(dict({"time": i['@TIME_PERIOD'], "value": i['@OBS_VALUE']}))
+        except KeyError:
+            pass
+    extData.append(dict({"countryCode": countryCode, "indicatorCode": indicatorCode, "timeSeries": timeSeries})) 
+    # with open('data.json', 'w') as jsonfile:
+    #     json.dump(extData, jsonfile)       
+    return extData    
 
 
 def wbAPI(database, frequency, countries, indicators, startPeriod, endPeriod):
@@ -40,12 +78,11 @@ def wbAPI(database, frequency, countries, indicators, startPeriod, endPeriod):
     extData = []
     for s in responseWB[1]:
         try:
-            if():
-                extData.append(dict({"countryCode": s["countryiso3code"], "indicatorCode": s["indicator"]["id"], "time": s["date"], "value": s["value"]}))
+            extData.append(dict({"countryCode": s["countryiso3code"], "indicatorCode": s["indicator"]["id"], "time": s["date"], "value": s["value"]}))
         except KeyError:
-            pass
+            pass    
     # with open('data.json', 'w') as jsonfile:
-    #     json.dump(extData, jsonfile)     
+    #     json.dump(extData, jsonfile)
     return extData
 
 
@@ -54,16 +91,22 @@ def wbAPI(database, frequency, countries, indicators, startPeriod, endPeriod):
 
 def imfData(request):
 
+    extData1 = wbAPI("v2", "A", "WLD;IND;BRA;ZAF;IDN",
+                        "NY.GDP.PCAP.PP.KD", str(2010), str(2022))
     extData2 = imfAPI('IFS', 'A', 'IN+BD+BR+TR+VN',
                       'AIP_IX', str(2010), str(2022))
     extData3 = imfAPI('APDREO', 'A', 'IN+BD+ID+TL+VN',
                       'NGDP_RPCH', str(2010), str(2022))
     extData4 = imfAPI('DOT', 'M', 'IN+BD+ID+TL+VN',
                       'TXG_FOB_USD.W00', str(2010), str(2022))
+    extData5 = imfAPIone('IFS', 'M', 'IN',
+                      'ENDA_XDC_USD_RATE', str(2017), str(2022))
     extData6 = imfAPI('CPI', 'M', 'IN+BD+ID+TL+VN',
                       'PCPI_PC_CP_A_PT', str(2014), str(2022))
     extData7 = imfAPI('FM', 'A', 'IN+BD+ID+TL+VN',
                       'GGXCNL_G01_GDP_PT', str(2010), str(2022))
+    extData8 = wbAPI("v2", "A", "WLD;IND;BRA;ZAF;IDN",
+                     "CM.MKT.LCAP.GD.ZS", str(2010), str(2022))
     extData9 = imfAPI('FM', 'A', 'IN+BR+ID+ZA+TR',
                       'G_XWDG_G01_GDP_PT', str(2010), str(2022))
     extData11 = imfAPI('IFS', 'A', 'IN+BD+ID+TL+TR',
@@ -72,6 +115,7 @@ def imfData(request):
                        'FCMTA_NUM', str(2014), str(2022))
     extData13 = imfAPI('FAS', 'A', 'IN+BR+ID+BD+ZA',
                        'FCBODCA_NUM', str(2010), str(2022))
+    extData14 = hrdoAPI('IND,BRA,ZAF,IDN,MEX')
 
     # with open('data.json', 'w') as jsonfile:
     #     json.dump(extData11, jsonfile)
@@ -79,8 +123,8 @@ def imfData(request):
     # f = open('data.json')
     # response = json.load(f)
 
-    # extDataJson1 = json.dumps(extData1)
-    # extDataObj1 = json.loads(extDataJson1)
+    extDataJson1 = json.dumps(extData1)
+    extDataObj1 = json.loads(extDataJson1)
 
     extDataJson2 = json.dumps(extData2)
     extDataObj2 = json.loads(extDataJson2)
@@ -91,8 +135,8 @@ def imfData(request):
     extDataJson4 = json.dumps(extData4)
     extDataObj4 = json.loads(extDataJson4)
 
-    # extDataJson5 = json.dumps(extData5)
-    # extDataObj5 = json.loads(extDataJson5)
+    extDataJson5 = json.dumps(extData5)
+    extDataObj5 = json.loads(extDataJson5)
 
     extDataJson6 = json.dumps(extData6)
     extDataObj6 = json.loads(extDataJson6)
@@ -100,8 +144,8 @@ def imfData(request):
     extDataJson7 = json.dumps(extData7)
     extDataObj7 = json.loads(extDataJson7)
 
-    # extDataJson8 = json.dumps(extData8)
-    # extDataObj8 = json.loads(extDataJson8)
+    extDataJson8 = json.dumps(extData8)
+    extDataObj8 = json.loads(extDataJson8)
 
     extDataJson9 = json.dumps(extData9)
     extDataObj9 = json.loads(extDataJson9)
@@ -118,20 +162,26 @@ def imfData(request):
     extDataJson13 = json.dumps(extData13)
     extDataObj13 = json.loads(extDataJson13)
 
-    # extDataJson14 = json.dumps(extData14)
-    # extDataObj14 = json.loads(extDataJson14)
+    extDataJson14 = json.dumps(extData14)
+    extDataObj14 = json.loads(extDataJson14)
 
     extResponse = {
+        'extDataJson1': extDataJson1,
+        'extDataObj1': extDataObj1,
         'extDataJson2': extDataJson2,
         'extDataObj2': extDataObj2,
         'extDataJson3': extDataJson3,
         'extDataObj3': extDataObj3,
         'extDataJson4': extDataJson4,
         'extDataObj4': extDataObj4,
+        'extDataJson5': extDataJson5,
+        'extDataObj5': extDataObj5,
         'extDataJson6': extDataJson6,
         'extDataObj6': extDataObj6,
         'extDataJson7': extDataJson7,
         'extDataObj7': extDataObj7,
+        'extDataJson8': extDataJson8,
+        'extDataObj8': extDataObj8,
         'extDataJson9': extDataJson9,
         'extDataObj9': extDataObj9,
         'extDataJson11': extDataJson11,
@@ -140,6 +190,8 @@ def imfData(request):
         'extDataObj12': extDataObj12,
         'extDataJson13': extDataJson13,
         'extDataObj13': extDataObj13,
+        'extDataJson14': extDataJson14,
+        'extDataObj14': extDataObj14,
     }
 
     response = json.dumps(extResponse)
@@ -149,7 +201,11 @@ def imfData(request):
 
 
 def home(request):
-    return render(request, 'EcoFin/imf.html', {})
+    response = {
+        "Title": "At a Glance: Indian Economy and Financial Markets",
+        "Body": "At a Glance: Indian Economy and Financial Markets",
+    }
+    return render(request, 'EcoFin/imf.html', {"res": response, "activeHome": "active"})
 
 
 def dashboard(request):
@@ -364,7 +420,10 @@ def errorPage(request):
 
 
 def about(request):
-    wbAPI("v2", "A", "IND;BRA;CHN", "NY.GDP.MKTP.KD.ZG", "2010", "2022")
+    # wbAPI("v2", "A", "IND;BRA;CHN", "NY.GDP.MKTP.KD.ZG", "2010", "2022")
+    # wbAPI("v2", "A", "WLD;IND;BRA;ZAF;IDN","CM.MKT.LCAP.GD.ZS", str(2010), str(2022))
+    # extData5 = imfAPIone('IFS', 'M', 'IN','ENDA_XDC_USD_RATE', str(2017), str(2022))
+    # extData14 = hrdoAPI('IND,BRA,ZAF,IDN,MEX')
     response = {
         "Title": "About Us",
         "Body": "About Us",
