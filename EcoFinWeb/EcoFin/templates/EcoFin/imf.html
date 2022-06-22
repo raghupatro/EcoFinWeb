@@ -708,6 +708,17 @@
         res = JSON.parse(result);
         // console.log(res);
 
+        var bra = {"name":"Brazil","color":"royalblue"};
+        var ind = {"name":"India","color":"green"};
+        var idn = {"name":"Indonesia","color":"orange"};
+        var mex = {"name":"Mexico","color":"red"};
+        var tur = {"name":"Turkey","color":"purple"};
+        var zaf = {"name":"South Africa","color":"deeppink"};
+        var chn = {"name":"China","color":"royalblue"};
+        var sgp = {"name":"Singapore","color":"red"};
+        var aus = {"name":"Australia","color":"deeppink"};
+        var blank = {"name":"","color":""};
+
         var ylabel1 = "Thousand US Dollars";
         var ylabel2 = "IIP";
         var ylabel3 = "% Growth";
@@ -736,82 +747,33 @@
         var yfactor13 = 1;
         var yfactor14 = 1;
 
-        var name1 = [
-          "Brazil",
-          "Indonesia",
-          "India",
-          "Mexico",
-          "Turkey",
-          "South Africa",
-        ];
-        var name2 = ["India", "Mexico", "Brazil", "Turkey", "", ""];
-        var name3 = ["Australia", "Singapore", "China", "India", "Indonesia", ""];
-        var name4 = [
-          "Brazil",
-          "Indonesia",
-          "India",
-          "Mexico",
-          "Turkey",
-          "South Africa"
-        ];
-        var name5 = ["India"];
-        var name6 = [
-          "Mexico",
-          "Brazil",
-          "India",
-          "South Africa",
-          "Indonesia",
-          "",
-        ];
-        var name7 = [
-          "Brazil",
-          "India",
-          "Indonesia",
-          "Mexico",
-          "South Africa",
-          "Turkey",
-        ];
-        var name8 = [
-          "Brazil",
-          "Indonesia",
-          "India",
-          "Mexico",
-          "Turkey",
-          "South Africa",
-        ];
-        var name9 = [
-          "Brazil",
-          "India",
-          "Indonesia",
-          "Mexico",
-          "South Africa",
-          "Turkey",
-        ];
-        var name11 = [
-          "Indonesia",
-          "Turkey",
-          "South Africa",
-          "India",
-          "Mexico",
-          "Brazil",
-        ];
-        var name12 = ["Indonesia", "South Africa", "Turkey", "India", "", ""];
-        var name13 = [
-          "Indonesia",
-          "Mexico",
-          "South Africa",
-          "India",
-          "Brazil",
-          "Turkey",
-        ];
-        var name14 = [
-          "Brazil",
-          "Indonesia",
-          "India",
-          "Mexico",
-          "Turkey",
-          "South Africa",
-        ];
+        // var name1 = ["Brazil","Indonesia","India","Mexico","Turkey","South Africa"];
+        // var name2 = ["India","Mexico","Brazil","Turkey","",""];
+        // var name3 = ["Australia","Singapore","China","India","Indonesia",""];
+        // var name4 = ["Brazil","Indonesia","India","Mexico","Turkey","South Africa"];
+        // var name5 = ["India"];
+        // var name6 = ["Mexico","Brazil","India","South Africa","Indonesia",""];
+        // var name7 = ["Brazil","India","Indonesia","Mexico","South Africa","Turkey"];
+        // var name8 = ["Brazil","Indonesia","India","Mexico","Turkey","South Africa"];
+        // var name9 = ["Brazil","India","Indonesia","Mexico","South Africa","Turkey"];
+        // var name11 = ["Indonesia","Turkey","South Africa","India","Mexico","Brazil"];
+        // var name12 = ["Indonesia","South Africa","Turkey","India","",""];
+        // var name13 = ["Indonesia","Mexico","South Africa","India","Brazil","Turkey"];
+        // var name14 = ["Brazil","Indonesia","India","Mexico","Turkey","South Africa"];
+
+        var name1 = [bra,idn,ind,mex,tur,zaf];
+        var name2 = [ind,mex,bra,tur,blank,blank];
+        var name3 = [aus,sgp,chn,ind,idn,blank];
+        var name4 = [bra,idn,ind,mex,tur,zaf];
+        var name5 = [ind];
+        var name6 = [mex,bra,ind,zaf,idn,blank];
+        var name7 = [bra,ind,idn,mex,zaf,tur];
+        var name8 = [bra,idn,ind,mex,tur,zaf];
+        var name9 = [bra,ind,idn,mex,zaf,tur];
+        var name11 = [idn,tur,zaf,ind,mex,bra];
+        var name12 = [idn,zaf,tur,ind,blank,blank];
+        var name13 = [idn,mex,zaf,ind,bra,tur];
+        var name14 = [bra,idn,ind,mex,tur,zaf];
 
         var title1 = "GDP per capita (PPP)";
         var title2 = "Index of Industrial Production";
@@ -1046,10 +1008,10 @@
       {
         x: xValues,
         y: yValues,
-        name: name[0],
+        name: name[0].name,
         type: typeOfGraph,
         line: {
-          // color: 'red',
+          color: name[0].color,
           width: 2,
         },
         orientation: orientationType,
@@ -1237,10 +1199,10 @@
       {
         x: x1Values,
         y: y1Values,
-        name: name[0],
+        name: name[0].name,
         type: typeOfGraph,
         line: {
-          // color: 'yellow',
+          color: name[0].color,
           width: 2,
         },
         orientation: orientationType,
@@ -1248,10 +1210,10 @@
       {
         x: x2Values,
         y: y2Values,
-        name: name[1],
+        name: name[1].name,
         type: typeOfGraph,
         line: {
-          // color: 'yellow',
+          color: name[1].color,
           width: 2,
         },
         orientation: orientationType,
@@ -1259,10 +1221,10 @@
       {
         x: x3Values,
         y: y3Values,
-        name: name[2],
+        name: name[2].name,
         type: typeOfGraph,
         line: {
-          // color: 'yellow',
+          color: name[2].color,
           width: 2,
         },
         orientation: orientationType,
@@ -1270,10 +1232,10 @@
       {
         x: x4Values,
         y: y4Values,
-        name: name[3],
+        name: name[3].name,
         type: typeOfGraph,
         line: {
-          // color: 'yellow',
+          color: name[3].color,
           width: 2,
         },
         orientation: orientationType,
@@ -1281,10 +1243,10 @@
       {
         x: x5Values,
         y: y5Values,
-        name: name[4],
+        name: name[4].name,
         type: typeOfGraph,
         line: {
-          // color: 'yellow',
+          color: name[4].color,
           width: 2,
         },
         orientation: orientationType,
@@ -1292,10 +1254,10 @@
       {
         x: x6Values,
         y: y6Values,
-        name: name[5],
+        name: name[5].name,
         type: typeOfGraph,
         line: {
-          // color: 'yellow',
+          color: name[5].color,
           width: 2,
         },
         orientation: orientationType,
@@ -1414,10 +1376,10 @@
       {
         x: x1Values,
         y: y1Values,
-        name: name[0],
+        name: name[0].name,
         type: typeOfGraph,
         line: {
-          // color: 'yellow',
+          color: name[0].color,
           width: 2,
         },
         orientation: orientationType,
@@ -1425,10 +1387,10 @@
       {
         x: x2Values,
         y: y2Values,
-        name: name[1],
+        name: name[1].name,
         type: typeOfGraph,
         line: {
-          // color: 'yellow',
+          color: name[1].color,
           width: 2,
         },
         orientation: orientationType,
@@ -1436,10 +1398,10 @@
       {
         x: x3Values,
         y: y3Values,
-        name: name[2],
+        name: name[2].name,
         type: typeOfGraph,
         line: {
-          // color: 'yellow',
+          color: name[2].color,
           width: 2,
         },
         orientation: orientationType,
@@ -1447,10 +1409,10 @@
       {
         x: x4Values,
         y: y4Values,
-        name: name[3],
+        name: name[3].name,
         type: typeOfGraph,
         line: {
-          // color: 'yellow',
+          color: name[3].color,
           width: 2,
         },
         orientation: orientationType,
@@ -1458,10 +1420,10 @@
       {
         x: x5Values,
         y: y5Values,
-        name: name[4],
+        name: name[4].name,
         type: typeOfGraph,
         line: {
-          // color: 'yellow',
+          color: name[4].color,
           width: 2,
         },
         orientation: orientationType,
@@ -1469,10 +1431,10 @@
       {
         x: x6Values,
         y: y6Values,
-        name: name[5],
+        name: name[5].name,
         type: typeOfGraph,
         line: {
-          // color: 'yellow',
+          color: name[5].color,
           width: 2,
         },
         orientation: orientationType,
@@ -1626,10 +1588,10 @@
       {
         x: x1Values,
         y: y1Values,
-        name: name[0],
+        name: name[0].name,
         type: typeOfGraph,
         line: {
-          // color: 'yellow',
+          color: name[0].color,
           width: 2,
         },
         orientation: orientationType,
@@ -1637,10 +1599,10 @@
       {
         x: x2Values,
         y: y2Values,
-        name: name[1],
+        name: name[1].name,
         type: typeOfGraph,
         line: {
-          // color: 'yellow',
+          color: name[1].color,
           width: 2,
         },
         orientation: orientationType,
@@ -1648,10 +1610,10 @@
       {
         x: x3Values,
         y: y3Values,
-        name: name[2],
+        name: name[2].name,
         type: typeOfGraph,
         line: {
-          // color: 'yellow',
+          color: name[2].color,
           width: 2,
         },
         orientation: orientationType,
@@ -1659,10 +1621,10 @@
       {
         x: x4Values,
         y: y4Values,
-        name: name[3],
+        name: name[3].name,
         type: typeOfGraph,
         line: {
-          // color: 'yellow',
+          color: name[3].color,
           width: 2,
         },
         orientation: orientationType,
@@ -1670,10 +1632,10 @@
       {
         x: x5Values,
         y: y5Values,
-        name: name[4],
+        name: name[4].name,
         type: typeOfGraph,
         line: {
-          // color: 'yellow',
+          color: name[4].color,
           width: 2,
         },
         orientation: orientationType,
@@ -1681,10 +1643,10 @@
       {
         x: x6Values,
         y: y6Values,
-        name: name[5],
+        name: name[5].name,
         type: typeOfGraph,
         line: {
-          // color: 'yellow',
+          color: name[5].color,
           width: 2,
         },
         orientation: orientationType,
