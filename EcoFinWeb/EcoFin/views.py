@@ -97,25 +97,64 @@ def wbAPI(database, frequency, countries, indicators, startPeriod, endPeriod):
 
 def imfData(request):
 
-    extData1 = wbAPI("v2", "A", "BRA;IDN;IND;MEX;TUR;ZAF","NY.GDP.PCAP.PP.KD", str(2010), str(2022)) # OKK
-    extData2 = imfAPI('IFS', 'A', 'BR+IN+MX+TR','AIP_IX', str(2010), str(2022)) # BR+IN+MX+TR // ID+ZA
-    extData3 = imfAPI('APDREO', 'A', 'AU+CN+IN+ID+SG','NGDP_RPCH', str(2010), str(2022)) # AU+CN+IN+ID+SG
-    extData4 = wbAPI("v2", "A", "BRA;IDN;IND;MEX;TUR;ZAF","NE.EXP.GNFS.ZS", str(2010), str(2022)) # OKK
-    extData5 = imfAPIone('IFS', 'M', 'IN','ENDA_XDC_USD_RATE', str(2010), str(2022)) # OKK
-    extData6 = imfAPI('CPI', 'M', 'BR+ID+IN+MX+ZA','PCPI_PC_CP_A_PT', str(2010), str(2022)) # OKK
-    extData7 = imfAPI('FM', 'A', 'BR+ID+IN+MX+TR+ZA','GGXCNL_G01_GDP_PT', str(2010), str(2022)) # OKK
-    extData8 = wbAPI("v2", "A", "BRA;IDN;IND;MEX;TUR;ZAF","CM.MKT.LCAP.GD.ZS", str(2010), str(2022)) # OKK
-    extData9 = imfAPI('FM', 'A', 'BR+ID+IN+MX+TR+ZA','G_XWDG_G01_GDP_PT', str(2010), str(2022)) # OKK
-    extData11 = imfAPI('IFS', 'A', 'BR+ID+IN+MX+TR+ZA','IAP_BP6_USD', str(2010), str(2022)) # OKK
-    extData12 = imfAPI('FAS', 'A', 'ID+IN+TR+ZA','FCMTA_NUM', str(2014), str(2022)) # ID+IN+TR+ZA // BR+MX
-    extData13 = imfAPI('FAS', 'A', 'BR+ID+IN+MX+TR+ZA','FCBODCA_NUM', str(2010), str(2022)) # OKK
-    extData14 = hrdoAPI('BRA,IDN,IND,MEX,TUR,ZAF') # OKK
+    # extData1 = wbAPI("v2", "A", "BRA;IDN;IND;MEX;TUR;ZAF","NY.GDP.PCAP.PP.KD", str(2010), str(2022)) # OKK
+    # extData2 = imfAPI('IFS', 'A', 'BR+IN+MX+TR','AIP_IX', str(2010), str(2022)) # BR+IN+MX+TR // ID+ZA
+    # extData3 = imfAPI('APDREO', 'A', 'AU+CN+IN+ID+SG','NGDP_RPCH', str(2010), str(2022)) # AU+CN+IN+ID+SG
+    # extData4 = wbAPI("v2", "A", "BRA;IDN;IND;MEX;TUR;ZAF","NE.EXP.GNFS.ZS", str(2010), str(2022)) # OKK
+    # extData5 = imfAPIone('IFS', 'M', 'IN','ENDA_XDC_USD_RATE', str(2010), str(2022)) # OKK
+    # extData6 = imfAPI('CPI', 'M', 'BR+ID+IN+MX+ZA','PCPI_PC_CP_A_PT', str(2010), str(2022)) # OKK
+    # extData7 = imfAPI('FM', 'A', 'BR+ID+IN+MX+TR+ZA','GGXCNL_G01_GDP_PT', str(2010), str(2022)) # OKK
+    # extData8 = wbAPI("v2", "A", "BRA;IDN;IND;MEX;TUR;ZAF","CM.MKT.LCAP.GD.ZS", str(2010), str(2022)) # OKK
+    # extData9 = imfAPI('FM', 'A', 'BR+ID+IN+MX+TR+ZA','G_XWDG_G01_GDP_PT', str(2010), str(2022)) # OKK
+    # extData11 = imfAPI('IFS', 'A', 'BR+ID+IN+MX+TR+ZA','IAP_BP6_USD', str(2010), str(2022)) # OKK
+    # extData12 = imfAPI('FAS', 'A', 'ID+IN+TR+ZA','FCMTA_NUM', str(2014), str(2022)) # ID+IN+TR+ZA // BR+MX
+    # extData13 = imfAPI('FAS', 'A', 'BR+ID+IN+MX+TR+ZA','FCBODCA_NUM', str(2010), str(2022)) # OKK
+    # extData14 = hrdoAPI('BRA,IDN,IND,MEX,TUR,ZAF') # OKK
 
     # with open('data.json', 'w') as jsonfile:
     #     json.dump(extData11, jsonfile)
     # print(response)
-    # f = open('data.json')
-    # response = json.load(f)
+
+    f = open('data1.json')
+    extData1 = json.load(f)
+
+    f = open('data2.json')
+    extData2 = json.load(f)
+
+    f = open('data3.json')
+    extData3 = json.load(f)
+
+    f = open('data4.json')
+    extData4 = json.load(f)
+
+    f = open('data5.json')
+    extData5 = json.load(f)
+
+    f = open('data6.json')
+    extData6 = json.load(f)
+
+    f = open('data7.json')
+    extData7 = json.load(f)
+
+    f = open('data8.json')
+    extData8 = json.load(f)
+
+    f = open('data9.json')
+    extData9 = json.load(f)
+
+    f = open('data11.json')
+    extData11 = json.load(f)
+
+    f = open('data12.json')
+    extData12 = json.load(f)
+
+    f = open('data13.json')
+    extData13 = json.load(f)
+
+    f = open('data14.json')
+    extData14 = json.load(f)
+
+
 
     extDataJson1 = json.dumps(extData1)
     extDataObj1 = json.loads(extDataJson1)
@@ -195,11 +234,7 @@ def imfData(request):
 
 
 def home(request):
-    response = {
-        "Title": "At a Glance: Indian Economy and Financial Markets",
-        "Body": "At a Glance: Indian Economy and Financial Markets",
-    }
-    return render(request, 'EcoFin/imf.html', {"res": response, "activeHome": "active"})
+    return render(request, 'EcoFin/imf.html', {"activeHome": "active"})
 
 
 def dashboard(request):
@@ -414,52 +449,52 @@ def errorPage(request):
 
 
 def about(request):
-    # extData1 = wbAPI("v2", "A", "BRA;IDN;IND;MEX;TUR;ZAF","NY.GDP.PCAP.PP.KD", str(2010), str(2022)) # OKK
-    # extData2 = imfAPI('IFS', 'A', 'BR+IN+MX+TR','AIP_IX', str(2010), str(2022)) # BR+IN+MX+TR // ID+ZA
-    # extData3 = imfAPI('APDREO', 'A', 'AU+CN+IN+ID+SG','NGDP_RPCH', str(2010), str(2022)) # AU+CN+IN+ID+SG
-    # extData4 = wbAPI("v2", "A", "BRA;IDN;IND;MEX;TUR;ZAF","NE.EXP.GNFS.ZS", str(2010), str(2022)) # OKK
-    # extData5 = imfAPIone('IFS', 'M', 'IN','ENDA_XDC_USD_RATE', str(2017), str(2022)) # OKK
-    # extData6 = imfAPI('CPI', 'M', 'BR+ID+IN+MX+TR+ZA','PCPI_PC_CP_A_PT', str(2014), str(2022)) # OKK
-    # extData7 = imfAPI('FM', 'A', 'BR+ID+IN+MX+TR+ZA','GGXCNL_G01_GDP_PT', str(2010), str(2022)) # OKK
-    # extData8 = wbAPI("v2", "A", "BRA;IDN;IND;MEX;TUR;ZAF","CM.MKT.LCAP.GD.ZS", str(2010), str(2022)) # OKK
-    # extData9 = imfAPI('FM', 'A', 'BR+ID+IN+MX+TR+ZA','G_XWDG_G01_GDP_PT', str(2010), str(2022)) # OKK
-    # extData11 = imfAPI('IFS', 'A', 'BR+ID+IN+MX+TR+ZA','IAP_BP6_USD', str(2010), str(2022)) # OKK
-    # extData12 = imfAPI('FAS', 'A', 'ID+IN+TR+ZA','FCMTA_NUM', str(2014), str(2022)) # ID+IN+TR+ZA // BR+MX
-    # extData13 = imfAPI('FAS', 'A', 'BR+ID+IN+MX+TR+ZA','FCBODCA_NUM', str(2010), str(2022)) # OKK
-    # extData14 = hrdoAPI('BRA,IDN,IND,MEX,TUR,ZAF') # OKK
+    extData1 = wbAPI("v2", "A", "BRA;IDN;IND;MEX;TUR;ZAF","NY.GDP.PCAP.PP.KD", str(2010), str(2022)) # OKK
+    extData2 = imfAPI('IFS', 'A', 'BR+IN+MX+TR','AIP_IX', str(2010), str(2022)) # BR+IN+MX+TR // ID+ZA
+    extData3 = imfAPI('APDREO', 'A', 'AU+CN+IN+ID+SG','NGDP_RPCH', str(2010), str(2022)) # AU+CN+IN+ID+SG
+    extData4 = wbAPI("v2", "A", "BRA;IDN;IND;MEX;TUR;ZAF","NE.EXP.GNFS.ZS", str(2010), str(2022)) # OKK
+    extData5 = imfAPIone('IFS', 'M', 'IN','ENDA_XDC_USD_RATE', str(2010), str(2022)) # OKK
+    extData6 = imfAPI('CPI', 'M', 'BR+ID+IN+MX+ZA','PCPI_PC_CP_A_PT', str(2010), str(2022)) # OKK
+    extData7 = imfAPI('FM', 'A', 'BR+ID+IN+MX+TR+ZA','GGXCNL_G01_GDP_PT', str(2010), str(2022)) # OKK
+    extData8 = wbAPI("v2", "A", "BRA;IDN;IND;MEX;TUR;ZAF","CM.MKT.LCAP.GD.ZS", str(2010), str(2022)) # OKK
+    extData9 = imfAPI('FM', 'A', 'BR+ID+IN+MX+TR+ZA','G_XWDG_G01_GDP_PT', str(2010), str(2022)) # OKK
+    extData11 = imfAPI('IFS', 'A', 'BR+ID+IN+MX+TR+ZA','IAP_BP6_USD', str(2010), str(2022)) # OKK
+    extData12 = imfAPI('FAS', 'A', 'ID+IN+TR+ZA','FCMTA_NUM', str(2014), str(2022)) # ID+IN+TR+ZA // BR+MX
+    extData13 = imfAPI('FAS', 'A', 'BR+ID+IN+MX+TR+ZA','FCBODCA_NUM', str(2010), str(2022)) # OKK
+    extData14 = hrdoAPI('BRA,IDN,IND,MEX,TUR,ZAF') # OKK
     
-    # with open('data1.json', 'w') as jsonfile:
-    #     json.dump(extData1, jsonfile) 
-    # with open('data2.json', 'w') as jsonfile:
-    #     json.dump(extData2, jsonfile) 
-    # with open('data3.json', 'w') as jsonfile:
-    #     json.dump(extData3, jsonfile)
-    # with open('data4.json', 'w') as jsonfile:
-    #     json.dump(extData4, jsonfile) 
-    # with open('data5.json', 'w') as jsonfile:
-    #     json.dump(extData5, jsonfile) 
-    # with open('data6.json', 'w') as jsonfile:
-    #     json.dump(extData6, jsonfile) 
-    # with open('data7.json', 'w') as jsonfile:
-    #     json.dump(extData7, jsonfile) 
-    # with open('data8.json', 'w') as jsonfile:
-    #     json.dump(extData8, jsonfile) 
-    # with open('data9.json', 'w') as jsonfile:
-    #     json.dump(extData9, jsonfile) 
-    # with open('data11.json', 'w') as jsonfile:
-    #     json.dump(extData11, jsonfile) 
-    # with open('data12.json', 'w') as jsonfile:
-    #     json.dump(extData12, jsonfile) 
-    # with open('data13.json', 'w') as jsonfile:
-    #     json.dump(extData13, jsonfile)
-    # with open('data14.json', 'w') as jsonfile:
-    #     json.dump(extData14, jsonfile)   
-
+    with open('data1.json', 'w') as jsonfile:
+        json.dump(extData1, jsonfile) 
+    with open('data2.json', 'w') as jsonfile:
+        json.dump(extData2, jsonfile) 
+    with open('data3.json', 'w') as jsonfile:
+        json.dump(extData3, jsonfile)
+    with open('data4.json', 'w') as jsonfile:
+        json.dump(extData4, jsonfile) 
+    with open('data5.json', 'w') as jsonfile:
+        json.dump(extData5, jsonfile) 
+    with open('data6.json', 'w') as jsonfile:
+        json.dump(extData6, jsonfile) 
+    with open('data7.json', 'w') as jsonfile:
+        json.dump(extData7, jsonfile) 
+    with open('data8.json', 'w') as jsonfile:
+        json.dump(extData8, jsonfile) 
+    with open('data9.json', 'w') as jsonfile:
+        json.dump(extData9, jsonfile) 
+    with open('data11.json', 'w') as jsonfile:
+        json.dump(extData11, jsonfile) 
+    with open('data12.json', 'w') as jsonfile:
+        json.dump(extData12, jsonfile) 
+    with open('data13.json', 'w') as jsonfile:
+        json.dump(extData13, jsonfile)
+    with open('data14.json', 'w') as jsonfile:
+        json.dump(extData14, jsonfile)   
 
     response = {
         "Title": "About Us",
         "Body": "About Us",
     }
+
     return render(request, 'EcoFin/about.html', {"res": response, "activeAbout": "active"})
 
 

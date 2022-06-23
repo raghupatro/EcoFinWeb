@@ -2,6 +2,18 @@ html {
   scroll-behavior: smooth;
 }
 
+.orangeTxt{
+  color: rgb(236, 169, 0);
+}
+
+.blueTxt{
+  color: rgb(28, 71, 146);
+}
+
+.greyBg{
+  background-color: #d0d0d0;
+}
+
 body {
   overflow-y: scroll; /* Add the ability to scroll */
 }

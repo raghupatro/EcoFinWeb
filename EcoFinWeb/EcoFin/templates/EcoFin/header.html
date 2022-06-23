@@ -30,15 +30,25 @@
 </head>
 
 <body class="bg-grad">
+
   <div id="loading" class="p-3"><div class="d-flex justify-content-center align-items-center h-100" ><img src="{% static 'EcoFin/img/loader.gif' %}" height="80" width="80" alt=""></div></div>
 
-  <h1 class="text-center py-5 text-light m-0 d-md-none d-none d-lg-block" style="background-color: #112d4e">
-    {{res.Title}}
-  </h1>
+  <h2 class="text-center py-5 m-0 d-md-none d-none d-lg-block fw-bold orangeTxt bg-light" style="border-bottom: 5px double #808080;">
+    At a Glance: India and Other Emerging Economies
+  </h2>
 
-  <h5 class="text-center py-4 px-4 text-light m-0 d-md-block d-block d-lg-none" style="background-color: #112d4e">
-    {{res.Title}}
+  <h5 class="text-center py-4 px-4 m-0 d-md-block d-block d-lg-none fw-bold orangeTxt bg-light" style="border-bottom: 5px double #808080;">
+    At a Glance: India and Other Emerging Economies
   </h5>
+
+  <nav class="navbar navbar-light bg-light mb-3 py-3" style="border-bottom: 5px double #808080;">
+    <div class="container">
+      <a class="navbar-brand fw-bold">Misra Centre for Financial Markets and Economy</a>
+      <div class="d-flex">
+        <button class="btn btn-outline-success">MCFME Homepage</button>
+      </div>
+    </div>
+  </nav>
 
   {% block content %}{% endblock content %}
 
