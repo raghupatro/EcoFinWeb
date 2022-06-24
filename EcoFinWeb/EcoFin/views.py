@@ -154,7 +154,11 @@ def imfData(request):
     f = open('data14.json')
     extData14 = json.load(f)
 
+    f = open('data15.json')
+    extData15 = json.load(f)
 
+    f = open('data17.json')
+    extData17 = json.load(f)
 
     extDataJson1 = json.dumps(extData1)
     extDataObj1 = json.loads(extDataJson1)
@@ -198,6 +202,12 @@ def imfData(request):
     extDataJson14 = json.dumps(extData14)
     extDataObj14 = json.loads(extDataJson14)
 
+    extDataJson15 = json.dumps(extData15)
+    extDataObj15 = json.loads(extDataJson15)
+
+    extDataJson17 = json.dumps(extData17)
+    extDataObj17 = json.loads(extDataJson17)
+
     extResponse = {
         'extDataJson1': extDataJson1,
         'extDataObj1': extDataObj1,
@@ -225,6 +235,10 @@ def imfData(request):
         'extDataObj13': extDataObj13,
         'extDataJson14': extDataJson14,
         'extDataObj14': extDataObj14,
+        'extDataJson15': extDataJson15,
+        'extDataObj15': extDataObj15,
+        'extDataJson17': extDataJson17,
+        'extDataObj17': extDataObj17,
     }
 
     response = json.dumps(extResponse)
@@ -449,46 +463,52 @@ def errorPage(request):
 
 
 def about(request):
-    extData1 = wbAPI("v2", "A", "BRA;IDN;IND;MEX;TUR;ZAF","NY.GDP.PCAP.PP.KD", str(2010), str(2022)) # OKK
-    extData2 = imfAPI('IFS', 'A', 'BR+IN+MX+TR','AIP_IX', str(2010), str(2022)) # BR+IN+MX+TR // ID+ZA
-    extData3 = imfAPI('APDREO', 'A', 'AU+CN+IN+ID+SG','NGDP_RPCH', str(2010), str(2022)) # AU+CN+IN+ID+SG
-    extData4 = wbAPI("v2", "A", "BRA;IDN;IND;MEX;TUR;ZAF","NE.EXP.GNFS.ZS", str(2010), str(2022)) # OKK
-    extData5 = imfAPIone('IFS', 'M', 'IN','ENDA_XDC_USD_RATE', str(2010), str(2022)) # OKK
-    extData6 = imfAPI('CPI', 'M', 'BR+ID+IN+MX+ZA','PCPI_PC_CP_A_PT', str(2010), str(2022)) # OKK
-    extData7 = imfAPI('FM', 'A', 'BR+ID+IN+MX+TR+ZA','GGXCNL_G01_GDP_PT', str(2010), str(2022)) # OKK
-    extData8 = wbAPI("v2", "A", "BRA;IDN;IND;MEX;TUR;ZAF","CM.MKT.LCAP.GD.ZS", str(2010), str(2022)) # OKK
-    extData9 = imfAPI('FM', 'A', 'BR+ID+IN+MX+TR+ZA','G_XWDG_G01_GDP_PT', str(2010), str(2022)) # OKK
-    extData11 = imfAPI('IFS', 'A', 'BR+ID+IN+MX+TR+ZA','IAP_BP6_USD', str(2010), str(2022)) # OKK
-    extData12 = imfAPI('FAS', 'A', 'ID+IN+TR+ZA','FCMTA_NUM', str(2014), str(2022)) # ID+IN+TR+ZA // BR+MX
-    extData13 = imfAPI('FAS', 'A', 'BR+ID+IN+MX+TR+ZA','FCBODCA_NUM', str(2010), str(2022)) # OKK
-    extData14 = hrdoAPI('BRA,IDN,IND,MEX,TUR,ZAF') # OKK
+    # extData1 = wbAPI("v2", "A", "BRA;IDN;IND;MEX;TUR;ZAF","NY.GDP.PCAP.PP.KD", str(2010), str(2022)) # OKK
+    # extData2 = imfAPI('IFS', 'A', 'BR+IN+MX+TR','AIP_IX', str(2010), str(2022)) # BR+IN+MX+TR // ID+ZA
+    # extData3 = imfAPI('APDREO', 'A', 'AU+CN+IN+ID+SG','NGDP_RPCH', str(2010), str(2022)) # AU+CN+IN+ID+SG
+    # extData4 = wbAPI("v2", "A", "BRA;IDN;IND;MEX;TUR;ZAF","NE.EXP.GNFS.ZS", str(2010), str(2022)) # OKK
+    # extData5 = imfAPIone('IFS', 'M', 'IN','ENDA_XDC_USD_RATE', str(2010), str(2022)) # OKK
+    # extData6 = imfAPI('CPI', 'M', 'BR+ID+IN+MX+ZA','PCPI_PC_CP_A_PT', str(2010), str(2022)) # OKK
+    # extData7 = imfAPI('FM', 'A', 'BR+ID+IN+MX+TR+ZA','GGXCNL_G01_GDP_PT', str(2010), str(2022)) # OKK
+    # extData8 = wbAPI("v2", "A", "BRA;IDN;IND;MEX;TUR;ZAF","CM.MKT.LCAP.GD.ZS", str(2010), str(2022)) # OKK
+    # extData9 = imfAPI('FM', 'A', 'BR+ID+IN+MX+TR+ZA','G_XWDG_G01_GDP_PT', str(2010), str(2022)) # OKK
+    # extData11 = imfAPI('IFS', 'A', 'BR+ID+IN+MX+TR+ZA','IAP_BP6_USD', str(2010), str(2022)) # OKK
+    # extData12 = imfAPI('FAS', 'A', 'ID+IN+TR+ZA','FCMTA_NUM', str(2014), str(2022)) # ID+IN+TR+ZA // BR+MX
+    # extData13 = imfAPI('FAS', 'A', 'BR+ID+IN+MX+TR+ZA','FCBODCA_NUM', str(2010), str(2022)) # OKK
+    # extData14 = hrdoAPI('BRA,IDN,IND,MEX,TUR,ZAF') # OKK
+    # extData15 = wbAPI("v2", "A", "BRA;IDN;IND;MEX;TUR;ZAF;WLD","NY.GDP.MKTP.KD", str(2010), str(2022)) # OKK
+    # extData17 = wbAPI("v2", "A", "BRA;IDN;IND;MEX;TUR;ZAF","FS.AST.PRVT.GD.ZS", str(2010), str(2022)) # OKK
     
-    with open('data1.json', 'w') as jsonfile:
-        json.dump(extData1, jsonfile) 
-    with open('data2.json', 'w') as jsonfile:
-        json.dump(extData2, jsonfile) 
-    with open('data3.json', 'w') as jsonfile:
-        json.dump(extData3, jsonfile)
-    with open('data4.json', 'w') as jsonfile:
-        json.dump(extData4, jsonfile) 
-    with open('data5.json', 'w') as jsonfile:
-        json.dump(extData5, jsonfile) 
-    with open('data6.json', 'w') as jsonfile:
-        json.dump(extData6, jsonfile) 
-    with open('data7.json', 'w') as jsonfile:
-        json.dump(extData7, jsonfile) 
-    with open('data8.json', 'w') as jsonfile:
-        json.dump(extData8, jsonfile) 
-    with open('data9.json', 'w') as jsonfile:
-        json.dump(extData9, jsonfile) 
-    with open('data11.json', 'w') as jsonfile:
-        json.dump(extData11, jsonfile) 
-    with open('data12.json', 'w') as jsonfile:
-        json.dump(extData12, jsonfile) 
-    with open('data13.json', 'w') as jsonfile:
-        json.dump(extData13, jsonfile)
-    with open('data14.json', 'w') as jsonfile:
-        json.dump(extData14, jsonfile)   
+    # with open('data1.json', 'w') as jsonfile:
+    #     json.dump(extData1, jsonfile) 
+    # with open('data2.json', 'w') as jsonfile:
+    #     json.dump(extData2, jsonfile) 
+    # with open('data3.json', 'w') as jsonfile:
+    #     json.dump(extData3, jsonfile)
+    # with open('data4.json', 'w') as jsonfile:
+    #     json.dump(extData4, jsonfile) 
+    # with open('data5.json', 'w') as jsonfile:
+    #     json.dump(extData5, jsonfile) 
+    # with open('data6.json', 'w') as jsonfile:
+    #     json.dump(extData6, jsonfile) 
+    # with open('data7.json', 'w') as jsonfile:
+    #     json.dump(extData7, jsonfile) 
+    # with open('data8.json', 'w') as jsonfile:
+    #     json.dump(extData8, jsonfile) 
+    # with open('data9.json', 'w') as jsonfile:
+    #     json.dump(extData9, jsonfile) 
+    # with open('data11.json', 'w') as jsonfile:
+    #     json.dump(extData11, jsonfile) 
+    # with open('data12.json', 'w') as jsonfile:
+    #     json.dump(extData12, jsonfile) 
+    # with open('data13.json', 'w') as jsonfile:
+    #     json.dump(extData13, jsonfile)
+    # with open('data14.json', 'w') as jsonfile:
+    #     json.dump(extData14, jsonfile)
+    # with open('data15.json', 'w') as jsonfile:
+    #     json.dump(extData15, jsonfile)     
+    # with open('data17.json', 'w') as jsonfile:
+    #     json.dump(extData17, jsonfile) 
 
     response = {
         "Title": "About Us",

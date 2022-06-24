@@ -1,17 +1,17 @@
 html {
-  scroll-behavior: smooth;
+  scroll-behavior: smooth!important;
 }
 
 .orangeTxt{
-  color: rgb(236, 169, 0);
+  color: rgb(236, 169, 0)!important;
 }
 
 .blueTxt{
-  color: rgb(28, 71, 146);
+  color: rgb(28, 71, 146)!important;
 }
 
 .greyBg{
-  background-color: #d0d0d0;
+  background-color: #d0d0d0!important;
 }
 
 body {
