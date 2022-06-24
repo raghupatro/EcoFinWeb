@@ -157,6 +157,9 @@ def imfData(request):
     f = open('data15.json')
     extData15 = json.load(f)
 
+    f = open('data16.json')
+    extData16 = json.load(f)
+
     f = open('data17.json')
     extData17 = json.load(f)
 
@@ -205,6 +208,9 @@ def imfData(request):
     extDataJson15 = json.dumps(extData15)
     extDataObj15 = json.loads(extDataJson15)
 
+    extDataJson16 = json.dumps(extData16)
+    extDataObj16 = json.loads(extDataJson16)
+
     extDataJson17 = json.dumps(extData17)
     extDataObj17 = json.loads(extDataJson17)
 
@@ -237,6 +243,8 @@ def imfData(request):
         'extDataObj14': extDataObj14,
         'extDataJson15': extDataJson15,
         'extDataObj15': extDataObj15,
+        'extDataJson16': extDataJson16,
+        'extDataObj16': extDataObj16,
         'extDataJson17': extDataJson17,
         'extDataObj17': extDataObj17,
     }
@@ -477,6 +485,7 @@ def about(request):
     # extData13 = imfAPI('FAS', 'A', 'BR+ID+IN+MX+TR+ZA','FCBODCA_NUM', str(2010), str(2022)) # OKK
     # extData14 = hrdoAPI('BRA,IDN,IND,MEX,TUR,ZAF') # OKK
     # extData15 = wbAPI("v2", "A", "BRA;IDN;IND;MEX;TUR;ZAF;WLD","NY.GDP.MKTP.KD", str(2010), str(2022)) # OKK
+    # extData16 = imfAPI('IFS', 'M', 'IN+GB+U2','ENDA_XDC_USD_RATE', str(2010), str(2022)) # ID+IN+TR+ZA // BR+MX
     # extData17 = wbAPI("v2", "A", "BRA;IDN;IND;MEX;TUR;ZAF","FS.AST.PRVT.GD.ZS", str(2010), str(2022)) # OKK
     
     # with open('data1.json', 'w') as jsonfile:
@@ -506,7 +515,9 @@ def about(request):
     # with open('data14.json', 'w') as jsonfile:
     #     json.dump(extData14, jsonfile)
     # with open('data15.json', 'w') as jsonfile:
-    #     json.dump(extData15, jsonfile)     
+    #     json.dump(extData15, jsonfile)   
+    # with open('data16.json', 'w') as jsonfile:
+    #     json.dump(extData16, jsonfile)  
     # with open('data17.json', 'w') as jsonfile:
     #     json.dump(extData17, jsonfile) 
 
