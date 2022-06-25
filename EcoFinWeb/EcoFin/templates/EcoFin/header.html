@@ -31,22 +31,49 @@
 
 <body class="bg-light">
 
-  <div id="loading" class="p-3"><div class="d-flex justify-content-center align-items-center h-100" ><img src="{% static 'EcoFin/img/loader.gif' %}" height="80" width="80" alt=""></div></div>
+  <button onclick="topFunction()" id="myBtn" title="Go to top" class="rounded-circle text-light"><i class='fas fa-2x fa-angle-up'></i></button>
+
+  <div id="loading" class="p-3">
+    <div class="d-flex justify-content-center align-items-center h-100"><img src="{% static 'EcoFin/img/loader.gif' %}"
+        height="80" width="80" alt=""></div>
+  </div>
 
   <div class="py-4 m-0">
     <h2 class="container mx-auto text-start orangeTxt fw-bold">At a Glance: India and Other Emerging Economies</h2>
   </div>
 
-  <nav class="navbar navbar-light mb-3 py-2 greyBg" style="border-bottom: 5px double #808080; border-top: 5px double #808080;">
+  <nav class="navbar navbar-light mb-3 py-2 greyBg"
+    style="border-bottom: 5px double #808080; border-top: 5px double #808080;">
     <div class="container">
-      <h4 class="fw-bold text-dark my-auto">Misra Centre <span class="d-lg-inline d-none">for Financial Markets and Economy (MCFME)</span></h4>
+      <h4 class="fw-bold text-dark my-auto">Misra Centre <span class="d-lg-inline d-none">for Financial Markets and
+          Economy (MCFME)</span></h4>
       <div class="d-flex">
-        <a class="btn text-light fw-light" style="background-color:rgb(128,128,128);"><span class="d-lg-inline d-none">MCFME Homepage </span><i class="fa fa-home mx-1"></i></a>
+        <a class="btn text-light fw-light" style="background-color:rgb(128,128,128);" target="_blank" href="https://www.iima.ac.in/web/areas-and-centres/research-centres/misra-centre-for-financial-markets-and-economy/"><span
+            class="d-lg-inline d-none">MCFME Homepage </span><i class="fa fa-home mx-1"></i></a>
       </div>
     </div>
   </nav>
 
   {% block content %}{% endblock content %}
+
+  <script>
+    var mybutton = document.getElementById("myBtn");
+
+    window.onscroll = function () { scrollFunction() };
+
+    function scrollFunction() {
+      if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        mybutton.style.display = "block";
+      } else {
+        mybutton.style.display = "none";
+      }
+    }
+
+    function topFunction() {
+      document.body.scrollTop = 0;
+      document.documentElement.scrollTop = 0;
+    }
+  </script>
 
 </body>
 

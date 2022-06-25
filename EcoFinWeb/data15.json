@@ -72,6 +72,66 @@
     "value": 1703150040884.74
   },
   {
+    "countryCode": "BRA",
+    "indicatorCode": "NY.GDP.MKTP.KD",
+    "time": "2009",
+    "value": 1583909738979.16
+  },
+  {
+    "countryCode": "BRA",
+    "indicatorCode": "NY.GDP.MKTP.KD",
+    "time": "2008",
+    "value": 1585904997822.47
+  },
+  {
+    "countryCode": "BRA",
+    "indicatorCode": "NY.GDP.MKTP.KD",
+    "time": "2007",
+    "value": 1509031960385.82
+  },
+  {
+    "countryCode": "BRA",
+    "indicatorCode": "NY.GDP.MKTP.KD",
+    "time": "2006",
+    "value": 1422677289738.78
+  },
+  {
+    "countryCode": "BRA",
+    "indicatorCode": "NY.GDP.MKTP.KD",
+    "time": "2005",
+    "value": 1368459094911.19
+  },
+  {
+    "countryCode": "BRA",
+    "indicatorCode": "NY.GDP.MKTP.KD",
+    "time": "2004",
+    "value": 1325998860262.8
+  },
+  {
+    "countryCode": "BRA",
+    "indicatorCode": "NY.GDP.MKTP.KD",
+    "time": "2003",
+    "value": 1253781489825.37
+  },
+  {
+    "countryCode": "BRA",
+    "indicatorCode": "NY.GDP.MKTP.KD",
+    "time": "2002",
+    "value": 1239639324926.44
+  },
+  {
+    "countryCode": "BRA",
+    "indicatorCode": "NY.GDP.MKTP.KD",
+    "time": "2001",
+    "value": 1202908958700.07
+  },
+  {
+    "countryCode": "BRA",
+    "indicatorCode": "NY.GDP.MKTP.KD",
+    "time": "2000",
+    "value": 1186418964175.19
+  },
+  {
     "countryCode": "IDN",
     "indicatorCode": "NY.GDP.MKTP.KD",
     "time": "2021",
@@ -142,6 +202,66 @@
     "indicatorCode": "NY.GDP.MKTP.KD",
     "time": "2010",
     "value": 657835435591.365
+  },
+  {
+    "countryCode": "IDN",
+    "indicatorCode": "NY.GDP.MKTP.KD",
+    "time": "2009",
+    "value": 619291627728.719
+  },
+  {
+    "countryCode": "IDN",
+    "indicatorCode": "NY.GDP.MKTP.KD",
+    "time": "2008",
+    "value": 591893633878.692
+  },
+  {
+    "countryCode": "IDN",
+    "indicatorCode": "NY.GDP.MKTP.KD",
+    "time": "2007",
+    "value": 558318041704.736
+  },
+  {
+    "countryCode": "IDN",
+    "indicatorCode": "NY.GDP.MKTP.KD",
+    "time": "2006",
+    "value": 525006276753.314
+  },
+  {
+    "countryCode": "IDN",
+    "indicatorCode": "NY.GDP.MKTP.KD",
+    "time": "2005",
+    "value": 497631791817.584
+  },
+  {
+    "countryCode": "IDN",
+    "indicatorCode": "NY.GDP.MKTP.KD",
+    "time": "2004",
+    "value": 470829487520.977
+  },
+  {
+    "countryCode": "IDN",
+    "indicatorCode": "NY.GDP.MKTP.KD",
+    "time": "2003",
+    "value": 448277225387.513
+  },
+  {
+    "countryCode": "IDN",
+    "indicatorCode": "NY.GDP.MKTP.KD",
+    "time": "2002",
+    "value": 427825583308.405
+  },
+  {
+    "countryCode": "IDN",
+    "indicatorCode": "NY.GDP.MKTP.KD",
+    "time": "2001",
+    "value": 409404527351.182
+  },
+  {
+    "countryCode": "IDN",
+    "indicatorCode": "NY.GDP.MKTP.KD",
+    "time": "2000",
+    "value": 395012383689.125
   },
   {
     "countryCode": "IND",
@@ -216,6 +336,66 @@
     "value": 1535897532897.39
   },
   {
+    "countryCode": "IND",
+    "indicatorCode": "NY.GDP.MKTP.KD",
+    "time": "2009",
+    "value": 1415605275566.11
+  },
+  {
+    "countryCode": "IND",
+    "indicatorCode": "NY.GDP.MKTP.KD",
+    "time": "2008",
+    "value": 1312423962607.78
+  },
+  {
+    "countryCode": "IND",
+    "indicatorCode": "NY.GDP.MKTP.KD",
+    "time": "2007",
+    "value": 1273126394881.57
+  },
+  {
+    "countryCode": "IND",
+    "indicatorCode": "NY.GDP.MKTP.KD",
+    "time": "2006",
+    "value": 1182534605661.62
+  },
+  {
+    "countryCode": "IND",
+    "indicatorCode": "NY.GDP.MKTP.KD",
+    "time": "2005",
+    "value": 1094324068978.9
+  },
+  {
+    "countryCode": "IND",
+    "indicatorCode": "NY.GDP.MKTP.KD",
+    "time": "2004",
+    "value": 1013981915397.82
+  },
+  {
+    "countryCode": "IND",
+    "indicatorCode": "NY.GDP.MKTP.KD",
+    "time": "2003",
+    "value": 939542554364.62
+  },
+  {
+    "countryCode": "IND",
+    "indicatorCode": "NY.GDP.MKTP.KD",
+    "time": "2002",
+    "value": 871072901385.714
+  },
+  {
+    "countryCode": "IND",
+    "indicatorCode": "NY.GDP.MKTP.KD",
+    "time": "2001",
+    "value": 839151774957.445
+  },
+  {
+    "countryCode": "IND",
+    "indicatorCode": "NY.GDP.MKTP.KD",
+    "time": "2000",
+    "value": 800534271756.884
+  },
+  {
     "countryCode": "MEX",
     "indicatorCode": "NY.GDP.MKTP.KD",
     "time": "2021",
@@ -286,6 +466,66 @@
     "indicatorCode": "NY.GDP.MKTP.KD",
     "time": "2010",
     "value": 1012981356870.87
+  },
+  {
+    "countryCode": "MEX",
+    "indicatorCode": "NY.GDP.MKTP.KD",
+    "time": "2009",
+    "value": 963660094723.917
+  },
+  {
+    "countryCode": "MEX",
+    "indicatorCode": "NY.GDP.MKTP.KD",
+    "time": "2008",
+    "value": 1017439334703.69
+  },
+  {
+    "countryCode": "MEX",
+    "indicatorCode": "NY.GDP.MKTP.KD",
+    "time": "2007",
+    "value": 1005935610109.39
+  },
+  {
+    "countryCode": "MEX",
+    "indicatorCode": "NY.GDP.MKTP.KD",
+    "time": "2006",
+    "value": 983401498615.029
+  },
+  {
+    "countryCode": "MEX",
+    "indicatorCode": "NY.GDP.MKTP.KD",
+    "time": "2005",
+    "value": 941098392797.58
+  },
+  {
+    "countryCode": "MEX",
+    "indicatorCode": "NY.GDP.MKTP.KD",
+    "time": "2004",
+    "value": 919869577686.507
+  },
+  {
+    "countryCode": "MEX",
+    "indicatorCode": "NY.GDP.MKTP.KD",
+    "time": "2003",
+    "value": 885165846839.51
+  },
+  {
+    "countryCode": "MEX",
+    "indicatorCode": "NY.GDP.MKTP.KD",
+    "time": "2002",
+    "value": 872545499822.64
+  },
+  {
+    "countryCode": "MEX",
+    "indicatorCode": "NY.GDP.MKTP.KD",
+    "time": "2001",
+    "value": 872893299631.652
+  },
+  {
+    "countryCode": "MEX",
+    "indicatorCode": "NY.GDP.MKTP.KD",
+    "time": "2000",
+    "value": 876437526455.268
   },
   {
     "countryCode": "TUR",
@@ -360,6 +600,66 @@
     "value": 614171064520.319
   },
   {
+    "countryCode": "TUR",
+    "indicatorCode": "NY.GDP.MKTP.KD",
+    "time": "2009",
+    "value": 566436841006.172
+  },
+  {
+    "countryCode": "TUR",
+    "indicatorCode": "NY.GDP.MKTP.KD",
+    "time": "2008",
+    "value": 595141428332.854
+  },
+  {
+    "countryCode": "TUR",
+    "indicatorCode": "NY.GDP.MKTP.KD",
+    "time": "2007",
+    "value": 590330093012.939
+  },
+  {
+    "countryCode": "TUR",
+    "indicatorCode": "NY.GDP.MKTP.KD",
+    "time": "2006",
+    "value": 561986270867.401
+  },
+  {
+    "countryCode": "TUR",
+    "indicatorCode": "NY.GDP.MKTP.KD",
+    "time": "2005",
+    "value": 525476244038.33
+  },
+  {
+    "countryCode": "TUR",
+    "indicatorCode": "NY.GDP.MKTP.KD",
+    "time": "2004",
+    "value": 482122333632.277
+  },
+  {
+    "countryCode": "TUR",
+    "indicatorCode": "NY.GDP.MKTP.KD",
+    "time": "2003",
+    "value": 439107629560.404
+  },
+  {
+    "countryCode": "TUR",
+    "indicatorCode": "NY.GDP.MKTP.KD",
+    "time": "2002",
+    "value": 415179953304.473
+  },
+  {
+    "countryCode": "TUR",
+    "indicatorCode": "NY.GDP.MKTP.KD",
+    "time": "2001",
+    "value": 390031787736.966
+  },
+  {
+    "countryCode": "TUR",
+    "indicatorCode": "NY.GDP.MKTP.KD",
+    "time": "2000",
+    "value": 413826859269.854
+  },
+  {
     "countryCode": "WLD",
     "indicatorCode": "NY.GDP.MKTP.KD",
     "time": "2021",
@@ -432,6 +732,66 @@
     "value": 64707600742167.3
   },
   {
+    "countryCode": "WLD",
+    "indicatorCode": "NY.GDP.MKTP.KD",
+    "time": "2009",
+    "value": 61924292911987.9
+  },
+  {
+    "countryCode": "WLD",
+    "indicatorCode": "NY.GDP.MKTP.KD",
+    "time": "2008",
+    "value": 62744525108371.1
+  },
+  {
+    "countryCode": "WLD",
+    "indicatorCode": "NY.GDP.MKTP.KD",
+    "time": "2007",
+    "value": 61513739440691.6
+  },
+  {
+    "countryCode": "WLD",
+    "indicatorCode": "NY.GDP.MKTP.KD",
+    "time": "2006",
+    "value": 58899342345579.4
+  },
+  {
+    "countryCode": "WLD",
+    "indicatorCode": "NY.GDP.MKTP.KD",
+    "time": "2005",
+    "value": 56365366465112.3
+  },
+  {
+    "countryCode": "WLD",
+    "indicatorCode": "NY.GDP.MKTP.KD",
+    "time": "2004",
+    "value": 54172374481714.9
+  },
+  {
+    "countryCode": "WLD",
+    "indicatorCode": "NY.GDP.MKTP.KD",
+    "time": "2003",
+    "value": 51849568960482.5
+  },
+  {
+    "countryCode": "WLD",
+    "indicatorCode": "NY.GDP.MKTP.KD",
+    "time": "2002",
+    "value": 50261639934302.7
+  },
+  {
+    "countryCode": "WLD",
+    "indicatorCode": "NY.GDP.MKTP.KD",
+    "time": "2001",
+    "value": 49113770698652.5
+  },
+  {
+    "countryCode": "WLD",
+    "indicatorCode": "NY.GDP.MKTP.KD",
+    "time": "2000",
+    "value": 48150695539289.5
+  },
+  {
     "countryCode": "ZAF",
     "indicatorCode": "NY.GDP.MKTP.KD",
     "time": "2021",
@@ -502,5 +862,65 @@
     "indicatorCode": "NY.GDP.MKTP.KD",
     "time": "2010",
     "value": 311653604140.269
+  },
+  {
+    "countryCode": "ZAF",
+    "indicatorCode": "NY.GDP.MKTP.KD",
+    "time": "2009",
+    "value": 302459639039.778
+  },
+  {
+    "countryCode": "ZAF",
+    "indicatorCode": "NY.GDP.MKTP.KD",
+    "time": "2008",
+    "value": 307184409060.741
+  },
+  {
+    "countryCode": "ZAF",
+    "indicatorCode": "NY.GDP.MKTP.KD",
+    "time": "2007",
+    "value": 297685145427.081
+  },
+  {
+    "countryCode": "ZAF",
+    "indicatorCode": "NY.GDP.MKTP.KD",
+    "time": "2006",
+    "value": 282539679229.874
+  },
+  {
+    "countryCode": "ZAF",
+    "indicatorCode": "NY.GDP.MKTP.KD",
+    "time": "2005",
+    "value": 267546870424.295
+  },
+  {
+    "countryCode": "ZAF",
+    "indicatorCode": "NY.GDP.MKTP.KD",
+    "time": "2004",
+    "value": 254135982543.496
+  },
+  {
+    "countryCode": "ZAF",
+    "indicatorCode": "NY.GDP.MKTP.KD",
+    "time": "2003",
+    "value": 243065422272.369
+  },
+  {
+    "countryCode": "ZAF",
+    "indicatorCode": "NY.GDP.MKTP.KD",
+    "time": "2002",
+    "value": 236102579035.79
+  },
+  {
+    "countryCode": "ZAF",
+    "indicatorCode": "NY.GDP.MKTP.KD",
+    "time": "2001",
+    "value": 227677653424.683
+  },
+  {
+    "countryCode": "ZAF",
+    "indicatorCode": "NY.GDP.MKTP.KD",
+    "time": "2000",
+    "value": 221691970228.101
   }
 ]

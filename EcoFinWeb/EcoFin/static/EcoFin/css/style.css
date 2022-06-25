@@ -2,6 +2,21 @@ html {
   scroll-behavior: smooth!important;
 }
 
+#myBtn {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  right: 30px;
+  z-index: 99;
+  width: 60px;
+  height: 60px;
+  border: none;
+  outline: none;
+  background-color: #a7a7a7!important;
+  color: white;
+  cursor: pointer;
+}
+
 .orangeTxt{
   color: rgb(236, 169, 0)!important;
 }
