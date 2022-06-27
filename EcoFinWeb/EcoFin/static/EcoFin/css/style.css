@@ -90,5 +90,10 @@ body {
 
 a {
   text-decoration: none;
-  color: black;
+  color: blue;
+}
+
+p {
+  font-size: 0.9rem!important;
+  text-align: justify;
 }
