@@ -89,11 +89,17 @@ body {
 }
 
 a {
-  text-decoration: none;
-  color: blue;
+  text-decoration: none!important;
+  color: blue!important;
 }
 
 p {
-  font-size: 0.9rem!important;
+  font-size: 14px!important;
   text-align: justify;
+  color: black!important;
+}
+
+small {
+  font-size: 12px!important;
+  color: black!important;
 }

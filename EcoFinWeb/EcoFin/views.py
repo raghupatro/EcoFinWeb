@@ -485,7 +485,7 @@ def about(request):
     # extData13 = imfAPI('FAS', 'A', 'BR+ID+IN+MX+TR+ZA','FCBODCA_NUM', str(2005), str(2021)) # OKK
     # extData14 = hrdoAPI('BRA,IDN,IND,MEX,TUR,ZAF') # OKK
     # extData15 = wbAPI("v2", "A", "BRA;IDN;IND;MEX;TUR;ZAF;WLD","NY.GDP.MKTP.KD", str(2000), str(2021)) # OKK 
-    # extData16 = imfAPI('IFS', 'M', 'IN+GB+U2','ENDA_XDC_USD_RATE', str(2010), str(2021)) # ID+IN+TR+ZA // BR+MX
+    # extData16 = imfAPI('IFS', 'M', 'IN+GB+U2','ENDA_XDC_USD_RATE', str(2010), str(2022)) # ID+IN+TR+ZA // BR+MX
     # extData17 = wbAPI("v2", "A", "BRA;IDN;IND;MEX;TUR;ZAF","FS.AST.PRVT.GD.ZS", str(2005), str(2021)) # OKK
     
     # with open('data1.json', 'w') as jsonfile:
