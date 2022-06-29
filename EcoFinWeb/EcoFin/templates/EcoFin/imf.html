@@ -207,7 +207,7 @@
         <div class="card page-section border border-3 shadow" style="border-color: #808080;">
           <a href="#faq7">
             <h6 class=" fw-bold greyBg blueTxt p-3 m-0">
-              Consumer Price Index - Inflation<i class="d-none d-lg-inline fa fa-info-circle float-end"
+              Consumer Price Index Inflation<i class="d-none d-lg-inline fa fa-info-circle float-end"
                 aria-hidden="true"></i>
             </h6>
           </a>
@@ -220,11 +220,11 @@
                       href="https://www.iima.ac.in/web/areas-and-centres/research-centres/misra-centre-for-financial-markets-and-economy/">IIMA Misra Centre</a></small>
                 </p>
                 <p class="text-lg-start text-start p-0 m-0">
-                  <small class="text-muted text-truncate mt-0 d-lg-block d-none">Note: Consumer Price Index -
+                  <small class="text-muted text-truncate mt-0 d-lg-block d-none">Note: Consumer Price Index
                     Inflation.</small>
                 </p>
                 <p class="text-lg-start text-start p-0 m-0">
-                  <small class="text-muted mt-0 d-lg-none d-block">Note: Consumer Price Index - Inflation.</small>
+                  <small class="text-muted mt-0 d-lg-none d-block">Note: Consumer Price Index Inflation.</small>
                 </p>
               </div>
               <p class="text-lg-end text-start col-12 col-md-6 p-0 m-0">
@@ -402,7 +402,7 @@
 <div class="bg-light mb-5" id="FAQs">
   <div>
     <h4 class="mt-3 mb-5 display-6 container-fluid container-lg text-center blueTxt"
-      style="text-decoration: underline;">Variables description</h4>
+      style="text-decoration: underline;">Variable description</h4>
     <div class="accordion container-lg container-fluid" id="faqs">
 
       <div class="accordion-item" id="faq1">
@@ -765,20 +765,20 @@
 
         var title1 = "GDP per capita (PPP)";
         var title2 = "Index of Industrial Production";
-        var title3 = "Real GDP Growth Rate (Asia - Pacific)";
-        var title4 = "Exports of goods and services (% of GDP)";
+        var title3 = "Real GDP Growth Rate";
+        var title4 = "Exports of goods and services";
         var title5 = "Exchange rate (INR/USD)";
-        var title6 = "Consumer Price Index - Inflation";
-        var title7 = "General Government Fiscal Balance (% of GDP)";
-        var title8 = "Market Capitalization (% of GDP)";
-        var title9 = "General Government Gross Debt (% of GDP)";
+        var title6 = "Consumer Price Index Inflation";
+        var title7 = "General Govt. Fiscal Balance";
+        var title8 = "Market Capitalization";
+        var title9 = "General Govt. Gross Debt";
         var title11 = "Foreign Portfolio Investment Inflows";
-        var title12 = "Mobile money transactions per 1000 adults";
-        var title13 = "Commercial bank branches (per 100,000 adults)";
+        var title12 = "Mobile money transactions";
+        var title13 = "Commercial bank branches";
         var title14 = "Human Development Index";
         var title15 = "Country Real GDP (% of World GDP)";
-        var title16 = "Indian Rupee Exchange Rates (month average)";
-        var title17 = "Domestic credit to private sector (% of GDP)";
+        var title16 = "Indian Rupee Exchange Rates";
+        var title17 = "Domestic credit to private sector";
 
         var numYear1 = 21;
         var numYear2 = 1;
@@ -1220,6 +1220,8 @@
         y2Values[y] = y1Values[y] / y2Values[y];
         y3Values[y] = y1Values[y] / y3Values[y];
       }
+
+      // console.log(x1Values);
     }
 
     var dataPlot = [
