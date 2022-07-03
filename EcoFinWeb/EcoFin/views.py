@@ -33,7 +33,7 @@ def imfAPI(database, frequency, countries, indicators, startPeriod, endPeriod):
     responseIMF = requests.get(url).json()
     jsonData = responseIMF
     series = jsonData['CompactData']['DataSet']['Series']
-    # if(database=="FAS"):
+    # if(database=="FAS" and indicators=="FCLODCG_GDP_PT"):
     #     with open('datax.json', 'w') as jsonfile:
     #         json.dump(series, jsonfile)
     extData = []
@@ -49,8 +49,8 @@ def imfAPI(database, frequency, countries, indicators, startPeriod, endPeriod):
                 pass
         newSeries.append(dict({"countryCode": countryCode, "indicatorCode": indicatorCode, "timeSeries": timeSeries}))
         extData.append(newSeries)
-    # with open('data.json', 'w') as jsonfile:
-    #         json.dump(series, jsonfile)
+    with open('data.json', 'w') as jsonfile:
+            json.dump(series, jsonfile)
     return extData
 
 
@@ -480,7 +480,7 @@ def about(request):
     # extData7 = imfAPI('FM', 'A', 'BR+ID+IN+MX+TR+ZA','GGXCNL_G01_GDP_PT', str(2010), str(2021)) # OKK
     # extData8 = wbAPI("v2", "A", "BRA;IDN;IND;MEX;TUR;ZAF","CM.MKT.LCAP.GD.ZS", str(2000), str(2021)) # OKK
     # extData9 = imfAPI('FM', 'A', 'BR+ID+IN+MX+TR+ZA','G_XWDG_G01_GDP_PT', str(2010), str(2021)) # OKK
-    # extData11 = imfAPI('IFS', 'A', 'BR+ID+IN+MX+TR+ZA','IAP_BP6_USD', str(2010), str(2021)) # OKK
+    # extData11 = imfAPI('FAS', 'A', 'BR+ID+IN+MX+TR+ZA','FCLODCG_GDP_PT', str(2010), str(2021)) # OKK
     # extData12 = imfAPI('FAS', 'A', 'ID+IN+TR+ZA','FCMTA_NUM', str(2014), str(2022)) # ID+IN+TR+ZA // BR+MX
     # extData13 = imfAPI('FAS', 'A', 'BR+ID+IN+MX+TR+ZA','FCBODCA_NUM', str(2005), str(2021)) # OKK
     # extData14 = hrdoAPI('BRA,IDN,IND,MEX,TUR,ZAF') # OKK
